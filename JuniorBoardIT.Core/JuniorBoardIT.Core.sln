@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Core", "Library.Core\Library.Core.csproj", "{19397E14-2BF2-436C-8436-DD9FF1CC38A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuniorBoardIT.Core", "JuniorBoardIT.Core\JuniorBoardIT.Core.csproj", "{19397E14-2BF2-436C-8436-DD9FF1CC38A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.UnitTests", "Library.UnitTests\Library.UnitTests.csproj", "{2957290F-B88B-4A50-BEC7-65A914122BFE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.ReportsGenerator", "Library.ReportsGenerator\Library.ReportsGenerator.csproj", "{6F0DF540-CB33-47F0-BEF1-0535197D4205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuniorBoardIT.UnitTests", "JuniorBoardIT.UnitTests\JuniorBoardIT.UnitTests.csproj", "{2957290F-B88B-4A50-BEC7-65A914122BFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
