@@ -7,18 +7,6 @@ using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
-using JuniorBoardIT.Core.CQRS.Resources.Authors.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.Authors.Handlers;
-using JuniorBoardIT.Core.CQRS.Resources.Authors.Queries;
-using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.Books.Handlers;
-using JuniorBoardIT.Core.CQRS.Resources.Books.Queries;
-using JuniorBoardIT.Core.CQRS.Resources.Publishers.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.Publishers.Handlers;
-using JuniorBoardIT.Core.CQRS.Resources.Publishers.Queries;
-using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers;
-using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
@@ -26,10 +14,6 @@ using JuniorBoardIT.Core.CQRS.Resources.User.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Services;
 using Microsoft.AspNetCore.Identity;
@@ -105,36 +89,6 @@ builder.Services.AddScoped<IQueryHandler<GetUserRolesQuery, RolesViewModel>, Get
 builder.Services.AddScoped<IQueryHandler<GetIsUserPremiumQuery, bool>, GetIsUserPremiumQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserSupportQuery, bool>, GetIsUserSupportQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserAdminQuery, bool>, GetIsUserAdminQueryHandler>();
-
-//Books
-builder.Services.AddScoped<IQueryHandler<GetBookQuery, BookViewModel>, GetBookQueryHandler>();
-builder.Services.AddScoped<IQueryHandler<GetBooksQuery, BooksListViewModel>, GetBooksQueryHandler>();
-
-builder.Services.AddScoped<ICommandHandler<AddBookCommand>, AddBookCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<UpdateBookCommand>, UpdateBookCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<DeleteBookCommand>, DeleteBookCommandHandler>();
-
-//Authors
-builder.Services.AddScoped<IQueryHandler<GetAuthorQuery, AuthorViewModel>, GetAuthorQueryHandler>();
-builder.Services.AddScoped<IQueryHandler<GetAuthorsQuery, AuthorsListViewModel>, GetAuthorsQueryHandler>();
-
-builder.Services.AddScoped<ICommandHandler<AddAuthorCommand>, AddAuthorCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<UpdateAuthorCommand>, UpdateAuthorCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<DeleteAuthorCommand>, DeleteAuthorCommandHandler>();
-
-//Publishers
-builder.Services.AddScoped<IQueryHandler<GetPublisherQuery, PublisherViewModel>, GetPublisherQueryHandler>();
-builder.Services.AddScoped<IQueryHandler<GetPublishersQuery, PublishersListViewModel>, GetPublishersQueryHandler>();
-
-builder.Services.AddScoped<ICommandHandler<AddPublisherCommand>, AddPublisherCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<UpdatePublisherCommand>, UpdatePublisherCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<DeletePublisherCommand>, DeletePublisherCommandHandler>();
-
-//Reports
-builder.Services.AddScoped<IQueryHandler<GetReportsQuery, ReportsListViewModel>, GetReportsQueryHandler>();
-
-builder.Services.AddScoped<ICommandHandler<AddReportCommand>, AddReportCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<DeleteReportCommand>, DeleteReportCommandHandler>();
 #endregion
 
 //Authentications

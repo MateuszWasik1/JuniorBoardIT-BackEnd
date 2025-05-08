@@ -18,31 +18,6 @@ namespace JuniorBoardIT.Core.Context
         IQueryable<User> AllUsers { get; }
         #endregion
 
-        #region Books
-        IQueryable<Books> UserBooks { get; }
-        IQueryable<Books> AllBooks { get; }
-        void CreateOrUpdate(Books books);
-        void DeleteBook(Books books);
-        #endregion
-
-        #region Authors
-        IQueryable<Authors> Authors { get; }
-        void CreateOrUpdate(Authors authors);
-        void DeleteAuthor(Authors authors);
-        #endregion
-
-        #region Publishers
-        IQueryable<Publishers> Publishers { get; }
-        void CreateOrUpdate(Publishers publisher);
-        void DeletePublisher(Publishers publisher);
-        #endregion
-
-        #region Reports
-        IQueryable<Reports> Reports { get; }
-        void CreateOrUpdate(Reports report);
-        void DeleteReport(Reports report);
-        #endregion
-
         void SaveChanges();
     }
 }
