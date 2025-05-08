@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Dispatcher
+namespace JuniorBoardIT.Core.CQRS.Dispatcher
 {
     public class Dispatcher : IDispatcher
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Reports { 
+﻿namespace JuniorBoardIT.Core.Exceptions.Reports { 
     public class ReportsExceptions : Exception
     {
         public ReportsExceptions(string message) : base(message)

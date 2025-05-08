@@ -1,4 +1,4 @@
-﻿namespace Library.Core.CQRS.Abstraction.Queries
+﻿namespace JuniorBoardIT.Core.CQRS.Abstraction.Queries
 {
     public interface IQuery<TResponse>
     {

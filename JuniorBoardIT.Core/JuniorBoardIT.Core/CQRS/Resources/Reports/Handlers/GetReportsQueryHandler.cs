@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Reports.Queries;
-using Library.Core.Models.ViewModels.ReportsViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Core.CQRS.Resources.Reports.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {
     public class GetReportsQueryHandler : IQueryHandler<GetReportsQuery, ReportsListViewModel>
     {

@@ -1,11 +1,11 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.Accounts.Commands;
-using Library.Core.Exceptions.Accounts;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands;
+using JuniorBoardIT.Core.Exceptions.Accounts;
 using Microsoft.AspNetCore.Identity;
 using System.Text.RegularExpressions;
 
-namespace Library.Core.CQRS.Resources.Accounts.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers
 {
     public class RegisterUserCommandHandler : ICommandHandler<RegisterUserCommand>
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.AuthorsViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels
 {
     public class AuthorViewModel
     {

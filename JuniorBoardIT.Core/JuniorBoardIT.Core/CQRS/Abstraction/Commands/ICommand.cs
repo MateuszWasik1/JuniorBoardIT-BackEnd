@@ -1,4 +1,4 @@
-﻿namespace Library.Core.CQRS.Abstraction.Commands
+﻿namespace JuniorBoardIT.Core.CQRS.Abstraction.Commands
 {
     public interface ICommand : IBaseCommand
     {

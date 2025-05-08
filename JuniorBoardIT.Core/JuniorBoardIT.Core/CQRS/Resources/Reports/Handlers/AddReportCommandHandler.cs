@@ -1,9 +1,9 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.Reports.Commands;
-using Library.Core.Exceptions.Reports;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.Exceptions.Reports;
 
-namespace Library.Core.CQRS.Resources.Reports.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {
     public class AddReportCommandHandler : ICommandHandler<AddReportCommand>
     {

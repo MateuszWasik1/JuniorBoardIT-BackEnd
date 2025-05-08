@@ -1,6 +1,6 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 
-namespace Library.Core.CQRS.Resources.Reports.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Commands
 {
     public class DeleteReportCommand : ICommand
     {

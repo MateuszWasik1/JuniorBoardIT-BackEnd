@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.BooksViewModels;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.Books.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Books.Queries
 {
     public class GetBookQuery : IQuery<BookViewModel>
     {

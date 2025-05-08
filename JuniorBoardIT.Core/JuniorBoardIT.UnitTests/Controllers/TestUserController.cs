@@ -1,12 +1,12 @@
-﻿using Library.Core.Controllers;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.User.Commands;
-using Library.Core.CQRS.Resources.User.Queries;
-using Library.Core.Models.ViewModels.UserViewModels;
+﻿using JuniorBoardIT.Core.Controllers;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using Moq;
 using NUnit.Framework;
 
-namespace Library.UnitTests.Controllers
+namespace JuniorBoardIT.UnitTests.Controllers
 {
     [TestFixture]
     public class TestUserController

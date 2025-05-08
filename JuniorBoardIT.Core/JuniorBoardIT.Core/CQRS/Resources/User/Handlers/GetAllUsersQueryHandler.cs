@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.User.Queries;
-using Library.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 
-namespace Library.Core.CQRS.Resources.User.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 {
     public class GetAllUsersQueryHandler : IQueryHandler<GetAllUsersQuery, GetUsersAdminViewModel>
     {

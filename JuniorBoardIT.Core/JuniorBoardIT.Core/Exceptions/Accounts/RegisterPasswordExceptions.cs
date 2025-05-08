@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Accounts
+﻿namespace JuniorBoardIT.Core.Exceptions.Accounts
 {
     public class RegisterExceptions : Exception
     {

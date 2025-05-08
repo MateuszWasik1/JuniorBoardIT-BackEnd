@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.UserViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.UserViewModels
 {
     public class UsersAdminViewModel
     {

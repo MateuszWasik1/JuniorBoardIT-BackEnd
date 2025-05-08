@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Publishers
+﻿namespace JuniorBoardIT.Core.Exceptions.Publishers
 {
     public class PublishersExceptions : Exception
     {

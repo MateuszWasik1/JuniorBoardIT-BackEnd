@@ -1,10 +1,10 @@
-﻿using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.Roles.Queries;
-using Library.Core.Models.ViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
+using JuniorBoardIT.Core.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Library.Core.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

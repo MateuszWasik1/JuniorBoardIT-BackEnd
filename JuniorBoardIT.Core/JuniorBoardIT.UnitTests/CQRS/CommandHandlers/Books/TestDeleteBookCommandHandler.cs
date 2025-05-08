@@ -1,13 +1,13 @@
 ﻿using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
-using Library.Core.Context;
-using Library.Core.CQRS.Resources.Books.Handlers;
-using Library.Core.CQRS.Resources.Books.Commands;
-using Library.Core.Exceptions.Books;
-using Library.Core.Models.Enums;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
+using JuniorBoardIT.Core.Exceptions.Books;
+using JuniorBoardIT.Core.Models.Enums;
 
-namespace Library.UnitTests.CQRS.CommandHandlers.Books
+namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Books
 {
     [TestFixture]
     public class TestDeleteBookCommandHandler

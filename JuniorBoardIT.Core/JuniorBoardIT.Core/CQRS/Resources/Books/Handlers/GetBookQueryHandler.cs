@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Books.Queries;
-using Library.Core.Exceptions.Books;
-using Library.Core.Models.ViewModels.BooksViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Queries;
+using JuniorBoardIT.Core.Exceptions.Books;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Core.CQRS.Resources.Books.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Books.Handlers
 {
     public class GetBookQueryHandler : IQueryHandler<GetBookQuery, BookViewModel>
     {
@@ -25,7 +25,7 @@ namespace Library.Core.CQRS.Resources.Books.Handlers
             if (book == null)
                 throw new BookNotFoundException("Nie udało się znaleźć książki!");
 
-            var bookViewModel = mapper.Map<Library.Core.Entities.Books, BookViewModel>(book);
+            var bookViewModel = mapper.Map<JuniorBoardIT.Core.Entities.Books, BookViewModel>(book);
 
             return bookViewModel;
         }

@@ -1,8 +1,8 @@
-﻿using Library.Core.Models.Enums;
+﻿using JuniorBoardIT.Core.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Library.Core.Entities
+namespace JuniorBoardIT.Core.Entities
 {
     public class Books
     {

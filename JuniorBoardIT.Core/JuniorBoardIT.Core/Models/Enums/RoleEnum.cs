@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.Enums
+﻿namespace JuniorBoardIT.Core.Models.Enums
 {
     public enum RoleEnum
     {

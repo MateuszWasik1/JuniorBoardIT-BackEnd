@@ -1,4 +1,4 @@
-﻿//using Library.Core.Context;
+﻿//using JuniorBoardIT.Core.Context;
 //using Moq;
 //using NUnit.Framework;
 //using NUnit.Framework.Legacy;

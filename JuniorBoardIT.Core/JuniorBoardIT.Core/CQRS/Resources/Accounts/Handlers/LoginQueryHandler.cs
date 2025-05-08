@@ -4,13 +4,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Accounts.Queries;
-using Library.Core.Models.ViewModels.AccountsViewModel;
-using Library.Core.Exceptions.Accounts;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.AccountsViewModel;
+using JuniorBoardIT.Core.Exceptions.Accounts;
 
-namespace Library.Core.CQRS.Resources.Accounts.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers
 {
     public class LoginQueryHandler : IQueryHandler<LoginQuery, string>
     {

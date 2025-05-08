@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Users
+﻿namespace JuniorBoardIT.Core.Exceptions.Users
 {
     public class UsersExceptions : Exception
     {

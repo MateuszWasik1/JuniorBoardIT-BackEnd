@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.Models.ViewModels.BooksViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
 
-namespace Library.Core.CQRS.Resources.Books.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Books.Commands
 {
     public class UpdateBookCommand : ICommand
     {

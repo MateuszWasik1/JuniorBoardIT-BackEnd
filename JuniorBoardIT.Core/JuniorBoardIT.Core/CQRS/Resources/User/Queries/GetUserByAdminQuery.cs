@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.UserViewModels;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.User.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.User.Queries
 {
     public class GetUserByAdminQuery : IQuery<UserAdminViewModel>
     {

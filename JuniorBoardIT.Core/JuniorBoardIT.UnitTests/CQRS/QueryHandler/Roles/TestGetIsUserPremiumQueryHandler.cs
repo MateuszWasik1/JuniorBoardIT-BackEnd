@@ -1,13 +1,13 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Resources.Roles.Handlers;
-using Library.Core.CQRS.Resources.Roles.Queries;
-using Library.Core.Models.Enums;
-using Library.Core.Services;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Services;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
-namespace Library.UnitTests.CQRS.QueryHandler.Roles
+namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
 {
     [TestFixture]
     public class TestGetIsUserPremiumQueryHandler

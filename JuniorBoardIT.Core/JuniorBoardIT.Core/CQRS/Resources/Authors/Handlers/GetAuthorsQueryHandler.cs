@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Authors.Queries;
-using Library.Core.Models.ViewModels.AuthorsViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Authors.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Core.CQRS.Resources.Authors.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Authors.Handlers
 {
     public class GetAuthorsQueryHandler : IQueryHandler<GetAuthorsQuery, AuthorsListViewModel>
     {

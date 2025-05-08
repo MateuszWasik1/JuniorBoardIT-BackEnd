@@ -1,6 +1,6 @@
-﻿using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.Accounts.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries
 {
     public class LoginQuery : IQuery<string>
     {

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Publishers.Queries;
-using Library.Core.Models.ViewModels.PublishersViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Publishers.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Core.CQRS.Resources.Publishers.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Publishers.Handlers
 {
     public class GetPublishersQueryHandler : IQueryHandler<GetPublishersQuery, PublishersListViewModel>
     {
@@ -27,7 +27,7 @@ namespace Library.Core.CQRS.Resources.Publishers.Handlers
 
             publishers.ForEach(x =>
             {
-                var pVM = mapper.Map<Library.Core.Entities.Publishers, PublishersViewModel>(x);
+                var pVM = mapper.Map<JuniorBoardIT.Core.Entities.Publishers, PublishersViewModel>(x);
 
                 publishersViewModel.Add(pVM);
             });

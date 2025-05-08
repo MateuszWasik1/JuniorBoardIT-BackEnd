@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.BooksViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.BooksViewModels
 {
     public class BooksListViewModel
     {

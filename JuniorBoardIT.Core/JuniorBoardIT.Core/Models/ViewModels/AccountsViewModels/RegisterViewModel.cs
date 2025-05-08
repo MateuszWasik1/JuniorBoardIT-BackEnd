@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.AccountsViewModel
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.AccountsViewModel
 {
     public class RegisterViewModel
     {

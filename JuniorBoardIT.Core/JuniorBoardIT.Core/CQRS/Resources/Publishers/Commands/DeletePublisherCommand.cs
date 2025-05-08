@@ -1,6 +1,6 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 
-namespace Library.Core.CQRS.Resources.Publishers.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Publishers.Commands
 {
     public class DeletePublisherCommand : ICommand
     {

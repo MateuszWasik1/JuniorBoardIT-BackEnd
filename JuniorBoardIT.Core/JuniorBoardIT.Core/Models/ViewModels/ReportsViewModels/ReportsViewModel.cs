@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.ReportsViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels
 {
     public class ReportsViewModel
     {

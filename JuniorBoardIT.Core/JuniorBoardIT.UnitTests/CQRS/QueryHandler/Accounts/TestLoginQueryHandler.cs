@@ -1,15 +1,15 @@
-﻿using Library.Core;
-using Library.Core.Context;
-using Library.Core.CQRS.Resources.Accounts.Handlers;
-using Library.Core.CQRS.Resources.Accounts.Queries;
-using Library.Core.Exceptions.Accounts;
-using Library.Core.Models.Enums;
+﻿using JuniorBoardIT.Core;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
+using JuniorBoardIT.Core.Exceptions.Accounts;
+using JuniorBoardIT.Core.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
-namespace Library.UnitTests.CQRS.QueryHandler.Accounts
+namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
 {
     [TestFixture]
     public class TestLoginQueryHandler

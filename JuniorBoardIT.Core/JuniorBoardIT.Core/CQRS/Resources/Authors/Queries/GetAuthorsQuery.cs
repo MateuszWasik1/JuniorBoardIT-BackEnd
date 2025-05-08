@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.AuthorsViewModels;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.Authors.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Authors.Queries
 {
     public class GetAuthorsQuery : IQuery<AuthorsListViewModel>
     {

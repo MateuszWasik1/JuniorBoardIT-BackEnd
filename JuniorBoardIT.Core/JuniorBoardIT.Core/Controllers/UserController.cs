@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.User.Queries;
-using Library.Core.CQRS.Resources.User.Commands;
-using Library.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 
-namespace Library.Core.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

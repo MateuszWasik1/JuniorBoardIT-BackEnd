@@ -1,11 +1,11 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.User.Commands;
-using Library.Core.Exceptions;
-using Library.Core.Exceptions.Users;
-using Library.Core.Services;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
+using JuniorBoardIT.Core.Exceptions;
+using JuniorBoardIT.Core.Exceptions.Users;
+using JuniorBoardIT.Core.Services;
 
-namespace Library.Core.CQRS.Resources.User.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 {
     public class SaveUserCommandHandler : ICommandHandler<SaveUserCommand>
     {

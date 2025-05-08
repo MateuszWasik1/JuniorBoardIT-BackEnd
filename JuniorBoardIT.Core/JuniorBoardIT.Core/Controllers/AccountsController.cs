@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.Accounts.Queries;
-using Library.Core.CQRS.Resources.Accounts.Commands;
-using Library.Core.Models.ViewModels.AccountsViewModel;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.AccountsViewModel;
 
-namespace Library.Core.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

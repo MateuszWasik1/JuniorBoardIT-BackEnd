@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Library.Core.Entities
+namespace JuniorBoardIT.Core.Entities
 {
     public class Users : IdentityUser
     {

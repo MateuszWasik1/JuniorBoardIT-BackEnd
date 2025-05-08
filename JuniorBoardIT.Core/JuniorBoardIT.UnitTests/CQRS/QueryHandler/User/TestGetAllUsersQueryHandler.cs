@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Resources.User.Handlers;
-using Library.Core.CQRS.Resources.User.Queries;
-using Library.Core.Models.Enums;
-using Library.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.User.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
-namespace Library.UnitTests.CQRS.QueryHandler.User
+namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
 {
     [TestFixture]
     public class TestGetAllUsersQueryHandler

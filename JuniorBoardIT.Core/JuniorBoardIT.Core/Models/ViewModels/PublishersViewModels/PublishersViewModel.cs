@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels.PublishersViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels
 {
     public class PublishersViewModel
     {

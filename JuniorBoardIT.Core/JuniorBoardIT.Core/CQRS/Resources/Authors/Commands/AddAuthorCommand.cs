@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.Models.ViewModels.AuthorsViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels;
 
-namespace Library.Core.CQRS.Resources.Authors.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Authors.Commands
 {
     public class AddAuthorCommand : ICommand
     {

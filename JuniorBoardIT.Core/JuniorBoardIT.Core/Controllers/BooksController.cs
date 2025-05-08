@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.Models.ViewModels.BooksViewModels;
-using Library.Core.CQRS.Resources.Books.Commands;
-using Library.Core.CQRS.Resources.Books.Queries;
-using Library.Core.Models.Enums;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Queries;
+using JuniorBoardIT.Core.Models.Enums;
 
-namespace Library.Core.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

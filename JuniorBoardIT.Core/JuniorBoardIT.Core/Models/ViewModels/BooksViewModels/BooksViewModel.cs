@@ -1,6 +1,6 @@
-﻿using Library.Core.Models.Enums;
+﻿using JuniorBoardIT.Core.Models.Enums;
 
-namespace Library.Core.Models.ViewModels.BooksViewModels
+namespace JuniorBoardIT.Core.Models.ViewModels.BooksViewModels
 {
     public class BooksViewModel
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Models.ViewModels
+﻿namespace JuniorBoardIT.Core.Models.ViewModels
 {
     public class RolesViewModel
     {

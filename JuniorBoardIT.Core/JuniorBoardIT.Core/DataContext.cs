@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Library.Core.Entities;
+using JuniorBoardIT.Core.Entities;
 
-namespace Library.Core
+namespace JuniorBoardIT.Core
 {
     public class DataContext : IdentityDbContext<Users>
     {

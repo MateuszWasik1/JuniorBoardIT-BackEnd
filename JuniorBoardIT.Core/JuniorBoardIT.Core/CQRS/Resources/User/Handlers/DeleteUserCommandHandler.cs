@@ -1,9 +1,9 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.User.Commands;
-using Library.Core.Exceptions;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
+using JuniorBoardIT.Core.Exceptions;
 
-namespace Library.Core.CQRS.Resources.User.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 {
     public class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
     {

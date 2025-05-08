@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.Models.ViewModels.PublishersViewModels;
-using Library.Core.CQRS.Resources.Publishers.Commands;
-using Library.Core.CQRS.Resources.Publishers.Queries;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Publishers.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Publishers.Queries;
 
-namespace Library.Core.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

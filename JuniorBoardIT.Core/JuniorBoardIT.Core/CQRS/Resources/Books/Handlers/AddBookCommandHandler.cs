@@ -1,10 +1,10 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.Books.Commands;
-using Library.Core.Exceptions.Books;
-using Library.Core.Services;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
+using JuniorBoardIT.Core.Exceptions.Books;
+using JuniorBoardIT.Core.Services;
 
-namespace Library.Core.CQRS.Resources.Books.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Books.Handlers
 {
     public class AddBookCommandHandler : ICommandHandler<AddBookCommand>
     {

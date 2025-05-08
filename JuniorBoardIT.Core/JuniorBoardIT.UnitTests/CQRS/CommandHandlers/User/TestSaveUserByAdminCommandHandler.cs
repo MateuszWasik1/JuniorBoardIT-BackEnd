@@ -1,15 +1,15 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Resources.User.Commands;
-using Library.Core.CQRS.Resources.User.Handlers;
-using Library.Core.Exceptions;
-using Library.Core.Exceptions.Users;
-using Library.Core.Models.Enums;
-using Library.Core.Models.ViewModels.UserViewModels;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.User.Handlers;
+using JuniorBoardIT.Core.Exceptions;
+using JuniorBoardIT.Core.Exceptions.Users;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
-namespace Library.UnitTests.CQRS.CommandHandlers.User
+namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
 {
     [TestFixture]
     public class TestSaveUserByAdminCommandHandler

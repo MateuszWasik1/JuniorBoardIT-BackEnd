@@ -1,6 +1,6 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 
-namespace Library.Core.CQRS.Resources.Books.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Books.Commands
 {
     public class DeleteBookCommand : ICommand
     {

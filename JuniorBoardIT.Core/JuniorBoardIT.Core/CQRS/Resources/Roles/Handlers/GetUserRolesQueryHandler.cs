@@ -1,11 +1,11 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Roles.Queries;
-using Library.Core.Models.Enums;
-using Library.Core.Models.ViewModels;
-using Library.Core.Services;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels;
+using JuniorBoardIT.Core.Services;
 
-namespace Library.Core.CQRS.Resources.Roles.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers
 {
     public class GetUserRolesQueryHandler : IQueryHandler<GetUserRolesQuery, RolesViewModel>
     {

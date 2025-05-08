@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.Models.ViewModels.ReportsViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 
-namespace Library.Core.CQRS.Resources.Reports.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Commands
 {
     public class AddReportCommand : ICommand
     {

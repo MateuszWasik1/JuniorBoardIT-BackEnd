@@ -1,15 +1,15 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Resources.Accounts.Commands;
-using Library.Core.CQRS.Resources.Accounts.Handlers;
-using Library.Core.Exceptions.Accounts;
-using Library.Core.Models.Enums;
-using Library.Core.Models.ViewModels.AccountsViewModel;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers;
+using JuniorBoardIT.Core.Exceptions.Accounts;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels.AccountsViewModel;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
-namespace Library.UnitTests.CQRS.QueryHandler.Accounts
+namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
 {
     [TestFixture]
     public class TestRegisterUserCommandHandler

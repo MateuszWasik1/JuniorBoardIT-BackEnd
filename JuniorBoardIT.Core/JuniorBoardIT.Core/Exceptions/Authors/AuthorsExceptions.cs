@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Authors
+﻿namespace JuniorBoardIT.Core.Exceptions.Authors
 {
     public class AuthorsExceptions : Exception
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions
+﻿namespace JuniorBoardIT.Core.Exceptions
 {
     public class GeneralExceptions : Exception
     {

@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.PublishersViewModels;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.Publishers.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Publishers.Queries
 {
     public class GetPublishersQuery : IQuery<PublishersListViewModel>
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core.Exceptions.Books
+﻿namespace JuniorBoardIT.Core.Exceptions.Books
 {
     public class BooksExceptions : Exception
     {

@@ -1,4 +1,4 @@
-﻿namespace Library.Core
+﻿namespace JuniorBoardIT.Core
 {
     public class AuthenticationSettings
     {

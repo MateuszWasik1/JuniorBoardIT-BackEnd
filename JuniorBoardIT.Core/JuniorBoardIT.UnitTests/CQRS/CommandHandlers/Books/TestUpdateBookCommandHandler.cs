@@ -1,15 +1,15 @@
 ﻿using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
-using Library.Core.Context;
-using Library.Core.Services;
-using Library.Core.Models.ViewModels.BooksViewModels;
-using Library.Core.CQRS.Resources.Books.Handlers;
-using Library.Core.CQRS.Resources.Books.Commands;
-using Library.Core.Exceptions.Books;
-using Library.Core.Models.Enums;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.Services;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
+using JuniorBoardIT.Core.Exceptions.Books;
+using JuniorBoardIT.Core.Models.Enums;
 
-namespace Library.UnitTests.CQRS.CommandHandlers.Books
+namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Books
 {
     [TestFixture]
     public class TestUpdateBookCommandHandler

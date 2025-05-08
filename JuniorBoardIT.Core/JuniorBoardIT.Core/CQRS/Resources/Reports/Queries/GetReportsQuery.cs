@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.ReportsViewModels;
-using Library.Core.CQRS.Abstraction.Queries;
+﻿using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
-namespace Library.Core.CQRS.Resources.Reports.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Queries
 {
     public class GetReportsQuery : IQuery<ReportsListViewModel>
     {

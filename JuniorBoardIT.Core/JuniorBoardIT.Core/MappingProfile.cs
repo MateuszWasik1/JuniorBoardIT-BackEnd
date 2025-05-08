@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Library.Core.Entities;
-using Library.Core.Models.ViewModels.AuthorsViewModels;
-using Library.Core.Models.ViewModels.BooksViewModels;
-using Library.Core.Models.ViewModels.PublishersViewModels;
-using Library.Core.Models.ViewModels.ReportsViewModels;
-using Library.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.Entities;
+using JuniorBoardIT.Core.Models.ViewModels.AuthorsViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 
-namespace Library.Core
+namespace JuniorBoardIT.Core
 {
     public class MappingProfile : Profile
     {

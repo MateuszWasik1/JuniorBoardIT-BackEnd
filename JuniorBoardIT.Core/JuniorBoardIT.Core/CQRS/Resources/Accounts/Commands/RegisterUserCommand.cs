@@ -1,7 +1,7 @@
-﻿using Library.Core.Models.ViewModels.AccountsViewModel;
-using Library.Core.CQRS.Abstraction.Commands;
+﻿using JuniorBoardIT.Core.Models.ViewModels.AccountsViewModel;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 
-namespace Library.Core.CQRS.Resources.Accounts.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands
 {
     public class RegisterUserCommand : ICommand
     {

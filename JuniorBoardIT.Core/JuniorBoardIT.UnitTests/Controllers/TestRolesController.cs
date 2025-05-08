@@ -1,11 +1,11 @@
-﻿using Library.Core.Controllers;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.Roles.Queries;
-using Library.Core.Models.ViewModels;
+﻿using JuniorBoardIT.Core.Controllers;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
+using JuniorBoardIT.Core.Models.ViewModels;
 using Moq;
 using NUnit.Framework;
 
-namespace Library.UnitTests.Controllers
+namespace JuniorBoardIT.UnitTests.Controllers
 {
     [TestFixture]
     public class TestRolesController

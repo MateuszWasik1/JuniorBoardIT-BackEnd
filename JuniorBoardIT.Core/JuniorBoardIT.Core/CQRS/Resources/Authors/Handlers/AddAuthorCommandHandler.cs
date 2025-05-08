@@ -1,9 +1,9 @@
-﻿using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.CQRS.Resources.Authors.Commands;
-using Library.Core.Exceptions.Authors;
+﻿using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Authors.Commands;
+using JuniorBoardIT.Core.Exceptions.Authors;
 
-namespace Library.Core.CQRS.Resources.Authors.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Authors.Handlers
 {
     public class AddAuthorCommandHandler : ICommandHandler<AddAuthorCommand>
     {

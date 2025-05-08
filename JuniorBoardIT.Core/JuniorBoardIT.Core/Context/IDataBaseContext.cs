@@ -1,6 +1,6 @@
-﻿using Library.Core.Entities;
+﻿using JuniorBoardIT.Core.Entities;
 
-namespace Library.Core.Context
+namespace JuniorBoardIT.Core.Context
 {
     public interface IDataBaseContext : IDisposable
     {

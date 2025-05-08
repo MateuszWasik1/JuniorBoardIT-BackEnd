@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Library.Core.Context;
-using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.CQRS.Resources.Publishers.Queries;
-using Library.Core.Exceptions.Publishers;
-using Library.Core.Models.ViewModels.PublishersViewModels;
+using JuniorBoardIT.Core.Context;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Publishers.Queries;
+using JuniorBoardIT.Core.Exceptions.Publishers;
+using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Core.CQRS.Resources.Publishers.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Publishers.Handlers
 {
     public class GetPublisherQueryHandler : IQueryHandler<GetPublisherQuery, PublisherViewModel>
     {
@@ -25,7 +25,7 @@ namespace Library.Core.CQRS.Resources.Publishers.Handlers
             if (publisher == null)
                 throw new PublisherNotFoundException("Nie udało się znaleźć wydawcy!");
 
-            var publisherViewModel = mapper.Map<Library.Core.Entities.Publishers, PublisherViewModel>(publisher);
+            var publisherViewModel = mapper.Map<JuniorBoardIT.Core.Entities.Publishers, PublisherViewModel>(publisher);
 
             return publisherViewModel;
         }

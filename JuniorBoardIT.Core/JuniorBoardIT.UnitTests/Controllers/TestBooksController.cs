@@ -1,13 +1,13 @@
-﻿using Library.Core.Controllers;
-using Library.Core.CQRS.Dispatcher;
-using Library.Core.CQRS.Resources.Books.Commands;
-using Library.Core.CQRS.Resources.Books.Queries;
-using Library.Core.Models.Enums;
-using Library.Core.Models.ViewModels.BooksViewModels;
+﻿using JuniorBoardIT.Core.Controllers;
+using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Books.Queries;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels.BooksViewModels;
 using Moq;
 using NUnit.Framework;
 
-namespace Library.UnitTests.Controllers
+namespace JuniorBoardIT.UnitTests.Controllers
 {
     [TestFixture]
     public class TestBooksController

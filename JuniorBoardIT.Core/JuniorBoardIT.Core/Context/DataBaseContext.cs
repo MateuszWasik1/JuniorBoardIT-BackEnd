@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Library.Core.Entities;
-using Library.Core.Services;
+using JuniorBoardIT.Core.Entities;
+using JuniorBoardIT.Core.Services;
 
-namespace Library.Core.Context
+namespace JuniorBoardIT.Core.Context
 {
     public class DataBaseContext : IDataBaseContext
     {

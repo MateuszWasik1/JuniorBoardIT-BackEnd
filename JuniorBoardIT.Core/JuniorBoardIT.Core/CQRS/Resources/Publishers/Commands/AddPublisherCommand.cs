@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Commands;
-using Library.Core.Models.ViewModels.PublishersViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.PublishersViewModels;
 
-namespace Library.Core.CQRS.Resources.Publishers.Commands
+namespace JuniorBoardIT.Core.CQRS.Resources.Publishers.Commands
 {
     public class AddPublisherCommand : ICommand
     {

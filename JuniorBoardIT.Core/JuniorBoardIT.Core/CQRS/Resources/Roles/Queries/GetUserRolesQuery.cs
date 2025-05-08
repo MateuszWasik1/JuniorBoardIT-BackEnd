@@ -1,7 +1,7 @@
-﻿using Library.Core.CQRS.Abstraction.Queries;
-using Library.Core.Models.ViewModels;
+﻿using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.Models.ViewModels;
 
-namespace Library.Core.CQRS.Resources.Roles.Queries
+namespace JuniorBoardIT.Core.CQRS.Resources.Roles.Queries
 {
     public class GetUserRolesQuery : IQuery<RolesViewModel>
     {
