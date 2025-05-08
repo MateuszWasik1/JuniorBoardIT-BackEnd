@@ -1,0 +1,11 @@
+﻿using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+
+namespace JuniorBoardIT.Core.CQRS.Resources.User.Queries
+{
+    public class GetAllUsersQuery : IQuery<GetUsersAdminViewModel>
+    {
+        public int Skip { get; set; }
+        public int Take { get; set; }
+    }
+}
