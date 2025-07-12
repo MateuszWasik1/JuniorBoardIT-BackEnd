@@ -92,7 +92,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
             //Assert
             ClassicAssert.AreEqual(1, result.UID);
             ClassicAssert.AreEqual(new Guid("b189857a-bf45-4c25-9644-f2408351d328"), result.UGID);
-            ClassicAssert.AreEqual(3, result.URID);
+            ClassicAssert.AreEqual(4, result.URID);
             ClassicAssert.AreEqual("UFirstName1", result.UFirstName);
             ClassicAssert.AreEqual("ULastName1", result.ULastName);
             ClassicAssert.AreEqual("UUserName1", result.UUserName);

@@ -4,7 +4,8 @@
     {
         User = 1,
         Premium = 2,
-        Support = 3,
-        Admin = 4,
+        Recruiter = 3,
+        Support = 4,
+        Admin = 5,
     }
 }

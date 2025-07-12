@@ -34,15 +34,20 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
                 {
                     UID = 2,
                     URID = (int) RoleEnum.Premium,
-                },  
+                },
                 new Core.Entities.User()
                 {
                     UID = 3,
-                    URID = (int) RoleEnum.Support,
+                    URID = (int) RoleEnum.Recruiter,
                 },
                 new Core.Entities.User()
                 {
                     UID = 4,
+                    URID = (int) RoleEnum.Support,
+                },
+                new Core.Entities.User()
+                {
+                    UID = 5,
                     URID = (int) RoleEnum.Admin,
                 },
             };
@@ -86,6 +91,22 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         public void TestGetIsUserAdminQueryHandler_UserIsPremium_ShouldReturnFalse()
         {
             //Arrange
+            user.Setup(x => x.UID).Returns(2);
+
+            var query = new GetIsUserAdminQuery();
+            var handler = new GetIsUserAdminQueryHandler(context.Object, user.Object);
+
+            //Act
+            var result = handler.Handle(query);
+
+            //Assert
+            ClassicAssert.IsFalse(result);
+        }
+
+        [Test]
+        public void TestGetIsUserAdminQueryHandler_UserIsRecruiter_ShouldReturnFalse()
+        {
+            //Arrange
             user.Setup(x => x.UID).Returns(3);
 
             var query = new GetIsUserAdminQuery();
@@ -98,12 +119,11 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             ClassicAssert.IsFalse(result);
         }
 
-
         [Test]
         public void TestGetIsUserAdminQueryHandler_UserIsSupport_ShouldReturnFalse()
         {
             //Arrange
-            user.Setup(x => x.UID).Returns(3);
+            user.Setup(x => x.UID).Returns(4);
 
             var query = new GetIsUserAdminQuery();
             var handler = new GetIsUserAdminQueryHandler(context.Object, user.Object);
@@ -119,7 +139,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         public void TestGetIsUserAdminQueryHandler_UserIsAdmin_ShouldReturnTrue()
         {
             //Arrange
-            user.Setup(x => x.UID).Returns(4);
+            user.Setup(x => x.UID).Returns(5);
 
             var query = new GetIsUserAdminQuery();
             var handler = new GetIsUserAdminQueryHandler(context.Object, user.Object);
