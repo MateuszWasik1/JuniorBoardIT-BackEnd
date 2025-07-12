@@ -21,7 +21,7 @@ namespace JuniorBoardIT.Core.Entities
         public CategoryEnum JOCategory { get; set; }
         public double JOsalaryMin { get; set; }
         public double JOSalaryMax { get; set; }
-        public string? JOCurrency { get; set; }
+        public CurrencyEnum JOCurrency { get; set; }
         public SalaryEnum JOSalaryType { get; set; }
         public string? JODescription { get; set; }
         public string? JORequirements { get; set; }

@@ -12,7 +12,7 @@ CREATE TABLE JobOffers (
 	JOCategory int NOT NULL,
 	JOsalaryMin decimal NOT NULL,
 	JOSalaryMax decimal NOT NULL,
-	JOCurrency nvarchar(50) NOT NULL,
+	JOCurrency int NOT NULL,
 	JOSalaryType int NOT NULL,
 	JODescription nvarchar(2000) NOT NULL,
 	JORequirements nvarchar(2000) NOT NULL,
