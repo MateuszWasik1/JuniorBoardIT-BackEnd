@@ -9,6 +9,7 @@ namespace JuniorBoardIT.Core
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<User> User => Set<User>();
         public DbSet<Roles> AppRoles => Set<Roles>();
+        public DbSet<JobOffers> JobOffers => Set<JobOffers>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
