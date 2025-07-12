@@ -7,6 +7,9 @@ using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
@@ -14,6 +17,7 @@ using JuniorBoardIT.Core.CQRS.Resources.User.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Services;
 using Microsoft.AspNetCore.Identity;
@@ -90,6 +94,14 @@ builder.Services.AddScoped<IQueryHandler<GetIsUserPremiumQuery, bool>, GetIsUser
 builder.Services.AddScoped<IQueryHandler<GetIsUserRecruiterQuery, bool>, GetIsUserRecruiterQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserSupportQuery, bool>, GetIsUserSupportQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserAdminQuery, bool>, GetIsUserAdminQueryHandler>();
+
+//JobOffers
+builder.Services.AddScoped<IQueryHandler<GetJobOfferQuery, JobOfferViewModel>, GetJobOfferQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetAllJobOffersQuery, GetAllJobOffersViewModel>, GetAllJobOffersQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<AddJobOfferCommand>, AddJobOfferCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<UpdateJobOfferCommand>, UpdateJobOfferCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<DeleteJobOfferCommand>, DeleteJobOfferCommandHandler>();
 #endregion
 
 //Authentications
