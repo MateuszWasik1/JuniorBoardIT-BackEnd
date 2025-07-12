@@ -47,7 +47,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             jobOffer.JOExpirenceLevel = command.Model.JOExpirenceLevel;
             jobOffer.JOExpirenceYears = command.Model.JOExpirenceYears;
             jobOffer.JOCategory = command.Model.JOCategory;
-            jobOffer.JOsalaryMin = command.Model.JOsalaryMin;
+            jobOffer.JOSalaryMin = command.Model.JOSalaryMin;
             jobOffer.JOSalaryMax = command.Model.JOSalaryMax;
             jobOffer.JOCurrency = command.Model.JOCurrency;
             jobOffer.JOSalaryType = command.Model.JOSalaryType;

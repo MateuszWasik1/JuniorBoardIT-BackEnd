@@ -15,7 +15,7 @@ namespace JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels
         public ExpirenceEnum JOExpirenceLevel { get; set; }
         public double JOExpirenceYears { get; set; }
         public CategoryEnum JOCategory { get; set; }
-        public double JOsalaryMin { get; set; }
+        public double JOSalaryMin { get; set; }
         public double JOSalaryMax { get; set; }
         public CurrencyEnum JOCurrency { get; set; }
         public SalaryEnum JOSalaryType { get; set; }

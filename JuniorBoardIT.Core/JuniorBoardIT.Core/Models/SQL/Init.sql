@@ -30,7 +30,7 @@ CREATE TABLE JobOffers (
 	JOExpirenceLevel int NOT NULL,
     JOExpirenceYears decimal NOT NULL,
 	JOCategory int NOT NULL,
-	JOsalaryMin decimal NOT NULL,
+	JOSalaryMin decimal NOT NULL,
 	JOSalaryMax decimal NOT NULL,
 	JOCurrency int NOT NULL,
 	JOSalaryType int NOT NULL,
