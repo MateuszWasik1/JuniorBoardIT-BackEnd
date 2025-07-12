@@ -1,6 +1,7 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
+using JuniorBoardIT.Core.Exceptions.JobOffers;
 using JuniorBoardIT.Core.Services;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
@@ -8,12 +9,8 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
     public class UpdateJobOfferCommandHandler : ICommandHandler<UpdateJobOfferCommand>
     {
         private readonly IDataBaseContext context;
-        private readonly IUserContext user;
-        public UpdateJobOfferCommandHandler(IDataBaseContext context, IUserContext user)
-        {
-            this.context = context;
-            this.user = user;
-        }
+        public UpdateJobOfferCommandHandler(IDataBaseContext context) => this.context = context;
+        
         public void Handle(UpdateJobOfferCommand command)
         {
             //if (command.Model.UUserName.Length == 0)
@@ -37,19 +34,32 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             //if (command.Model.UPhone.Length > 100)
             //    throw new UserPhoneMax100Exception("Telefon użytkownika nie może mieć więcej niż 100 znaków!");
 
-            //var userData = context.User.FirstOrDefault(x => x.UID == user.UID);
+            var jobOffer = context.JobOffers.FirstOrDefault(x => x.JOGID == command.Model.JOGID);
 
-            //if (userData == null)
-            //    throw new UserNotFoundExceptions("Nie znaleziono użytkownika!");
+            if (jobOffer == null)
+                throw new JobOfferNotFoundExceptions("Nie znaleziono oferty pracy!");
 
-            //userData.UFirstName = command.Model.UFirstName;
-            //userData.ULastName = command.Model.ULastName;
-            //userData.UUserName = command.Model.UUserName;
-            //userData.UEmail = command.Model.UEmail;
-            //userData.UPhone = command.Model.UPhone;
+            jobOffer.JOTitle = command.Model.JOTitle;
+            jobOffer.JOCompanyName = command.Model.JOCompanyName;
+            jobOffer.JOLocationType = command.Model.JOLocationType;
+            jobOffer.JOOfficeLocation = command.Model.JOOfficeLocation;
+            jobOffer.JOEmploymentType = command.Model.JOEmploymentType;
+            jobOffer.JOExpirenceLevel = command.Model.JOExpirenceLevel;
+            jobOffer.JOExpirenceYears = command.Model.JOExpirenceYears;
+            jobOffer.JOCategory = command.Model.JOCategory;
+            jobOffer.JOsalaryMin = command.Model.JOsalaryMin;
+            jobOffer.JOSalaryMax = command.Model.JOSalaryMax;
+            jobOffer.JOCurrency = command.Model.JOCurrency;
+            jobOffer.JOSalaryType = command.Model.JOSalaryType;
+            jobOffer.JODescription = command.Model.JODescription;
+            jobOffer.JORequirements = command.Model.JORequirements;
+            jobOffer.JOBenefits = command.Model.JOBenefits;
+            jobOffer.JOPostedAt = command.Model.JOPostedAt;
+            jobOffer.JOExpiresAt = command.Model.JOExpiresAt;
+            jobOffer.JOStatus = command.Model.JOStatus;
 
-            //context.CreateOrUpdate(userData);
-            //context.SaveChanges();
+            context.CreateOrUpdate(jobOffer);
+            context.SaveChanges();
         }
     }
 }

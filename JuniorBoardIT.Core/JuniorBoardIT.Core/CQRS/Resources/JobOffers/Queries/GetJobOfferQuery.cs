@@ -5,5 +5,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries
 {
     public class GetJobOfferQuery : IQuery<JobOfferViewModel>
     {
+        public Guid JOGID { get; set; }
     }
 }

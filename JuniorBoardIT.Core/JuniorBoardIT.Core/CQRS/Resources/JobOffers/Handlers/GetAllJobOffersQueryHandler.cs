@@ -19,27 +19,26 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 
         public GetAllJobOffersViewModel Handle(GetAllJobOffersQuery query)
         {
-            //var usersData = context.AllUsers.ToList();
+            var jobOffers = context.JobOffers.ToList();
 
-            //var usersAdmViewModel = new List<UsersAdminViewModel>();
+            var allJobOffersViewModel = new List<JobOfferViewModel>();
 
-            //var count = usersData.Count;
-            //usersData = usersData.Skip(query.Skip).Take(query.Take).ToList();
+            var count = jobOffers.Count;
+            jobOffers = jobOffers.Skip(query.Skip).Take(query.Take).ToList();
 
-            //usersData.ForEach(x => {
-            //    var model = mapper.Map<Entities.User, UsersAdminViewModel>(x);
-            //    usersAdmViewModel.Add(model);
-            //});
+            jobOffers.ForEach(x =>
+            {
+                var model = mapper.Map<Entities.JobOffers, JobOfferViewModel>(x);
+                allJobOffersViewModel.Add(model);
+            });
 
-            //var model = new GetUsersAdminViewModel()
-            //{
-            //    List = usersAdmViewModel,
-            //    Count = count,
-            //};
+            var model = new GetAllJobOffersViewModel()
+            {
+                List = allJobOffersViewModel,
+                Count = count,
+            };
 
-            //return model;
-
-            return new GetAllJobOffersViewModel();
+            return model;
         }
     }
 }

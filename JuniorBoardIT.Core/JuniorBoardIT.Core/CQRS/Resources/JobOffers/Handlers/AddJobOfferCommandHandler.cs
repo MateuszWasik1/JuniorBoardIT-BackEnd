@@ -37,19 +37,33 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             //if (command.Model.UPhone.Length > 100)
             //    throw new UserPhoneMax100Exception("Telefon użytkownika nie może mieć więcej niż 100 znaków!");
 
-            //var userData = context.User.FirstOrDefault(x => x.UID == user.UID);
+            var model = new Entities.JobOffers()
+            {
+                JOGID = Guid.NewGuid(),
+                JORGID = Guid.Parse(user.UGID), 
+                JOTitle = command.Model.JOTitle,
+                JOCompanyName = command.Model.JOTitle,
+                JOLocationType = command.Model.JOLocationType,
+                JOOfficeLocation = command.Model.JOOfficeLocation,
+                JOEmploymentType = command.Model.JOEmploymentType,
+                JOExpirenceLevel = command.Model.JOExpirenceLevel,
+                JOExpirenceYears = command.Model.JOExpirenceYears,
+                JOCategory = command.Model.JOCategory,
+                JOsalaryMin = command.Model.JOsalaryMin,
+                JOSalaryMax = command.Model.JOSalaryMax,
+                JOCurrency = command.Model.JOCurrency,
+                JOSalaryType = command.Model.JOSalaryType,
+                JODescription = command.Model.JODescription,
+                JORequirements = command.Model.JORequirements,
+                JOBenefits = command.Model.JOBenefits,
+                JOCreatedAt = new DateTime(),
+                JOPostedAt = command.Model.JOPostedAt,
+                JOExpiresAt = command.Model.JOExpiresAt,
+                JOStatus = command.Model.JOStatus,
+            };
 
-            //if (userData == null)
-            //    throw new UserNotFoundExceptions("Nie znaleziono użytkownika!");
-
-            //userData.UFirstName = command.Model.UFirstName;
-            //userData.ULastName = command.Model.ULastName;
-            //userData.UUserName = command.Model.UUserName;
-            //userData.UEmail = command.Model.UEmail;
-            //userData.UPhone = command.Model.UPhone;
-
-            //context.CreateOrUpdate(userData);
-            //context.SaveChanges();
+            context.CreateOrUpdate(model);
+            context.SaveChanges();
         }
     }
 }

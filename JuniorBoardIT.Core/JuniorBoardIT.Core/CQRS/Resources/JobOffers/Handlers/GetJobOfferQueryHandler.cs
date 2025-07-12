@@ -2,6 +2,7 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
+using JuniorBoardIT.Core.Exceptions.JobOffers;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 using JuniorBoardIT.Core.Services;
 
@@ -21,16 +22,14 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 
         public JobOfferViewModel Handle(GetJobOfferQuery query)
         {
-            //var userData = context.User.FirstOrDefault(x => x.UID == user.UID);
+            var jobOffer = context.JobOffers.FirstOrDefault(x => x.JOGID == query.JOGID);
 
-            //if (userData == null)
-            //    throw new UserNotFoundExceptions("Nie znaleziono użytkownika!");
+            if (jobOffer == null)
+                throw new JobOfferNotFoundExceptions("Nie znaleziono użytkownika!");
 
-            //var model = mapper.Map<Entities.User, UserViewModel>(userData);
+            var model = mapper.Map<Entities.JobOffers, JobOfferViewModel>(jobOffer);
 
-            //return model;
-
-            return new JobOfferViewModel();
+            return model;
         }
     }
 }
