@@ -1,0 +1,10 @@
+﻿namespace JuniorBoardIT.Core.Models.Enums.JobOffers
+{
+    public enum EmploymentTypeEnum
+    {
+        UoP = 0,
+        UZ = 1,
+        UD = 2,
+        B2B = 3,
+    }
+}

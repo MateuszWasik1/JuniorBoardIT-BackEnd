@@ -48,8 +48,8 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             //userData.UEmail = command.Model.UEmail;
             //userData.UPhone = command.Model.UPhone;
 
-            context.CreateOrUpdate(userData);
-            context.SaveChanges();
+            //context.CreateOrUpdate(userData);
+            //context.SaveChanges();
         }
     }
 }
