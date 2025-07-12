@@ -242,7 +242,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
             handler.Handle(query);
 
             //Assert
-            ClassicAssert.AreEqual(4, users[0].URID);
+            ClassicAssert.AreEqual(5, users[0].URID);
             ClassicAssert.AreEqual("NewName", users[0].UFirstName);
             ClassicAssert.AreEqual("NewLastName", users[0].ULastName);
             ClassicAssert.AreEqual("NewUserName", users[0].UUserName);

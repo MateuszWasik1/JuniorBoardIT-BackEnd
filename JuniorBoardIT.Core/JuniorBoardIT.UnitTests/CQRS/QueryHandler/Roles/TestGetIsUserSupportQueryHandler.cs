@@ -38,11 +38,16 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
                 new Core.Entities.User()
                 {
                     UID = 3,
+                    URID = (int) RoleEnum.Recruiter,
+                },
+                new Core.Entities.User()
+                {
+                    UID = 4,
                     URID = (int) RoleEnum.Support,
                 },
                  new Core.Entities.User()
                 {
-                    UID = 4,
+                    UID = 5,
                     URID = (int) RoleEnum.Admin,
                 },
             };
@@ -99,10 +104,26 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserIsSupport_ShouldReturnFalse()
+        public void TestGetIsUserAdminQueryHandler_UserIsRecruiter_ShouldReturnFalse()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(3);
+
+            var query = new GetIsUserSupportQuery();
+            var handler = new GetIsUserSupportQueryHandler(context.Object, user.Object);
+
+            //Act
+            var result = handler.Handle(query);
+
+            //Assert
+            ClassicAssert.IsFalse(result);
+        }
+
+        [Test]
+        public void TestGetIsUserSupportQueryHandler_UserIsSupport_ShouldReturnFalse()
+        {
+            //Arrange
+            user.Setup(x => x.UID).Returns(4);
 
             var query = new GetIsUserSupportQuery();
             var handler = new GetIsUserSupportQueryHandler(context.Object, user.Object);
@@ -118,7 +139,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         public void TestGetIsUserAdminQueryHandler_UserIsAdmin_ShouldReturnFalse()
         {
             //Arrange
-            user.Setup(x => x.UID).Returns(4);
+            user.Setup(x => x.UID).Returns(5);
             
             var query = new GetIsUserSupportQuery();
             var handler = new GetIsUserSupportQueryHandler(context.Object, user.Object);

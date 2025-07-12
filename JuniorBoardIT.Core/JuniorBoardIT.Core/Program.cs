@@ -87,6 +87,7 @@ builder.Services.AddScoped<ICommandHandler<DeleteUserCommand>, DeleteUserCommand
 //Roles
 builder.Services.AddScoped<IQueryHandler<GetUserRolesQuery, RolesViewModel>, GetUserRolesQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserPremiumQuery, bool>, GetIsUserPremiumQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetIsUserRecruiterQuery, bool>, GetIsUserRecruiterQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserSupportQuery, bool>, GetIsUserSupportQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetIsUserAdminQuery, bool>, GetIsUserAdminQueryHandler>();
 #endregion

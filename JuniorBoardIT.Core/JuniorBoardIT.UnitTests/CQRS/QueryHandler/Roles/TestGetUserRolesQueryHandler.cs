@@ -38,11 +38,16 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
                 new Core.Entities.User()
                 {
                     UID = 3,
-                    URID = (int) RoleEnum.Support,
+                    URID = (int) RoleEnum.Recruiter,
                 },
                 new Core.Entities.User()
                 {
                     UID = 4,
+                    URID = (int) RoleEnum.Support,
+                },
+                new Core.Entities.User()
+                {
+                    UID = 5,
                     URID = (int) RoleEnum.Admin,
                 },
             };
@@ -65,6 +70,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             //Assert
             ClassicAssert.IsTrue(result.IsUser);
             ClassicAssert.IsFalse(result.IsPremium);
+            ClassicAssert.IsFalse(result.IsRecruiter);
             ClassicAssert.IsFalse(result.IsSupport);
             ClassicAssert.IsFalse(result.IsAdmin);
         }
@@ -84,6 +90,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             //Assert
             ClassicAssert.IsTrue(result.IsUser);
             ClassicAssert.IsFalse(result.IsPremium);
+            ClassicAssert.IsFalse(result.IsRecruiter);
             ClassicAssert.IsFalse(result.IsSupport);
             ClassicAssert.IsFalse(result.IsAdmin);
         }
@@ -103,12 +110,13 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             //Assert
             ClassicAssert.IsFalse(result.IsUser);
             ClassicAssert.IsTrue(result.IsPremium);
+            ClassicAssert.IsFalse(result.IsRecruiter);
             ClassicAssert.IsFalse(result.IsSupport);
             ClassicAssert.IsFalse(result.IsAdmin);
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsSupport_ShouldActAsSupport()
+        public void TestGetUserRolesQueryHandler_UserIsRecruiter_ShouldActAsRecruiter()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(3);
@@ -120,14 +128,15 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             var result = handler.Handle(query);
 
             //Assert
-            ClassicAssert.IsTrue(result.IsUser);
+            ClassicAssert.IsFalse(result.IsUser);
             ClassicAssert.IsFalse(result.IsPremium);
-            ClassicAssert.IsTrue(result.IsSupport);
+            ClassicAssert.IsTrue(result.IsRecruiter);
+            ClassicAssert.IsFalse(result.IsSupport);
             ClassicAssert.IsFalse(result.IsAdmin);
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsAdmin_ShouldActAsAdmin()
+        public void TestGetUserRolesQueryHandler_UserIsSupport_ShouldActAsSupport()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(4);
@@ -141,6 +150,27 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             //Assert
             ClassicAssert.IsTrue(result.IsUser);
             ClassicAssert.IsFalse(result.IsPremium);
+            ClassicAssert.IsTrue(result.IsRecruiter);
+            ClassicAssert.IsTrue(result.IsSupport);
+            ClassicAssert.IsFalse(result.IsAdmin);
+        }
+
+        [Test]
+        public void TestGetUserRolesQueryHandler_UserIsAdmin_ShouldActAsAdmin()
+        {
+            //Arrange
+            user.Setup(x => x.UID).Returns(5);
+
+            var query = new GetUserRolesQuery();
+            var handler = new GetUserRolesQueryHandler(context.Object, user.Object);
+
+            //Act
+            var result = handler.Handle(query);
+
+            //Assert
+            ClassicAssert.IsTrue(result.IsUser);
+            ClassicAssert.IsFalse(result.IsPremium);
+            ClassicAssert.IsTrue(result.IsRecruiter);
             ClassicAssert.IsTrue(result.IsSupport);
             ClassicAssert.IsTrue(result.IsAdmin);
         }
