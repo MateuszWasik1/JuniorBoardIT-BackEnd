@@ -17,10 +17,10 @@ namespace JuniorBoardIT.Core.Entities
         public string? JOOfficeLocation { get; set; }
         public EmploymentTypeEnum JOEmploymentType { get; set; }
         public ExpirenceEnum JOExpirenceLevel { get; set; }
-        public double JOExpirenceYears { get; set; }
+        public decimal JOExpirenceYears { get; set; }
         public CategoryEnum JOCategory { get; set; }
-        public double JOSalaryMin { get; set; }
-        public double JOSalaryMax { get; set; }
+        public decimal JOSalaryMin { get; set; }
+        public decimal JOSalaryMax { get; set; }
         public CurrencyEnum JOCurrency { get; set; }
         public SalaryEnum JOSalaryType { get; set; }
         public string? JODescription { get; set; }

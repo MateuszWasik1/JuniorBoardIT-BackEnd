@@ -56,7 +56,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
                 JODescription = command.Model.JODescription,
                 JORequirements = command.Model.JORequirements,
                 JOBenefits = command.Model.JOBenefits,
-                JOCreatedAt = new DateTime(),
+                JOCreatedAt = DateTime.Now,
                 JOPostedAt = command.Model.JOPostedAt,
                 JOExpiresAt = command.Model.JOExpiresAt,
                 JOStatus = command.Model.JOStatus,

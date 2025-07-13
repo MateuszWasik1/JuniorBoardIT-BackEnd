@@ -17,7 +17,6 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetAllJobOffers")]
-        [Authorize(Roles = "Admin")]
         public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take)
             => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take });
 
@@ -29,19 +28,19 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpPost]
         [Route("AddJobOffer")]
-        [Authorize(Roles = "Recruiter")]
+        [Authorize(Roles = "Recruiter, Support, Admin")]
         public void AddJobOffer(JobOfferViewModel model)
             => dispatcher.DispatchCommand(new AddJobOfferCommand() { Model = model });
 
         [HttpPut]
         [Route("UpdateJobOffer")]
-        [Authorize(Roles = "Recruiter")]
+        [Authorize(Roles = "Recruiter, Support, Admin")]
         public void UpdateJobOffer(JobOfferViewModel model)
             => dispatcher.DispatchCommand(new UpdateJobOfferCommand() { Model = model });
 
         [HttpDelete]
         [Route("DeleteJobOffer/{jogid}")]
-        [Authorize(Roles = "Recruiter")]
+        [Authorize(Roles = "Recruiter, Support, Admin")]
         public void DeleteJobOffer(Guid jogid)
             => dispatcher.DispatchCommand(new DeleteJobOfferCommand() { JOGID = jogid });
     }
