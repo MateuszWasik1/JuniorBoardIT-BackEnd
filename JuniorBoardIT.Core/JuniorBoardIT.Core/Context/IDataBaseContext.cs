@@ -18,6 +18,12 @@ namespace JuniorBoardIT.Core.Context
         IQueryable<User> AllUsers { get; }
         #endregion
 
+        #region JobOffers
+        IQueryable<JobOffers> JobOffers { get; }
+        void CreateOrUpdate(JobOffers jobOffers);
+        void DeleteJobOffer(JobOffers jobOffers);
+        #endregion
+
         void SaveChanges();
     }
 }
