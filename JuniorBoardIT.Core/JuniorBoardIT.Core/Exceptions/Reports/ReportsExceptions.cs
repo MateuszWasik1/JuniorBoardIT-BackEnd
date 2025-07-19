@@ -13,6 +13,8 @@
         {
         }
     }
+    
+    //ToDO - Zrobić SQL, Dodać powiązania z danymi, zrobić by 1 osoba tylko mogła zarządzać zgłoszeniem lub zrobić historię do zmiany danych w zgłoszeniu jak to jest w bugNotes.
 
     //public class BugTitleRequiredExceptions : ReportsExceptions
     //{

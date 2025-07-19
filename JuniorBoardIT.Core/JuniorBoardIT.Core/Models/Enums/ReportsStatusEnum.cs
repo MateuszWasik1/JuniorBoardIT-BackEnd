@@ -6,6 +6,5 @@
         InVerification = 1,
         Rejected = 2,
         Accepted = 3,
-        Fixed = 4,
     }
 }
