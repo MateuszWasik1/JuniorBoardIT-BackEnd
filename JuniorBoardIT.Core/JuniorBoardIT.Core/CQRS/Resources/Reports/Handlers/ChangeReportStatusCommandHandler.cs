@@ -1,7 +1,10 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.Exceptions;
+using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Services;
+using Organiser.Core.Exceptions.Reports;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {
@@ -17,58 +20,29 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 
         public void Handle(ChangeReportStatusCommand command)
         {
-            //var bug = context.AllBugs.FirstOrDefault(x => x.BGID == command.Model.BGID);
+            var report = context.Reports.FirstOrDefault(x => x.RGID == command.Model.RGID);
 
-            //if (bug == null)
-            //    throw new BugNotFoundExceptions("Nie udało się zaaktualizować statusu błędu!");
+            if (report == null)
+                throw new ReportNotFoundExceptions("Nie znaleziono oferty pracy z zgłoszenia!");
 
-            //bug.BStatus = command.Model.Status;
+            var currentUser = context.User.FirstOrDefault(x => x.UID == user.UID);
 
-            //var currentUser = context.User.FirstOrDefault(x => x.UID == user.UID);
+            if (currentUser == null)
+                throw new UserNotFoundExceptions("Nie udało się odnaleźć użytkownika! Aktualizacja statusu zgłoszenia nie powiodła się.");
 
-            //if (currentUser == null)
-            //    throw new UserNotFoundExceptions("Nie udało się odnaleźć użytkownika! Aktualizacja błędu się nie powiodła.");
+            if (currentUser.URID == (int) RoleEnum.Support || currentUser.URID == (int)RoleEnum.Support)
+            {
+                if(report.RSupportGID == Guid.Empty)
+                    report.RSupportGID = currentUser.UGID;
 
-            //var isUserVerifier = bug?.BAUIDS?.Contains(currentUser.UGID.ToString()) ?? false;
-            //var isUserSupportOrAdmin = (currentUser?.URID == (int) RoleEnum.Admin || currentUser?.URID == (int) RoleEnum.Support);
+                report.RStatus = command.Model.Status;
 
-            //if (!isUserVerifier && isUserSupportOrAdmin)
-            //{
-            //    if (string.IsNullOrEmpty(bug?.BAUIDS))
-            //        bug.BAUIDS = currentUser?.UGID.ToString();
-            //    else
-            //        bug.BAUIDS = string.Join(",", bug.BAUIDS, currentUser?.UGID);
+            } else {
+                throw new Exception("Użytkownik nie posiada uprawnień administratora lub wsparcia.");
+            }
 
-            //    context.CreateOrUpdate(bug);
-
-            //    var bugNoteIsVerifier = new Cores.Entities.BugsNotes()
-            //    {
-            //        BNGID = Guid.NewGuid(),
-            //        BNBGID = bug.BGID,
-            //        BNUID = user.UID,
-            //        BNDate = DateTime.Now,
-            //        BNText = $"Nowym weryfikującym jest: {currentUser?.UFirstName} {currentUser?.ULastName} {currentUser?.UGID}",
-            //        BNIsNewVerifier = true,
-            //        BNIsStatusChange = false,
-            //    };
-            //    context.CreateOrUpdate(bugNoteIsVerifier);
-            //}
-
-            //var bugNote = new Cores.Entities.BugsNotes()
-            //{
-            //    BNGID = Guid.NewGuid(),
-            //    BNBGID = bug.BGID,
-            //    BNUID = user.UID,
-            //    BNDate = DateTime.Now,
-            //    BNText = $"Status został zmieniony na: \"{ChangeBugStatusToText.BugStatusText(command.Model.Status)}\" przez użytkownika: {currentUser?.UFirstName} {currentUser?.ULastName}",
-            //    BNIsNewVerifier = false,
-            //    BNIsStatusChange = true,
-            //    BNChangedStatus = command.Model.Status,
-            //};
-
-            //context.CreateOrUpdate(bugNote);
-            //context.CreateOrUpdate(bug);
-            //context.SaveChanges();
+            context.CreateOrUpdate(report);
+            context.SaveChanges();
         }
     }
 }

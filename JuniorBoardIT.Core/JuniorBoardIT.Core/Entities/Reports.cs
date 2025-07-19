@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Organiser.Cores.Entities
+namespace JuniorBoardIT.Core.Entities
 {
     public class Reports
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Services;
+using Organiser.Cores.Entities;
 
 namespace JuniorBoardIT.Core.Context
 {
@@ -45,6 +46,18 @@ namespace JuniorBoardIT.Core.Context
                 dataContext.Entry(user).State = EntityState.Modified;
         }
         public void DeleteJobOffer(JobOffers jobOffer) => dataContext.JobOffers.Remove(jobOffer);
+        #endregion
+
+        #region Reports
+        public IQueryable<Reports> Reports => dataContext.Reports;
+        public void CreateOrUpdate(Reports report)
+        {
+            if (report.RID == default)
+                dataContext.Reports.Add(report);
+            else
+                dataContext.Entry(user).State = EntityState.Modified;
+        }
+        public void DeleteReport(Reports report) => dataContext.Reports.Remove(report);
         #endregion
 
         public void SaveChanges() => dataContext.SaveChanges();

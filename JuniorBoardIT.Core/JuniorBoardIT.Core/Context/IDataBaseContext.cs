@@ -1,4 +1,5 @@
 ﻿using JuniorBoardIT.Core.Entities;
+using Organiser.Cores.Entities;
 
 namespace JuniorBoardIT.Core.Context
 {
@@ -22,6 +23,12 @@ namespace JuniorBoardIT.Core.Context
         IQueryable<JobOffers> JobOffers { get; }
         void CreateOrUpdate(JobOffers jobOffers);
         void DeleteJobOffer(JobOffers jobOffers);
+        #endregion
+
+        #region Reports
+        IQueryable<Reports> Reports { get; }
+        void CreateOrUpdate(Reports report);
+        void DeleteReport(Reports report);
         #endregion
 
         void SaveChanges();

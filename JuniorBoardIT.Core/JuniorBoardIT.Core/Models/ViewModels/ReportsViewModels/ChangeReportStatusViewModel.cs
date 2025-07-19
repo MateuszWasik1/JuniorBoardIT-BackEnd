@@ -4,7 +4,7 @@ namespace JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels
 {
     public class ChangeReportStatusViewModel
     {
-        public Guid BGID { get; set; }
+        public Guid RGID { get; set; }
         public ReportsStatusEnum Status { get; set; }
     }
 }
