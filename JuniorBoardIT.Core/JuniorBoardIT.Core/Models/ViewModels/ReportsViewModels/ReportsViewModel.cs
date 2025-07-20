@@ -6,6 +6,7 @@ namespace JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels
     {
         public int RID { get; set; }
         public Guid RGID { get; set; }
+        public Guid RJOGID { get; set; }
         public Guid RReporterGID { get; set; }
         public Guid? RSupportGID { get; set; }
         public DateTime RDate { get; set; }

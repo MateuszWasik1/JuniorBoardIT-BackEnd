@@ -1,7 +1,6 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
-using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Services;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
@@ -33,6 +32,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
             var report = new Core.Entities.Reports()
             {
                 RGID = Guid.NewGuid(),
+                RJOGID = command.Model.RJOGID,
                 RReporterGID = Guid.Parse(user.UGID),
                 RDate = DateTime.Now,
                 RReasons = command.Model.RReasons,
