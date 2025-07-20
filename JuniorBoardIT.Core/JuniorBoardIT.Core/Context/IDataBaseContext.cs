@@ -1,5 +1,4 @@
 ﻿using JuniorBoardIT.Core.Entities;
-using Organiser.Cores.Entities;
 
 namespace JuniorBoardIT.Core.Context
 {

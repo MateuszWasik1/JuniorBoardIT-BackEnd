@@ -1,9 +1,10 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Services;
 
-namespace Organiser.Core.CQRS.Resources.Bugs.Bugs.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {
     public class SaveReportCommandHandler : ICommandHandler<SaveReportCommand>
     {
@@ -29,18 +30,18 @@ namespace Organiser.Core.CQRS.Resources.Bugs.Bugs.Handlers
             //if (command.Model.BText.Length > 4000)
             //    throw new BugTextMax4000Exceptions("Tytuł błędu nie może mieć więcej niż 200 znaków!");
 
-            //var bug = new Cores.Entities.Bugs()
-            //{
-            //    BGID = command.Model.BGID,
-            //    BUID = user.UID,
-            //    BDate = DateTime.Now,
-            //    BTitle = command.Model.BTitle,
-            //    BText = command.Model.BText,
-            //    BStatus = command.Model.BStatus,
-            //};
+            var report = new Core.Entities.Reports()
+            {
+                RGID = Guid.NewGuid(),
+                RReporterGID = Guid.Parse(user.UGID),
+                RDate = DateTime.Now,
+                RReasons = command.Model.RReasons,
+                RText = command.Model.RText,
+                RStatus = command.Model.RStatus,
+            };
 
-            //context.CreateOrUpdate(bug);
-            //context.SaveChanges();
+            context.CreateOrUpdate(report);
+            context.SaveChanges();
         }
     }
 }

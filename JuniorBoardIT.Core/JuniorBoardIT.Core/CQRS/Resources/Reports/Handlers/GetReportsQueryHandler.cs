@@ -2,11 +2,13 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
+using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Services;
+using JuniorBoardIT.Core.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace Organiser.Core.CQRS.Resources.Bugs.Bugs.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {
     public class GetReportsQueryHandler : IQueryHandler<GetReportsQuery, GetReportsViewModel>
     {
@@ -22,76 +24,41 @@ namespace Organiser.Core.CQRS.Resources.Bugs.Bugs.Handlers
 
         public GetReportsViewModel Handle(GetReportsQuery query)
         {
-            //var bugs = new List<Cores.Entities.Bugs>();
-            //var bugsViewModel = new List<BugsViewModel>();
-            //var currentUserRole = context.User.AsNoTracking().FirstOrDefault(x => x.UID == user.UID)?.URID ?? (int) RoleEnum.User;
+            var reports = new List<Core.Entities.Reports>();
+            var reportsViewModel = new List<ReportsViewModel>();
+            var currentUserRole = context.User.AsNoTracking().FirstOrDefault(x => x.UID == user.UID)?.URID ?? (int)RoleEnum.User;
 
-            //var count = 0;
+            var count = 0;
 
-            //if (currentUserRole == (int) RoleEnum.Admin || currentUserRole == (int) RoleEnum.Support)
-            //{
-            //    if (query.BugType == BugTypeEnum.My)
-            //        bugs = context.AllBugs.Where(x => x.BUID == user.UID).OrderBy(x => x.BDate).AsNoTracking().ToList();
+            if (query.ReportType == ReportsTypeEnum.New)
+                reports = context.Reports.Where(x => x.RSupportGID == Guid.Empty).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
-            //    else if (query.BugType == BugTypeEnum.ImVerificator)
-            //        bugs = context.AllBugs.Where(x => x.BAUIDS.Contains(user.UGID)).OrderBy(x => x.BDate).AsNoTracking().ToList();
+            else if (query.ReportType == ReportsTypeEnum.ImVerificator)
+                reports = context.Reports.Where(x => x.RSupportGID == Guid.Parse(user.UGID)).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
-            //    else if (query.BugType == BugTypeEnum.Closed)
-            //        bugs = context.AllBugs.Where(x => x.BStatus == BugStatusEnum.Rejected || x.BStatus == BugStatusEnum.Fixed).OrderBy(x => x.BDate).AsNoTracking().ToList();
+            else if (query.ReportType == ReportsTypeEnum.All && currentUserRole == (int) RoleEnum.Admin)
+                reports = context.Reports.OrderBy(x => x.RDate).AsNoTracking().ToList();
 
-            //    else if(query.BugType == BugTypeEnum.New)
-            //        bugs = context.AllBugs.Where(x => x.BStatus == BugStatusEnum.New).OrderBy(x => x.BDate).AsNoTracking().ToList();
+            else if (query.ReportType == ReportsTypeEnum.All && currentUserRole != (int)RoleEnum.Admin)
+                reports = context.Reports.Where(x => x.RSupportGID == Guid.Parse(user.UGID) || x.RSupportGID == Guid.Empty).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
-            //    else if(query.BugType == BugTypeEnum.All)
-            //        bugs = context.AllBugs.OrderBy(x => x.BDate).AsNoTracking().ToList();
+            count = reports.Count;
+            reports = reports.Skip(query.Skip).Take(query.Take).ToList();
 
-            //    else
-            //        bugs = context.AllBugs.OrderBy(x => x.BDate).AsNoTracking().ToList();
+            reports.ForEach(x =>
+            {
+                var rVM = mapper.Map<Core.Entities.Reports, ReportsViewModel>(x);
 
-            //    var supportGIDs = bugs.Where(x => x.BAUIDS != null).SelectMany(x => x.BAUIDS?.Split(',')).Distinct().ToList();
-            //    var supportUsers = context.AllUsers.Where(x => supportGIDs.Contains(x.UGID.ToString())).Select(x => new { x.UFirstName, x.ULastName, x.UGID }).AsNoTracking().ToList();
+                reportsViewModel.Add(rVM);
+            });
 
-            //    count = bugs.Count;
-            //    bugs = bugs.Skip(query.Skip).Take(query.Take).ToList();
+            var model = new GetReportsViewModel()
+            {
+                List = reportsViewModel,
+                Count = count
+            };
 
-            //    bugs.ForEach(x =>
-            //    {
-            //        var bVM = mapper.Map<Cores.Entities.Bugs, BugsViewModel>(x);
-
-            //        if (x.BAUIDS != null)
-            //        {
-            //            var bugSupportUsers = supportUsers.Where(u => x.BAUIDS.Contains(u.UGID.ToString())).ToList();
-            //            bugSupportUsers.ForEach(u => bVM.BVerifiers += $"{u.UFirstName} {u.ULastName} {u.UGID} ");
-            //        }
-
-            //        bugsViewModel.Add(bVM);
-            //    });
-            //}
-
-            //else
-            //{
-            //    bugs = context.Bugs.OrderBy(x => x.BDate).ToList();
-
-            //    count = bugs.Count;
-            //    bugs = bugs.Skip(query.Skip).Take(query.Take).ToList();
-
-            //    bugs.ForEach(x =>
-            //    {
-            //        var bVM = mapper.Map<Cores.Entities.Bugs, BugsViewModel>(x);
-
-            //        bugsViewModel.Add(bVM);
-            //    });
-            //}
-
-            //var model = new GetBugsViewModel()
-            //{
-            //    List = bugsViewModel,
-            //    Count = count
-            //};
-
-            //return model;
-
-            return new GetReportsViewModel();
+            return model;
         }
     }
 }

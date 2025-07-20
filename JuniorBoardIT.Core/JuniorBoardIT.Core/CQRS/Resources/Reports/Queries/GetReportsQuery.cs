@@ -1,6 +1,6 @@
 ﻿using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
-using JuniorBoardIT.Cores.Models.Enums;
+using JuniorBoardIT.Core.Models.Enums;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Queries
 {

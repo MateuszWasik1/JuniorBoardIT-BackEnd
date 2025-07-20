@@ -1,11 +1,9 @@
-﻿namespace JuniorBoardIT.Cores.Models.Enums
+﻿namespace JuniorBoardIT.Core.Models.Enums
 {
     public enum ReportsTypeEnum
     {
-        My = 0,
+        New = 0,
         ImVerificator = 1,
-        Closed = 2,
-        New = 3,
-        All = 4,
+        All = 2,
     }
 }

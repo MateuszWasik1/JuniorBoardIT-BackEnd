@@ -10,6 +10,9 @@ using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
@@ -18,6 +21,7 @@ using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Services;
 using Microsoft.AspNetCore.Identity;
@@ -102,6 +106,13 @@ builder.Services.AddScoped<IQueryHandler<GetAllJobOffersQuery, GetAllJobOffersVi
 builder.Services.AddScoped<ICommandHandler<AddJobOfferCommand>, AddJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<UpdateJobOfferCommand>, UpdateJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteJobOfferCommand>, DeleteJobOfferCommandHandler>();
+
+//Reports
+builder.Services.AddScoped<IQueryHandler<GetReportQuery, ReportsViewModel>, GetReportQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetReportsQuery, GetReportsViewModel>, GetReportsQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<ChangeReportStatusCommand>, ChangeReportStatusCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<SaveReportCommand>, SaveReportCommandHandler>();
 #endregion
 
 //Authentications

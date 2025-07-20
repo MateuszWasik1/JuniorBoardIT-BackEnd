@@ -2,8 +2,8 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
+using JuniorBoardIT.Core.Exceptions.Reports;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
-using Organiser.Core.Exceptions.Reports;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {

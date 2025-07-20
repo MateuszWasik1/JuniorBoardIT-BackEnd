@@ -1,4 +1,4 @@
-﻿namespace Organiser.Core.Exceptions.Reports
+﻿namespace JuniorBoardIT.Core.Exceptions.Reports
 {
     public class ReportsExceptions : Exception
     {

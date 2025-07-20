@@ -2,9 +2,9 @@
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
 using JuniorBoardIT.Core.Exceptions;
+using JuniorBoardIT.Core.Exceptions.Reports;
 using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Services;
-using Organiser.Core.Exceptions.Reports;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 {

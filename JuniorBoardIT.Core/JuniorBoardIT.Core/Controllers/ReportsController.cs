@@ -2,11 +2,11 @@
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
-using JuniorBoardIT.Cores.Models.Enums;
+using JuniorBoardIT.Core.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Organiser.Cores.Controllers
+namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

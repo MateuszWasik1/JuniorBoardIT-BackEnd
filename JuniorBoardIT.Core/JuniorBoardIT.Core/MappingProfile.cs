@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 
 namespace JuniorBoardIT.Core
@@ -14,6 +15,10 @@ namespace JuniorBoardIT.Core
             CreateMap<User, UserAdminViewModel>();
             CreateMap<JobOffers, GetAllJobOffersViewModel>();
             CreateMap<JobOffers, JobOfferViewModel>();
+            CreateMap<Reports, ChangeReportStatusViewModel>();
+            CreateMap<Reports, GetReportsViewModel>();
+            CreateMap<Reports, ReportsViewModel>();
+            CreateMap<Reports, ReportViewModel>();
         }
     }
 }

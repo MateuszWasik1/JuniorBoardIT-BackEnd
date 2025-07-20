@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Services;
-using Organiser.Cores.Entities;
 
 namespace JuniorBoardIT.Core.Context
 {
