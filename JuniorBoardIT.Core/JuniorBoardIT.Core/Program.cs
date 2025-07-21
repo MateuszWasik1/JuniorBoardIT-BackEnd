@@ -108,7 +108,7 @@ builder.Services.AddScoped<ICommandHandler<UpdateJobOfferCommand>, UpdateJobOffe
 builder.Services.AddScoped<ICommandHandler<DeleteJobOfferCommand>, DeleteJobOfferCommandHandler>();
 
 //Reports
-builder.Services.AddScoped<IQueryHandler<GetReportQuery, ReportsViewModel>, GetReportQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetReportQuery, GetReportViewModel>, GetReportQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetReportsQuery, GetReportsViewModel>, GetReportsQueryHandler>();
 
 builder.Services.AddScoped<ICommandHandler<ChangeReportStatusCommand>, ChangeReportStatusCommandHandler>();

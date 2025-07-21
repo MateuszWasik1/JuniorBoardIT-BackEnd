@@ -5,7 +5,6 @@ using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Services;
-using JuniorBoardIT.Core.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
@@ -31,7 +30,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
             var count = 0;
 
             if (query.ReportType == ReportsTypeEnum.New)
-                reports = context.Reports.Where(x => x.RSupportGID == Guid.Empty).OrderBy(x => x.RDate).AsNoTracking().ToList();
+                reports = context.Reports.Where(x => x.RSupportGID == Guid.Empty || x.RSupportGID == null).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
             else if (query.ReportType == ReportsTypeEnum.ImVerificator)
                 reports = context.Reports.Where(x => x.RSupportGID == Guid.Parse(user.UGID)).OrderBy(x => x.RDate).AsNoTracking().ToList();

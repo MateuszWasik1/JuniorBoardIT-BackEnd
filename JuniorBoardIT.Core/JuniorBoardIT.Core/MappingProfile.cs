@@ -16,6 +16,7 @@ namespace JuniorBoardIT.Core
             CreateMap<JobOffers, GetAllJobOffersViewModel>();
             CreateMap<JobOffers, JobOfferViewModel>();
             CreateMap<Reports, ChangeReportStatusViewModel>();
+            CreateMap<Reports, GetReportViewModel>();
             CreateMap<Reports, GetReportsViewModel>();
             CreateMap<Reports, ReportsViewModel>();
             CreateMap<Reports, ReportViewModel>();

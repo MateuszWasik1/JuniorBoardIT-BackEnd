@@ -18,8 +18,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetReport")]
-        public ReportsViewModel GetReport(Guid rgid)
-            => dispatcher.DispatchQuery<GetReportQuery, ReportsViewModel>(new GetReportQuery() { RGID = rgid });
+        public GetReportViewModel GetReport(Guid rgid)
+            => dispatcher.DispatchQuery<GetReportQuery, GetReportViewModel>(new GetReportQuery() { RGID = rgid });
 
         [HttpGet]
         [Route("GetReports")]

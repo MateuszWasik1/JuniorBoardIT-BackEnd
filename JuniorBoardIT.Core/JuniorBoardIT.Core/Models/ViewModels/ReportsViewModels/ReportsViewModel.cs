@@ -13,5 +13,7 @@ namespace JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels
         public string? RReasons { get; set; }
         public string? RText { get; set; }
         public ReportsStatusEnum? RStatus { get; set; }
+        public string? RReporterName { get; set; }
+        public string? RSupportName { get; set;}
     }
 }
