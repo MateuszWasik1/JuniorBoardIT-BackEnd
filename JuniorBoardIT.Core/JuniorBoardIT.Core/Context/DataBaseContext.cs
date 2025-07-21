@@ -42,9 +42,21 @@ namespace JuniorBoardIT.Core.Context
             if (jobOffer.JOID == default)
                 dataContext.JobOffers.Add(jobOffer);
             else
-                dataContext.Entry(user).State = EntityState.Modified;
+                dataContext.Entry(jobOffer).State = EntityState.Modified;
         }
         public void DeleteJobOffer(JobOffers jobOffer) => dataContext.JobOffers.Remove(jobOffer);
+        #endregion
+
+        #region Reports
+        public IQueryable<Reports> Reports => dataContext.Reports;
+        public void CreateOrUpdate(Reports report)
+        {
+            if (report.RID == default)
+                dataContext.Reports.Add(report);
+            else
+                dataContext.Entry(report).State = EntityState.Modified;
+        }
+        public void DeleteReport(Reports report) => dataContext.Reports.Remove(report);
         #endregion
 
         public void SaveChanges() => dataContext.SaveChanges();

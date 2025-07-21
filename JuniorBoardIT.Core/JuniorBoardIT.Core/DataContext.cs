@@ -10,6 +10,8 @@ namespace JuniorBoardIT.Core
         public DbSet<User> User => Set<User>();
         public DbSet<Roles> AppRoles => Set<Roles>();
         public DbSet<JobOffers> JobOffers => Set<JobOffers>();
+        public DbSet<Reports> Reports => Set<Reports>();
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -24,6 +24,12 @@ namespace JuniorBoardIT.Core.Context
         void DeleteJobOffer(JobOffers jobOffers);
         #endregion
 
+        #region Reports
+        IQueryable<Reports> Reports { get; }
+        void CreateOrUpdate(Reports report);
+        void DeleteReport(Reports report);
+        #endregion
+
         void SaveChanges();
     }
 }

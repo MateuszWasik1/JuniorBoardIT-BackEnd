@@ -10,6 +10,9 @@ using JuniorBoardIT.Core.CQRS.Resources.Accounts.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Roles.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
@@ -18,11 +21,13 @@ using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +38,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddRazorPages();
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+});
 
 //mapper start
 var mapperConfig = new MapperConfiguration(mc =>
@@ -102,6 +110,13 @@ builder.Services.AddScoped<IQueryHandler<GetAllJobOffersQuery, GetAllJobOffersVi
 builder.Services.AddScoped<ICommandHandler<AddJobOfferCommand>, AddJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<UpdateJobOfferCommand>, UpdateJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteJobOfferCommand>, DeleteJobOfferCommandHandler>();
+
+//Reports
+builder.Services.AddScoped<IQueryHandler<GetReportQuery, GetReportViewModel>, GetReportQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetReportsQuery, GetReportsViewModel>, GetReportsQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<ChangeReportStatusCommand>, ChangeReportStatusCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<SaveReportCommand>, SaveReportCommandHandler>();
 #endregion
 
 //Authentications
