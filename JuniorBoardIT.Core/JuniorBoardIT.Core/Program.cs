@@ -27,6 +27,7 @@ using JuniorBoardIT.Core.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,7 +38,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddRazorPages();
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+});
 
 //mapper start
 var mapperConfig = new MapperConfiguration(mc =>

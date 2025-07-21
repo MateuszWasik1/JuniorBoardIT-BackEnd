@@ -23,7 +23,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 
         public GetReportsViewModel Handle(GetReportsQuery query)
         {
-            var reports = new List<Core.Entities.Reports>();
+            var reports = new List<Entities.Reports>();
             var reportsViewModel = new List<ReportsViewModel>();
             var currentUserRole = context.User.AsNoTracking().FirstOrDefault(x => x.UID == user.UID)?.URID ?? (int)RoleEnum.User;
 
@@ -38,7 +38,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
             else if (query.ReportType == ReportsTypeEnum.All && currentUserRole == (int) RoleEnum.Admin)
                 reports = context.Reports.OrderBy(x => x.RDate).AsNoTracking().ToList();
 
-            else if (query.ReportType == ReportsTypeEnum.All && currentUserRole != (int)RoleEnum.Admin)
+            else if (query.ReportType == ReportsTypeEnum.All && currentUserRole != (int) RoleEnum.Admin)
                 reports = context.Reports.Where(x => x.RSupportGID == Guid.Parse(user.UGID) || x.RSupportGID == Guid.Empty).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
             count = reports.Count;
@@ -46,7 +46,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 
             reports.ForEach(x =>
             {
-                var rVM = mapper.Map<Core.Entities.Reports, ReportsViewModel>(x);
+                var rVM = mapper.Map<Entities.Reports, ReportsViewModel>(x);
 
                 reportsViewModel.Add(rVM);
             });

@@ -30,9 +30,9 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
             if (currentUser == null)
                 throw new UserNotFoundExceptions("Nie udało się odnaleźć użytkownika! Aktualizacja statusu zgłoszenia nie powiodła się.");
 
-            if (currentUser.URID == (int) RoleEnum.Support || currentUser.URID == (int)RoleEnum.Support)
+            if (currentUser.URID == (int) RoleEnum.Support || currentUser.URID == (int)RoleEnum.Admin)
             {
-                if(report.RSupportGID == Guid.Empty)
+                if(report.RSupportGID == Guid.Empty || report.RSupportGID == null)
                     report.RSupportGID = currentUser.UGID;
 
                 report.RStatus = command.Model.Status;
