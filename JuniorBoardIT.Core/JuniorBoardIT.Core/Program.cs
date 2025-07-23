@@ -28,6 +28,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.BugsNotes.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.BugsNotes.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.BugsNotes.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.BugsViewModels;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -117,6 +124,18 @@ builder.Services.AddScoped<IQueryHandler<GetReportsQuery, GetReportsViewModel>, 
 
 builder.Services.AddScoped<ICommandHandler<ChangeReportStatusCommand>, ChangeReportStatusCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<SaveReportCommand>, SaveReportCommandHandler>();
+
+//Bugs
+builder.Services.AddScoped<IQueryHandler<GetBugQuery, BugViewModel>, GetBugQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetBugsQuery, GetBugsViewModel>, GetBugsQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<SaveBugCommand>, SaveBugsCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<ChangeBugStatusCommand>, ChangeBugStatusCommandHandler>();
+
+//BugsNotes
+builder.Services.AddScoped<IQueryHandler<GetBugNotesQuery, GetBugsNotesViewModel>, GetBugNotesQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<SaveBugNoteCommand>, SaveBugNoteCommandHandler>();
 #endregion
 
 //Authentications

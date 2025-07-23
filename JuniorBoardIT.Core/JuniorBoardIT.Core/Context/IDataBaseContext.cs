@@ -30,6 +30,19 @@ namespace JuniorBoardIT.Core.Context
         void DeleteReport(Reports report);
         #endregion
 
+        #region Bugs
+        IQueryable<Bugs> Bugs { get; }
+        IQueryable<Bugs> AllBugs { get; }
+        void CreateOrUpdate(Bugs bug);
+        #endregion
+
+        #region BugsNotes
+        IQueryable<BugsNotes> BugsNotes { get; }
+        IQueryable<BugsNotes> AllBugsNotes { get; }
+        void CreateOrUpdate(BugsNotes bugNote);
+        void DeleteBugNote(BugsNotes bugNote);
+        #endregion
+
         void SaveChanges();
     }
 }
