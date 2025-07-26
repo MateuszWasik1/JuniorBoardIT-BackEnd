@@ -1,0 +1,39 @@
+﻿using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Queries;
+using JuniorBoardIT.Core.Models.Enums;
+using JuniorBoardIT.Core.Models.ViewModels.BugsViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace JuniorBoardIT.Core.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
+    public class BugsController : ControllerBase
+    {
+        private readonly IDispatcher dispatcher;
+        public BugsController(IDispatcher dispatcher) => this.dispatcher = dispatcher;
+
+        [HttpGet]
+        [Route("GetBug")]
+        public BugViewModel GetBug(Guid bgid)
+            => dispatcher.DispatchQuery<GetBugQuery, BugViewModel>(new GetBugQuery() { BGID = bgid });
+
+        [HttpGet]
+        [Route("GetBugs")]
+        public GetBugsViewModel GetBugs(BugTypeEnum bugType, int skip, int take)
+            => dispatcher.DispatchQuery<GetBugsQuery, GetBugsViewModel>(new GetBugsQuery() { BugType = bugType, Skip = skip, Take = take });
+
+        [HttpPost]
+        [Route("SaveBug")]
+        public void SaveBug(BugViewModel model)
+            => dispatcher.DispatchCommand(new SaveBugCommand() { Model = model });
+
+        [HttpPost]
+        [Route("ChangeBugStatus")]
+        public void ChangeBugStatus(ChangeBugStatusViewModel model)
+            => dispatcher.DispatchCommand(new ChangeBugStatusCommand() { Model = model });
+    }
+}

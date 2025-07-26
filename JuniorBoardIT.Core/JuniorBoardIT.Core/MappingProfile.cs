@@ -3,6 +3,7 @@ using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
+using JuniorBoardIT.Core.Models.ViewModels.BugsViewModels;
 
 namespace JuniorBoardIT.Core
 {
@@ -20,6 +21,9 @@ namespace JuniorBoardIT.Core
             CreateMap<Reports, GetReportsViewModel>();
             CreateMap<Reports, ReportsViewModel>();
             CreateMap<Reports, ReportViewModel>();
+            CreateMap<Bugs, BugsViewModel>();
+            CreateMap<Bugs, BugViewModel>();
+            CreateMap<BugsNotes, BugsNotesViewModel>();
         }
     }
 }
