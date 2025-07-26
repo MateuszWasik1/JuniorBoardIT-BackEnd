@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.Entities;
-using JuniorBoardIT.Core.Entities;
 
 namespace JuniorBoardIT.Core
 {
@@ -14,6 +13,7 @@ namespace JuniorBoardIT.Core
         public DbSet<Reports> Reports => Set<Reports>();
         public DbSet<Bugs> Bugs => Set<Bugs>();
         public DbSet<BugsNotes> BugsNotes => Set<BugsNotes>();
+        public DbSet<Companies> Companies => Set<Companies>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
