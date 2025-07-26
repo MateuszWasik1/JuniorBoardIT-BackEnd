@@ -36,6 +36,10 @@ using JuniorBoardIT.Core.CQRS.Resources.Bugs.BugsNotes.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Bugs.BugsNotes.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.BugsViewModels;
 using System.Text;
+using JuniorBoardIT.Core.CQRS.Resources.Companies.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
+using JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Companies.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -136,6 +140,14 @@ builder.Services.AddScoped<ICommandHandler<ChangeBugStatusCommand>, ChangeBugSta
 builder.Services.AddScoped<IQueryHandler<GetBugNotesQuery, GetBugsNotesViewModel>, GetBugNotesQueryHandler>();
 
 builder.Services.AddScoped<ICommandHandler<SaveBugNoteCommand>, SaveBugNoteCommandHandler>();
+
+//JobOffers
+builder.Services.AddScoped<IQueryHandler<GetCompanyQuery, CompanyViewModel>, GetCompanyQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetCompaniesQuery, GetCompaniesViewModel>, GetCompaniesQueryHandler>();
+
+builder.Services.AddScoped<ICommandHandler<AddCompanyCommand>, AddCompanyCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<UpdateCompanyCommand>, UpdateCompanyCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<DeleteCompanyCommand>, DeleteCompanyCommandHandler>();
 #endregion
 
 //Authentications

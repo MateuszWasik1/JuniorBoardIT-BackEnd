@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using JuniorBoardIT.Core.CQRS.Dispatcher;
+using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
+using JuniorBoardIT.Core.CQRS.Resources.Companies.Queries;
+using JuniorBoardIT.Core.CQRS.Resources.Companies.Commands;
 
 namespace JuniorBoardIT.Core.Controllers
 {
@@ -15,26 +18,26 @@ namespace JuniorBoardIT.Core.Controllers
         [HttpGet]
         [Route("GetCompanies")]
         public GetCompaniesViewModel GetCompanies(int skip, int take)
-            => dispatcher.DispatchQuery<GetAllCompaniesQuery, GetAllCompaniesViewModel>(new GetAllCompaniesQuery() { Skip = skip, Take = take });
+            => dispatcher.DispatchQuery<GetCompaniesQuery, GetCompaniesViewModel>(new GetCompaniesQuery() { Skip = skip, Take = take });
 
         [HttpGet]
         [Route("GetComapany")]
-        public JobOfferViewModel GetComapany()
-            => dispatcher.DispatchQuery<GetJobOfferQuery, JobOfferViewModel>(new GetJobOfferQuery());
+        public CompanyViewModel GetComapany()
+            => dispatcher.DispatchQuery<GetCompanyQuery, CompanyViewModel>(new GetCompanyQuery());
 
         [HttpPost]
         [Route("AddCompany")]
-        public void AddCompany(JobOfferViewModel model)
-            => dispatcher.DispatchCommand(new AddJobOfferCommand() { Model = model });
+        public void AddCompany(CompanyViewModel model)
+            => dispatcher.DispatchCommand(new AddCompanyCommand() { Model = model });
 
         [HttpPut]
         [Route("UpdateCompany")]
-        public void UpdateCompany(JobOfferViewModel model)
-            => dispatcher.DispatchCommand(new UpdateJobOfferCommand() { Model = model });
+        public void UpdateCompany(CompanyViewModel model)
+            => dispatcher.DispatchCommand(new UpdateCompanyCommand() { Model = model });
 
         [HttpDelete]
         [Route("DeleteCompany/{cgid}")]
-        public void DeleteCompany(Guid jogid)
-            => dispatcher.DispatchCommand(new DeleteJobOfferCommand() { JOGID = jogid });
+        public void DeleteCompany(Guid cgid)
+            => dispatcher.DispatchCommand(new DeleteCompanyCommand() { CGID = cgid });
     }
 }
