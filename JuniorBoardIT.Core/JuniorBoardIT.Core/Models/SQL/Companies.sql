@@ -1,0 +1,18 @@
+CREATE TABLE Companies (
+	CID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	CGID uniqueidentifier NOT NULL,
+	CName nvarchar(255) NOT NULL,
+	CIndustry int NOT NULL,
+	CDescription nvarchar(2000) NOT NULL,
+	CEmail nvarchar(255) NOT NULL,
+	CAddress nvarchar(255) NOT NULL,
+	CCity nvarchar(255) NOT NULL,
+	CCountry nvarchar(255) NOT NULL,
+	CPostalCode nvarchar(255) NOT NULL,
+	CPhoneNumber nvarchar(255) NOT NULL,
+	CLI nvarchar(255) NOT NULL,
+	CFoundedYear int NOT NULL,
+	CEmployeesNo int NOT NULL,   
+	CCreatedAt datetime2 NOT NULL,
+	CUpdatedAt datetime2 NOT NULL,
+)
