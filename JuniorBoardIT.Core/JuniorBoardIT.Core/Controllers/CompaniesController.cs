@@ -21,13 +21,13 @@ namespace JuniorBoardIT.Core.Controllers
             => dispatcher.DispatchQuery<GetCompaniesQuery, GetCompaniesViewModel>(new GetCompaniesQuery() { Skip = skip, Take = take });
 
         [HttpGet]
-        [Route("GetComapany")]
-        public CompanyViewModel GetComapany()
-            => dispatcher.DispatchQuery<GetCompanyQuery, CompanyViewModel>(new GetCompanyQuery());
+        [Route("GetCompany")]
+        public CompanyViewModel GetCompany(Guid cgid)
+            => dispatcher.DispatchQuery<GetCompanyQuery, CompanyViewModel>(new GetCompanyQuery() { CGID = cgid });
 
         [HttpPost]
         [Route("AddCompany")]
-        public void AddCompany(CompanyViewModel model)
+        public void AddCompany(AddCompanyViewModel model)
             => dispatcher.DispatchCommand(new AddCompanyCommand() { Model = model });
 
         [HttpPut]

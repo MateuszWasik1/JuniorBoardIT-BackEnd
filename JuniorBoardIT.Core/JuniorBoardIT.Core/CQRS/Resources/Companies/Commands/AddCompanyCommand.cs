@@ -5,6 +5,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Commands
 {
     public class AddCompanyCommand : ICommand
     {
-        public CompanyViewModel? Model { get; set; }
+        public AddCompanyViewModel? Model { get; set; }
     }
 }

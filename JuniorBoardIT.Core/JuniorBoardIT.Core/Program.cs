@@ -141,7 +141,7 @@ builder.Services.AddScoped<IQueryHandler<GetBugNotesQuery, GetBugsNotesViewModel
 
 builder.Services.AddScoped<ICommandHandler<SaveBugNoteCommand>, SaveBugNoteCommandHandler>();
 
-//JobOffers
+//Companies
 builder.Services.AddScoped<IQueryHandler<GetCompanyQuery, CompanyViewModel>, GetCompanyQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetCompaniesQuery, GetCompaniesViewModel>, GetCompaniesQueryHandler>();
 

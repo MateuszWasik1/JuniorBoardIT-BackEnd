@@ -88,7 +88,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers
                 throw new CompanyFoundedYearMinExceptions("Rok założenia firmy nie może być mniejszy niż 1000 rok!");
 
             if (command.Model.CFoundedYear > DateTime.Now.Year + 1)
-                throw new CompanyFoundedYearMinExceptions("Rok założenia firmy nie może być większy niż" + (DateTime.Now.Year + 1) + "!");
+                throw new CompanyFoundedYearMinExceptions("Rok założenia firmy nie może być większy niż " + (DateTime.Now.Year + 1) + "!");
 
             var model = new Entities.Companies()
             {
