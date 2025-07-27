@@ -19,7 +19,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers
 
         public GetCompaniesViewModel Handle(GetCompaniesQuery query)
         {
-            var companies = context.JobOffers.ToList();
+            var companies = context.Companies.ToList();
 
             var compeniesViewModel = new List<CompanyViewModel>();
 
