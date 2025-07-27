@@ -43,6 +43,12 @@ namespace JuniorBoardIT.Core.Context
         void DeleteBugNote(BugsNotes bugNote);
         #endregion
 
+        #region Companies
+        IQueryable<Companies> Companies { get; }
+        void CreateOrUpdate(Companies compeny);
+        void DeleteCompany(Companies  compeny);
+        #endregion
+
         void SaveChanges();
     }
 }

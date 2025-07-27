@@ -84,6 +84,18 @@ namespace JuniorBoardIT.Core.Context
         public void DeleteBugNote(BugsNotes bugNote) => dataContext.BugsNotes.Remove(bugNote);
         #endregion
 
+        #region Companies
+        public IQueryable<Companies> Companies => dataContext.Companies;
+        public void CreateOrUpdate(Companies company)
+        {
+            if (company.CID == default)
+                dataContext.Companies.Add(company);
+            else
+                dataContext.Entry(company).State = EntityState.Modified;
+        }
+        public void DeleteCompany(Companies company) => dataContext.Companies.Remove(company);
+        #endregion
+
         public void SaveChanges() => dataContext.SaveChanges();
         public void Dispose() => dataContext.Dispose();
     }
