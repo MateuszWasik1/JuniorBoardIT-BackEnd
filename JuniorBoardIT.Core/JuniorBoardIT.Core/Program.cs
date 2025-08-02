@@ -40,6 +40,8 @@ using JuniorBoardIT.Core.CQRS.Resources.Companies.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
 using JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Companies.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -148,6 +150,10 @@ builder.Services.AddScoped<IQueryHandler<GetCompaniesQuery, GetCompaniesViewMode
 builder.Services.AddScoped<ICommandHandler<AddCompanyCommand>, AddCompanyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<UpdateCompanyCommand>, UpdateCompanyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteCompanyCommand>, DeleteCompanyCommandHandler>();
+
+//FavoriteJobOffers
+builder.Services.AddScoped<ICommandHandler<AddFavoriteJobOfferCommand>, AddFavoriteJobOfferCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<DeleteFavoriteJobOfferCommand>, DeleteFavoriteJobOfferCommandHandler>();
 #endregion
 
 //Authentications

@@ -49,6 +49,12 @@ namespace JuniorBoardIT.Core.Context
         void DeleteCompany(Companies  compeny);
         #endregion
 
+        #region FavoriteJobOffers
+        IQueryable<FavoriteJobOffers> FavoriteJobOffers { get; }
+        void CreateOrUpdate(FavoriteJobOffers favoriteJobOffer);
+        void DeleteFavoriteJobOffer(FavoriteJobOffers favoriteJobOffer);
+        #endregion
+
         void SaveChanges();
     }
 }

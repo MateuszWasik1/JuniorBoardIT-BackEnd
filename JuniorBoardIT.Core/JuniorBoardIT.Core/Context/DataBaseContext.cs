@@ -96,6 +96,18 @@ namespace JuniorBoardIT.Core.Context
         public void DeleteCompany(Companies company) => dataContext.Companies.Remove(company);
         #endregion
 
+        #region FavoriteJobOffers
+        public IQueryable<FavoriteJobOffers> FavoriteJobOffers => dataContext.FavoriteJobOffers;
+        public void CreateOrUpdate(FavoriteJobOffers favoriteJobOffer)
+        {
+            if (favoriteJobOffer.FJOID == default)
+                dataContext.FavoriteJobOffers.Add(favoriteJobOffer);
+            else
+                dataContext.Entry(favoriteJobOffer).State = EntityState.Modified;
+        }
+        public void DeleteFavoriteJobOffer(FavoriteJobOffers favoriteJobOffer) => dataContext.FavoriteJobOffers.Remove(favoriteJobOffer);
+        #endregion
+
         public void SaveChanges() => dataContext.SaveChanges();
         public void Dispose() => dataContext.Dispose();
     }
