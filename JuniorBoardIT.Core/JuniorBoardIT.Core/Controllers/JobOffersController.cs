@@ -18,8 +18,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetAllJobOffers")]
-        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take, EducationEnum education)
-            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take, Education = education });
+        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take, EducationEnum education, bool favorites)
+            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take, Education = education, Favorites = favorites });
 
         [HttpGet]
         [Route("GetJobOffer")]

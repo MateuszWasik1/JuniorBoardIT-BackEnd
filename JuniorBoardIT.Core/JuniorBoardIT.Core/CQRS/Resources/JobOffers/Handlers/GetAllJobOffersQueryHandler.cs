@@ -4,6 +4,7 @@ using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
 using JuniorBoardIT.Core.Models.Enums.JobOffers;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
+using JuniorBoardIT.Core.Services;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 {
@@ -12,15 +13,24 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 
         private readonly IDataBaseContext context;
         private readonly IMapper mapper;
-        public GetAllJobOffersQueryHandler(IDataBaseContext context, IMapper mapper)
+        private readonly IUserContext user;
+        public GetAllJobOffersQueryHandler(IDataBaseContext context, IMapper mapper, IUserContext user)
         {
             this.context = context;
             this.mapper = mapper;
+            this.user = user;
         }
 
         public GetAllJobOffersViewModel Handle(GetAllJobOffersQuery query)
         {
             var jobOffers = new List<Entities.JobOffers>();
+
+            if (query.Favorites)
+            {
+                var favoriteJobOffers = context.FavoriteJobOffers.Where(x => x.FJOUGID == Guid.Parse(user.UGID)).Select(x => x.FJOJOGID).ToList();
+                jobOffers = context.JobOffers.Where(x => favoriteJobOffers.Contains(x.JOGID)).ToList();
+                return ReturnModel(jobOffers, query);
+            }                
 
             if(query.Education == EducationEnum.Elementary)
                 jobOffers = context.JobOffers.Where(x => x.JOEducation == EducationEnum.Elementary).ToList();
@@ -37,8 +47,12 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             else
                 jobOffers = context.JobOffers.ToList();
 
-            var allJobOffersViewModel = new List<JobOfferViewModel>();
+            return ReturnModel(jobOffers, query);
+        }
 
+        public GetAllJobOffersViewModel ReturnModel(List<Entities.JobOffers> jobOffers, GetAllJobOffersQuery query)
+        {
+            var allJobOffersViewModel = new List<JobOfferViewModel>();
             var count = jobOffers.Count;
             jobOffers = jobOffers.Skip(query.Skip).Take(query.Take).ToList();
 

@@ -14,6 +14,7 @@ namespace JuniorBoardIT.Core
         public DbSet<Bugs> Bugs => Set<Bugs>();
         public DbSet<BugsNotes> BugsNotes => Set<BugsNotes>();
         public DbSet<Companies> Companies => Set<Companies>();
+        public DbSet<FavoriteJobOffers> FavoriteJobOffers => Set<FavoriteJobOffers>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

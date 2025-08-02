@@ -5,6 +5,7 @@ using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.BugsViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
+using JuniorBoardIT.Core.Models.ViewModels.FavoriteJobOffersViewModel;
 
 namespace JuniorBoardIT.Core
 {
@@ -27,6 +28,8 @@ namespace JuniorBoardIT.Core
             CreateMap<BugsNotes, BugsNotesViewModel>();
             CreateMap<Companies, CompanyViewModel>();
             CreateMap<Companies, GetCompaniesViewModel>();
+            CreateMap<FavoriteJobOffers, FavoriteJobOfferViewModel>();
+            CreateMap<FavoriteJobOffers, FavoriteJobOffersViewModel>();
         }
     }
 }
