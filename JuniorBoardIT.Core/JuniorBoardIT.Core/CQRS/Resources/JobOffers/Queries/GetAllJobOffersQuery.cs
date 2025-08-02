@@ -9,5 +9,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries
         public int Skip { get; set; }
         public int Take { get; set; }
         public EducationEnum Education { get; set; }
+        public bool Favorites { get; set; }
     }
 }
