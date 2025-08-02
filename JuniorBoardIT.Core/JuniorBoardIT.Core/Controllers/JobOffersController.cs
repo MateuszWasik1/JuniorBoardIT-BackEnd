@@ -24,8 +24,8 @@ namespace JuniorBoardIT.Core.Controllers
         [HttpGet]
         [Route("GetJobOffer")]
         [Authorize]
-        public JobOfferViewModel GetJobOffer()
-            => dispatcher.DispatchQuery<GetJobOfferQuery, JobOfferViewModel>(new GetJobOfferQuery());
+        public JobOfferViewModel GetJobOffer(Guid jogid)
+            => dispatcher.DispatchQuery<GetJobOfferQuery, JobOfferViewModel>(new GetJobOfferQuery() { JOGID = jogid });
 
         [HttpPost]
         [Route("AddJobOffer")]
