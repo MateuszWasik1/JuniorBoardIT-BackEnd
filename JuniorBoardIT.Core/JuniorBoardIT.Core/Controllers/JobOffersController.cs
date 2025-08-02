@@ -4,6 +4,7 @@ using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
+using JuniorBoardIT.Core.Models.Enums.JobOffers;
 
 namespace JuniorBoardIT.Core.Controllers
 {
@@ -17,8 +18,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetAllJobOffers")]
-        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take)
-            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take });
+        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take, EducationEnum education)
+            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take, Education = education });
 
         [HttpGet]
         [Route("GetJobOffer")]

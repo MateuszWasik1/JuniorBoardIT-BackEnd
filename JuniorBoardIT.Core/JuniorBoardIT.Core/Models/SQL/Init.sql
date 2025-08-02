@@ -37,6 +37,7 @@ CREATE TABLE JobOffers (
 	JODescription nvarchar(2000) NOT NULL,
 	JORequirements nvarchar(2000) NOT NULL,
 	JOBenefits nvarchar(2000) NOT NULL,
+	JOEducation int NOT NULL,
 	JOCreatedAt datetime2 NOT NULL,
 	JOPostedAt datetime2 NOT NULL,
 	JOExpiresAt datetime2 NOT NULL,
