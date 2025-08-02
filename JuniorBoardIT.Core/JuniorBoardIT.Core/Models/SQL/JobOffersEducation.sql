@@ -1,0 +1,1 @@
+﻿ALTER TABLE [JuniorBoardIT].[dbo].[JobOffers] ADD JOEducation int NOT NULL DEFAULT 5;

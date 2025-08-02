@@ -26,6 +26,7 @@ namespace JuniorBoardIT.Core.Entities
         public string? JODescription { get; set; }
         public string? JORequirements { get; set; }
         public string? JOBenefits { get; set; }
+        public EducationEnum JOEducation { get; set; }
         public DateTime? JOCreatedAt { get; set; }
         public DateTime? JOPostedAt { get; set; }
         public DateTime? JOExpiresAt { get; set; }
