@@ -100,3 +100,10 @@ CREATE TABLE Companies (
 	CCreatedAt datetime2 NOT NULL,
 	CUpdatedAt datetime2 NOT NULL,
 )
+
+CREATE TABLE FavoriteJobOffers (
+	FJOID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	FJOGID uniqueidentifier NOT NULL,
+	FJOUGID uniqueidentifier NOT NULL,
+	FJOJOGID uniqueidentifier NOT NULL,
+)
