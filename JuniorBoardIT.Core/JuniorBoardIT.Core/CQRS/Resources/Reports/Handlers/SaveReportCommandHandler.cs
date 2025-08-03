@@ -1,6 +1,7 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Commands;
+using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Services;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
@@ -37,7 +38,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
                 RDate = DateTime.Now,
                 RReasons = command.Model.RReasons,
                 RText = command.Model.RText,
-                RStatus = command.Model.RStatus,
+                RStatus = command.Model.RStatus ?? ReportsStatusEnum.New,
             };
 
             context.CreateOrUpdate(report);
