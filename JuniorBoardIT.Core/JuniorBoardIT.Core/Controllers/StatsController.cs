@@ -25,9 +25,9 @@ namespace JuniorBoardIT.Core.Controllers
             => dispatcher.DispatchQuery<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompanyPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate });
 
         [HttpGet]
-        [Route("GetNumberOfCompaiesPublishedOfferts")]
-        public StatsBarChartViewModel GetNumberOfCompaiesPublishedOfferts(DateTime startDate, DateTime endDate)
-            => dispatcher.DispatchQuery<GetNumberOfCompaiesPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompaiesPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate });
+        [Route("GetNumberOfCompaniesPublishedOfferts")]
+        public StatsBarChartViewModel GetNumberOfCompaniesPublishedOfferts(DateTime startDate, DateTime endDate)
+            => dispatcher.DispatchQuery<GetNumberOfCompaniesPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompaniesPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate });
 
         [HttpGet]
         [Route("GetNumberOfActiveCompaniesOfferts")]

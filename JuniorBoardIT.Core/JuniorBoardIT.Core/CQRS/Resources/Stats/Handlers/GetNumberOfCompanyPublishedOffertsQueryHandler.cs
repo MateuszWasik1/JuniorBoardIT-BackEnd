@@ -22,11 +22,11 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
             //var timeSpanBetweenStartAndEndDate = MonthsBetweenDatesHelper.MonthsBetween(query.StartDate, query.EndDate);
 
-            //var data = new StatsBarChartViewModel()
-            //{
-            //    Labels = new List<string>(),
-            //    Datasets = new ChartDatasetViewModel(),
-            //};
+            var data = new StatsBarChartViewModel()
+            {
+                Labels = new List<string>(),
+                Datasets = new ChartDatasetViewModel(),
+            };
 
             //var model = new ChartDatasetViewModel()
             //{
@@ -56,7 +56,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
             //data.Datasets = model;
 
-            //return data;
+            return data;
         }
     }
 }

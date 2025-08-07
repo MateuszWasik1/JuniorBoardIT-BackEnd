@@ -14,10 +14,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
         public StatsBarChartViewModel Handle(GetNumberOfActiveCompaniesOffertsQuery query)
         {
-            //if (query.CGID == Guid.Empty)
-            //    return new StatsBarChartViewModel();
-
-            //var category = context.Categories.AsNoTracking().FirstOrDefault(x => x.CGID == query.CGID);
+            //var jobOffers = context.JobOffers.AsNoTracking().ToList();
 
             //if (category == null)
             //    throw new CategoryNotFoundException("Nie znaleziono kategorii");
@@ -30,11 +27,11 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
             //var timeSpanBetweenStartAndEndDate = MonthsBetweenDatesHelper.MonthsBetween(query.StartDate, query.EndDate);
 
-            //var data = new StatsBarChartViewModel()
-            //{
-            //    Labels = new List<string>(),
-            //    Datasets = new ChartDatasetViewModel(),
-            //};
+            var data = new StatsBarChartViewModel()
+            {
+                Labels = new List<string>(),
+                Datasets = new ChartDatasetViewModel(),
+            };
 
             //var model = new ChartDatasetViewModel()
             //{
@@ -64,7 +61,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
             //data.Datasets = model;
 
-            //return data;
+            return data;
         }
     }
 }

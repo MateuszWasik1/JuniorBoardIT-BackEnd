@@ -3,7 +3,7 @@ using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Queries
 {
-    public class GetNumberOfCompaiesPublishedOffertsQuery : IQuery<StatsBarChartViewModel>
+    public class GetNumberOfCompaniesPublishedOffertsQuery : IQuery<StatsBarChartViewModel>
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

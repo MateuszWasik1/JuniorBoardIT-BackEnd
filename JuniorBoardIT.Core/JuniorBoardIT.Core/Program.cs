@@ -160,7 +160,7 @@ builder.Services.AddScoped<ICommandHandler<DeleteFavoriteJobOfferCommand>, Delet
 
 //Stats
 builder.Services.AddScoped<IQueryHandler<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>, GetNumberOfActiveCompaniesOffertsQueryHandler>();
-builder.Services.AddScoped<IQueryHandler<GetNumberOfCompaiesPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompaiesPublishedOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompaniesPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompaniesPublishedOffertsQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompanyPublishedOffertsQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>, GetNumberOfCompanyRecruitersQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetNumberOfRecruiterPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfRecruiterPublishedOffertsQueryHandler>();
