@@ -42,6 +42,9 @@ using JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Companies.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Stats.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.StatsViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -154,6 +157,13 @@ builder.Services.AddScoped<ICommandHandler<DeleteCompanyCommand>, DeleteCompanyC
 //FavoriteJobOffers
 builder.Services.AddScoped<ICommandHandler<AddFavoriteJobOfferCommand>, AddFavoriteJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteFavoriteJobOfferCommand>, DeleteFavoriteJobOfferCommandHandler>();
+
+//Stats
+builder.Services.AddScoped<IQueryHandler<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>, GetNumberOfActiveCompaniesOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompaiesPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompaiesPublishedOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompanyPublishedOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>, GetNumberOfCompanyRecruitersQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfRecruiterPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfRecruiterPublishedOffertsQueryHandler>();
 #endregion
 
 //Authentications
