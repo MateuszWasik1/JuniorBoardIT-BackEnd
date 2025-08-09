@@ -21,8 +21,8 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
         public StatsBarChartViewModel Handle(GetNumberOfRecruiterPublishedOffertsQuery query)
         {
             var jobOffersForPeriod = context.JobOffers
-                .Where(x => x.JORGID == Guid.Parse(user.UGID) && query.StartDate <= x.JOPostedAt && x.JOPostedAt <= query.EndDate)
-                .OrderBy(x => x.JOPostedAt)
+                .Where(x => x.JORGID == Guid.Parse(user.UGID) && query.StartDate <= x.JOCreatedAt && x.JOCreatedAt <= query.EndDate)
+                .OrderBy(x => x.JOCreatedAt)
                 .AsNoTracking()
                 .ToList();
 
@@ -53,7 +53,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
                 if (query.EndDate.Year == timeSpan.Year && query.EndDate.Month == timeSpan.Month)
                     nextMonth = new DateTime(timeSpan.Year, timeSpan.Month, query.EndDate.Day, 23, 59, 59);
 
-                var jobOffersForMonth = jobOffersForPeriod.Where(x => month <= x.JOPostedAt && x.JOPostedAt <= nextMonth).Count();
+                var jobOffersForMonth = jobOffersForPeriod.Where(x => month <= x.JOCreatedAt && x.JOCreatedAt <= nextMonth).Count();
 
                 model?.Data?.Add(jobOffersForMonth);
 

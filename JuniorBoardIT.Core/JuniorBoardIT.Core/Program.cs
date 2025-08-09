@@ -76,7 +76,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
-    options.AddPolicy(name: "LibraryPolicy",
+    options.AddPolicy(name: "JuniorBoardITPolicy",
     policy =>
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
@@ -213,7 +213,7 @@ app.UseHttpsRedirection();
 app.MapControllers();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseCors("LibraryPolicy"); 
+app.UseCors("JuniorBoardITPolicy"); 
 app.UseAuthorization();
 app.Run();
 app.Services.GetRequiredService<DataContext>().Database.EnsureCreated();
