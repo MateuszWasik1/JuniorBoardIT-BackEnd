@@ -42,6 +42,9 @@ using JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Companies.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Handlers;
+using JuniorBoardIT.Core.CQRS.Resources.Stats.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.StatsViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,7 +76,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
-    options.AddPolicy(name: "LibraryPolicy",
+    options.AddPolicy(name: "JuniorBoardITPolicy",
     policy =>
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
@@ -154,6 +157,13 @@ builder.Services.AddScoped<ICommandHandler<DeleteCompanyCommand>, DeleteCompanyC
 //FavoriteJobOffers
 builder.Services.AddScoped<ICommandHandler<AddFavoriteJobOfferCommand>, AddFavoriteJobOfferCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<DeleteFavoriteJobOfferCommand>, DeleteFavoriteJobOfferCommandHandler>();
+
+//Stats
+builder.Services.AddScoped<IQueryHandler<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>, GetNumberOfActiveCompaniesOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompaniesPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompaniesPublishedOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfCompanyPublishedOffertsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>, GetNumberOfCompanyRecruitersQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetNumberOfRecruiterPublishedOffertsQuery, StatsBarChartViewModel>, GetNumberOfRecruiterPublishedOffertsQueryHandler>();
 #endregion
 
 //Authentications
@@ -203,7 +213,7 @@ app.UseHttpsRedirection();
 app.MapControllers();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseCors("LibraryPolicy"); 
+app.UseCors("JuniorBoardITPolicy"); 
 app.UseAuthorization();
 app.Run();
 app.Services.GetRequiredService<DataContext>().Database.EnsureCreated();

@@ -23,35 +23,35 @@
 //        {
 //            context = new Mock<IDataBaseContext>();
 
-//            users = new List<Cores.Entities.User> 
+//            users = new List<Core.Entities.User> 
 //            {
-//                new Cores.Entities.User()
+//                new Core.Entities.User()
 //                {
 //                    UID = 1,
 //                    UGID = new Guid("98dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                },
-//                new Cores.Entities.User()
+//                new Core.Entities.User()
 //                {
 //                    UID = 2,
 //                    UGID = new Guid("99dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                },
 //            };
 
-//            categories = new List<Cores.Entities.Categories>()
+//            categories = new List<Core.Entities.Categories>()
 //            {
-//                new Cores.Entities.Categories()
+//                new Core.Entities.Categories()
 //                {
 //                    CID = 1,
 //                    CGID = new Guid("00dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    CUID = 1,
 //                },
-//                new Cores.Entities.Categories()
+//                new Core.Entities.Categories()
 //                {
 //                    CID = 2,
 //                    CGID = new Guid("01dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    CUID = 1,
 //                },
-//                new Cores.Entities.Categories()
+//                new Core.Entities.Categories()
 //                {
 //                    CID = 2,
 //                    CGID = new Guid("02dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -59,21 +59,21 @@
 //                },
 //            };
 
-//            tasks = new List<Cores.Entities.Tasks>()
+//            tasks = new List<Core.Entities.Tasks>()
 //            {
-//                new Cores.Entities.Tasks()
+//                new Core.Entities.Tasks()
 //                {
 //                    TID = 1,
 //                    TGID = new Guid("03dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TUID = 1,
 //                },
-//                new Cores.Entities.Tasks()
+//                new Core.Entities.Tasks()
 //                {
 //                    TID = 2,
 //                    TGID = new Guid("04dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TUID = 1,
 //                },
-//                new Cores.Entities.Tasks()
+//                new Core.Entities.Tasks()
 //                {
 //                    TID = 3,
 //                    TGID = new Guid("05dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -81,21 +81,21 @@
 //                },
 //            };
 
-//            tasksNotes = new List<Cores.Entities.TasksNotes>()
+//            tasksNotes = new List<Core.Entities.TasksNotes>()
 //            {
-//                new Cores.Entities.TasksNotes()
+//                new Core.Entities.TasksNotes()
 //                {
 //                    TNID = 1,
 //                    TNGID = new Guid("06dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TNUID = 1,
 //                },
-//                new Cores.Entities.TasksNotes()
+//                new Core.Entities.TasksNotes()
 //                {
 //                    TNID = 2,
 //                    TNGID = new Guid("07dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TNUID = 1,
 //                },
-//                new Cores.Entities.TasksNotes()
+//                new Core.Entities.TasksNotes()
 //                {
 //                    TNID = 3,
 //                    TNGID = new Guid("08dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -103,21 +103,21 @@
 //                },
 //            };
 
-//            tasksSubTasks = new List<Cores.Entities.TasksSubTasks>()
+//            tasksSubTasks = new List<Core.Entities.TasksSubTasks>()
 //            {
-//                new Cores.Entities.TasksSubTasks()
+//                new Core.Entities.TasksSubTasks()
 //                {
 //                    TSTID = 1,
 //                    TSTGID = new Guid("12dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TSTUID = 1,
 //                },
-//                new Cores.Entities.TasksSubTasks()
+//                new Core.Entities.TasksSubTasks()
 //                {
 //                    TSTID = 2,
 //                    TSTGID = new Guid("13dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    TSTUID = 1,
 //                },
-//                new Cores.Entities.TasksSubTasks()
+//                new Core.Entities.TasksSubTasks()
 //                {
 //                    TSTID = 3,
 //                    TSTGID = new Guid("14dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -125,21 +125,21 @@
 //                },
 //            };
 
-//            savings = new List<Cores.Entities.Savings>()
+//            savings = new List<Core.Entities.Savings>()
 //            {
-//                new Cores.Entities.Savings()
+//                new Core.Entities.Savings()
 //                {
 //                    SID = 1,
 //                    SGID = new Guid("09dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    SUID = 1,
 //                },
-//                new Cores.Entities.Savings()
+//                new Core.Entities.Savings()
 //                {
 //                    SID = 2,
 //                    SGID = new Guid("10dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    SUID = 1,
 //                },
-//                new Cores.Entities.Savings()
+//                new Core.Entities.Savings()
 //                {
 //                    SID = 3,
 //                    SGID = new Guid("11dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -147,21 +147,21 @@
 //                },
 //            };
 
-//            notes = new List<Cores.Entities.Notes>()
+//            notes = new List<Core.Entities.Notes>()
 //            {
-//                new Cores.Entities.Notes()
+//                new Core.Entities.Notes()
 //                {
 //                    NID = 1,
 //                    NGID = new Guid("12dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    NUID = 1,
 //                },
-//                new Cores.Entities.Notes()
+//                new Core.Entities.Notes()
 //                {
 //                    NID = 2,
 //                    NGID = new Guid("13dacc1d-7bee-4635-9c4c-9404a4af80dd"),
 //                    NUID = 1,
 //                },
-//                new Cores.Entities.Notes()
+//                new Core.Entities.Notes()
 //                {
 //                    NID = 3,
 //                    NGID = new Guid("14dacc1d-7bee-4635-9c4c-9404a4af80dd"),
@@ -177,13 +177,13 @@
 //            context.Setup(x => x.AllSavings).Returns(savings.AsQueryable());
 //            context.Setup(x => x.AllNotes).Returns(notes.AsQueryable());
 
-//            context.Setup(x => x.DeleteUser(It.IsAny<Cores.Entities.User>())).Callback<Cores.Entities.User>(user => users.Remove(user));
-//            context.Setup(x => x.DeleteCategory(It.IsAny<Cores.Entities.Categories>())).Callback<Cores.Entities.Categories>(category => categories.Remove(category));
-//            context.Setup(x => x.DeleteTask(It.IsAny<Cores.Entities.Tasks>())).Callback<Cores.Entities.Tasks>(task => tasks.Remove(task));
-//            context.Setup(x => x.DeleteTaskNotes(It.IsAny<Cores.Entities.TasksNotes>())).Callback<Cores.Entities.TasksNotes>(taskNote => tasksNotes.Remove(taskNote));
-//            context.Setup(x => x.DeleteTaskSubTask(It.IsAny<Cores.Entities.TasksSubTasks>())).Callback<Cores.Entities.TasksSubTasks>(tasksSubTask => tasksSubTasks.Remove(tasksSubTask));
-//            context.Setup(x => x.DeleteSaving(It.IsAny<Cores.Entities.Savings>())).Callback<Cores.Entities.Savings>(saving => savings.Remove(saving));
-//            context.Setup(x => x.DeleteNote(It.IsAny<Cores.Entities.Notes>())).Callback<Cores.Entities.Notes>(note => notes.Remove(note));
+//            context.Setup(x => x.DeleteUser(It.IsAny<Core.Entities.User>())).Callback<Core.Entities.User>(user => users.Remove(user));
+//            context.Setup(x => x.DeleteCategory(It.IsAny<Core.Entities.Categories>())).Callback<Core.Entities.Categories>(category => categories.Remove(category));
+//            context.Setup(x => x.DeleteTask(It.IsAny<Core.Entities.Tasks>())).Callback<Core.Entities.Tasks>(task => tasks.Remove(task));
+//            context.Setup(x => x.DeleteTaskNotes(It.IsAny<Core.Entities.TasksNotes>())).Callback<Core.Entities.TasksNotes>(taskNote => tasksNotes.Remove(taskNote));
+//            context.Setup(x => x.DeleteTaskSubTask(It.IsAny<Core.Entities.TasksSubTasks>())).Callback<Core.Entities.TasksSubTasks>(tasksSubTask => tasksSubTasks.Remove(tasksSubTask));
+//            context.Setup(x => x.DeleteSaving(It.IsAny<Core.Entities.Savings>())).Callback<Core.Entities.Savings>(saving => savings.Remove(saving));
+//            context.Setup(x => x.DeleteNote(It.IsAny<Core.Entities.Notes>())).Callback<Core.Entities.Notes>(note => notes.Remove(note));
 //        }
 
 //        [Test]
@@ -217,13 +217,13 @@
 //            ClassicAssert.AreEqual(1, savings.Count);
 //            ClassicAssert.AreEqual(1, notes.Count);
 
-//            context.Verify(x => x.DeleteUser(It.IsAny<Cores.Entities.User>()), Times.Once);
-//            context.Verify(x => x.DeleteCategory(It.IsAny<Cores.Entities.Categories>()), Times.Exactly(2));
-//            context.Verify(x => x.DeleteTask(It.IsAny<Cores.Entities.Tasks>()), Times.Exactly(2));
-//            context.Verify(x => x.DeleteTaskNotes(It.IsAny<Cores.Entities.TasksNotes>()), Times.Exactly(2));
-//            context.Verify(x => x.DeleteTaskSubTask(It.IsAny<Cores.Entities.TasksSubTasks>()), Times.Exactly(2));
-//            context.Verify(x => x.DeleteSaving(It.IsAny<Cores.Entities.Savings>()), Times.Exactly(2));
-//            context.Verify(x => x.DeleteNote(It.IsAny<Cores.Entities.Notes>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteUser(It.IsAny<Core.Entities.User>()), Times.Once);
+//            context.Verify(x => x.DeleteCategory(It.IsAny<Core.Entities.Categories>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteTask(It.IsAny<Core.Entities.Tasks>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteTaskNotes(It.IsAny<Core.Entities.TasksNotes>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteTaskSubTask(It.IsAny<Core.Entities.TasksSubTasks>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteSaving(It.IsAny<Core.Entities.Savings>()), Times.Exactly(2));
+//            context.Verify(x => x.DeleteNote(It.IsAny<Core.Entities.Notes>()), Times.Exactly(2));
 //        }
 //    }
 //}
