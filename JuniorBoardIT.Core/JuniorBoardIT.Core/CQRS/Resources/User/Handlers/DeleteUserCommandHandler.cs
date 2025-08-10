@@ -17,30 +17,10 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
             if (deletedUser == null)
                 throw new UserNotFoundExceptions("Nie znaleziono użytkownika!");
 
-            //var categories = context.AllCategories.Where(x => x.CUID == deletedUser.UID).ToList();
-            //var tasks = context.AllTasks.Where(x => x.TUID == deletedUser.UID).ToList();
-            //var taskNotes = context.AllTasksNotes.Where(x => x.TNUID == deletedUser.UID).ToList();
-            //var taskSubTasks = context.AllTasksSubTasks.Where(x => x.TSTUID == deletedUser.UID).ToList();
-            //var savings = context.AllSavings.Where(x => x.SUID == deletedUser.UID).ToList();
-            //var notes = context.AllNotes.Where(x => x.NUID == deletedUser.UID).ToList();
+            var jobOffers = context.JobOffers.Where(x => x.JORGID == deletedUser.UGID).Any();
 
-            //foreach (var category in categories)
-            //    context.DeleteCategory(category);
-
-            //foreach (var task in tasks)
-            //    context.DeleteTask(task);
-
-            //foreach (var taskNote in taskNotes)
-            //    context.DeleteTaskNotes(taskNote);
-
-            //foreach (var taskSubTask in taskSubTasks)
-            //    context.DeleteTaskSubTask(taskSubTask);
-
-            //foreach (var saving in savings)
-            //    context.DeleteSaving(saving);
-
-            //foreach (var note in notes)
-            //    context.DeleteNote(note);
+            if (jobOffers)
+                throw new UserHasPublishedJobOffersExceptions("Użytkownik posiada opublikowane oferty pracy!");
 
             context.DeleteUser(deletedUser);
             context.SaveChanges();
