@@ -17,6 +17,11 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers
             if (deletedCompany == null)
                 throw new CompanyNotFoundExceptions("Nie znaleziono firmy!");
 
+            var recruiters = context.AllUsers.Where(x => x.UCompanyGID == deletedCompany.CGID).Any();
+
+            if (recruiters)
+                throw new CompanyHasRecruitersExceptions("Firma posiada zatrudnionych rekruterów!");
+
             context.DeleteCompany(deletedCompany);
             context.SaveChanges();
         }

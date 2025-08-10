@@ -196,4 +196,11 @@ namespace JuniorBoardIT.Core.Exceptions.Companies
         {
         }
     }
+
+    public class CompanyHasRecruitersExceptions : CompaniesExceptions
+    {
+        public CompanyHasRecruitersExceptions(string message) : base(message)
+        {
+        }
+    }
 }
