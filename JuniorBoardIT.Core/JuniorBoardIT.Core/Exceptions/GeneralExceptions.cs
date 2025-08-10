@@ -13,4 +13,11 @@
         {
         }
     }
+
+    public class UserHasPublishedJobOffersExceptions : GeneralExceptions
+    {
+        public UserHasPublishedJobOffersExceptions(string message) : base(message)
+        {
+        }
+    }
 }
