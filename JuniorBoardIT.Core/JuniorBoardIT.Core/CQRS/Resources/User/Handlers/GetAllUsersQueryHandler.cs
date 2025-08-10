@@ -2,7 +2,9 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
+using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 {
@@ -26,10 +28,25 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
             var count = usersData.Count;
             usersData = usersData.Skip(query.Skip).Take(query.Take).ToList();
 
+            var companies = context.Companies.AsNoTracking().ToList();
+            var companiesViewModel = new List<GetCompanyForUserViewModel>();
+
+            companies.ForEach(company =>
+            {
+                var model = mapper.Map<Entities.Companies, GetCompanyForUserViewModel>(company);
+                companiesViewModel.Add(model);
+            });
+
             usersData.ForEach(x => {
                 var model = mapper.Map<Entities.User, UsersAdminViewModel>(x);
+
+                if(x.UCompanyGID != Guid.Empty)
+                {
+                    model.UCompany = companiesViewModel.FirstOrDefault(x => x.CGID == model.UCompanyGID).CName;
+                }
                 usersAdmViewModel.Add(model);
             });
+
 
             var model = new GetUsersAdminViewModel()
             {
