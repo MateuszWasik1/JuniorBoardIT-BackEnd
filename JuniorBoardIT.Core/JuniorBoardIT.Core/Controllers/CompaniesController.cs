@@ -25,6 +25,11 @@ namespace JuniorBoardIT.Core.Controllers
         public CompanyViewModel GetCompany(Guid cgid)
             => dispatcher.DispatchQuery<GetCompanyQuery, CompanyViewModel>(new GetCompanyQuery() { CGID = cgid });
 
+        [HttpGet]
+        [Route("GetCompaniesForUser")]
+        public GetCompaniesForUserViewModel GetCompaniesForUser()
+            => dispatcher.DispatchQuery<GetCompaniesForUserQuery, GetCompaniesForUserViewModel>(new GetCompaniesForUserQuery() );
+
         [HttpPost]
         [Route("AddCompany")]
         public void AddCompany(AddCompanyViewModel model)

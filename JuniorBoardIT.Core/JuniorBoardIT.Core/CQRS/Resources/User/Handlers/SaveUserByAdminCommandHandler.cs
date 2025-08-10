@@ -45,6 +45,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
             userData.UUserName = command.Model.UUserName;
             userData.UEmail = command.Model.UEmail;
             userData.UPhone = command.Model.UPhone;
+            userData.UCompanyGID = command.Model.UCompanyGID;
 
             context.CreateOrUpdate(userData);
             context.SaveChanges();

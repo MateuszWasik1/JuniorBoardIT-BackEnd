@@ -28,6 +28,8 @@ namespace JuniorBoardIT.Core
             CreateMap<BugsNotes, BugsNotesViewModel>();
             CreateMap<Companies, CompanyViewModel>();
             CreateMap<Companies, GetCompaniesViewModel>();
+            CreateMap<Companies, GetCompaniesForUserViewModel>();
+            CreateMap<Companies, GetCompanyForUserViewModel>();
             CreateMap<FavoriteJobOffers, FavoriteJobOfferViewModel>();
             CreateMap<FavoriteJobOffers, FavoriteJobOffersViewModel>();
         }

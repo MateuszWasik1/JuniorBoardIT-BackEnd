@@ -26,6 +26,11 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
 
             var model = mapper.Map<Entities.User, UserAdminViewModel>(userData);
 
+            if(model.UCompanyGID != Guid.Empty)
+            {
+                model.UCompany = context.Companies.FirstOrDefault(x => x.CGID == model.UCompanyGID).CName;
+            }
+
             return model;
         }
     }
