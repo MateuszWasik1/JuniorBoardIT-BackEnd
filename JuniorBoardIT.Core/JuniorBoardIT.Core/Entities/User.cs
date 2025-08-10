@@ -16,5 +16,7 @@ namespace JuniorBoardIT.Core.Entities
         public string? UEmail { get; set; }
         public string? UPhone { get; set; }
         public string? UPassword { get; set; }
+        public Guid? UCompanyGID { get; set; }
+
     }
 }

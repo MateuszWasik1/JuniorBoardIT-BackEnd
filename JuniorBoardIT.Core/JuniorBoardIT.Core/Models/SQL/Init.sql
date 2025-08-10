@@ -8,6 +8,7 @@
 	UEmail nvarchar(100) NOT NULL,
 	UPhone nvarchar(100) NOT NULL,
 	UPassword nvarchar(max) NOT NULL,
+	UCompanyGID uniqueidentifier NULL
 );
 
 CREATE TABLE AppRoles (

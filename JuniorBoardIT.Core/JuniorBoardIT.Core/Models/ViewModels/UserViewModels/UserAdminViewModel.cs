@@ -10,5 +10,7 @@
         public string? UUserName { get; set; }
         public string? UEmail { get; set; }
         public string? UPhone { get; set; }
+        public string? UCompany { get; set; }
+        public Guid? UCompanyGID { get; set; }
     }
 }
