@@ -40,10 +40,11 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
             usersData.ForEach(x => {
                 var model = mapper.Map<Entities.User, UsersAdminViewModel>(x);
 
-                if(x.UCompanyGID != Guid.Empty)
+                if(x.UCompanyGID != Guid.Empty && model.UCompanyGID != null)
                 {
                     model.UCompany = companiesViewModel.FirstOrDefault(x => x.CGID == model.UCompanyGID).CName;
                 }
+
                 usersAdmViewModel.Add(model);
             });
 
