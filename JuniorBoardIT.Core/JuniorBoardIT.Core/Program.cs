@@ -149,6 +149,7 @@ builder.Services.AddScoped<ICommandHandler<SaveBugNoteCommand>, SaveBugNoteComma
 //Companies
 builder.Services.AddScoped<IQueryHandler<GetCompanyQuery, CompanyViewModel>, GetCompanyQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetCompaniesQuery, GetCompaniesViewModel>, GetCompaniesQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetCompaniesForUserQuery, GetCompaniesForUserViewModel>, GetCompaniesForUserQueryHandler>();
 
 builder.Services.AddScoped<ICommandHandler<AddCompanyCommand>, AddCompanyCommandHandler>();
 builder.Services.AddScoped<ICommandHandler<UpdateCompanyCommand>, UpdateCompanyCommandHandler>();
