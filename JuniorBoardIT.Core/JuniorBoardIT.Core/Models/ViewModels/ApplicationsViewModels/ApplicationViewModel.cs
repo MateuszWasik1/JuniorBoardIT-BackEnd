@@ -1,6 +1,6 @@
 ﻿namespace JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels
 {
-    public class ApplicationViewModels
+    public class ApplicationViewModel
     {
         public Guid AGID { get; set; }
         public Guid AUGID { get; set; }

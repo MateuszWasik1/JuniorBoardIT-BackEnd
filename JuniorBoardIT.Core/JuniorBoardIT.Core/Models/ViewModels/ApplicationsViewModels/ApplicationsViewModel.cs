@@ -1,8 +1,8 @@
 ﻿namespace JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels
 {
-    public class ApplicationsViewModels
+    public class ApplicationsViewModel
     {
-        public List<ApplicationViewModels> List { get; set; }
+        public List<ApplicationViewModel> List { get; set; }
         public int Count { get; set; }
     }
 }
