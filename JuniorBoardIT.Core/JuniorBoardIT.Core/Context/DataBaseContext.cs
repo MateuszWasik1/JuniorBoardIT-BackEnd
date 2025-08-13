@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Services;
+using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JuniorBoardIT.Core.Context
 {
@@ -106,6 +108,18 @@ namespace JuniorBoardIT.Core.Context
                 dataContext.Entry(favoriteJobOffer).State = EntityState.Modified;
         }
         public void DeleteFavoriteJobOffer(FavoriteJobOffers favoriteJobOffer) => dataContext.FavoriteJobOffers.Remove(favoriteJobOffer);
+        #endregion
+
+        #region Applications
+        public IQueryable<Applications> Applications => dataContext.Applications;
+        public void CreateOrUpdate(Applications application)
+        {
+            if (application.AID == default)
+                dataContext.Applications.Add(application);
+            else
+                dataContext.Entry(application).State = EntityState.Modified;
+        }
+        public void DeleteApplication(Applications application) => dataContext.Applications.Remove(application);
         #endregion
 
         public void SaveChanges() => dataContext.SaveChanges();
