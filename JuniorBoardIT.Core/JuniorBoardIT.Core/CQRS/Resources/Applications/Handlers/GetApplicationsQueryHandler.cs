@@ -6,7 +6,7 @@ using JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels;
 using JuniorBoardIT.Core.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
 {
     public class GetApplicationsQueryHandler : IQueryHandler<GetApplicationsQuery, ApplicationsViewModel>
     {

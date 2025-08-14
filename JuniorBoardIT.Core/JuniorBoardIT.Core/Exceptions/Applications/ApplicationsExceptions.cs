@@ -1,4 +1,4 @@
-﻿namespace JuniorBoardIT.Core.Exceptions.Accounts
+﻿namespace JuniorBoardIT.Core.Exceptions.Applications
 {
     public class ApplicationsExceptions : Exception
     {

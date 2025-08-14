@@ -1,9 +1,9 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Applications.Commands;
 using JuniorBoardIT.Core.Services;
 
-namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
 {
     public class AddApplicationCommandHandler : ICommandHandler<AddApplicationCommand>
     {
@@ -20,7 +20,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             {
                 AGID = Guid.NewGuid(),
                 AUGID = Guid.Parse(user.UGID), 
-                AJOGID = command.Model.AJOGID,
+                AJOGID = command.AJOGID,
                 AApplicationDate = new DateTime()
             };
 

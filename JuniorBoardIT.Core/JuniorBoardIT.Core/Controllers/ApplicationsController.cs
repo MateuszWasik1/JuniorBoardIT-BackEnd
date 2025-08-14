@@ -1,8 +1,6 @@
 ﻿using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.Applications.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Applications.Queries;
-using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
-using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +22,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpPost]
         [Route("AddApplication")]
-        public void AddApplication(ApplicationViewModel model)
-            => dispatcher.DispatchCommand(new AddApplicationCommand() { Model = model });
+        public void AddApplication(Guid ajogid)
+            => dispatcher.DispatchCommand(new AddApplicationCommand() { AJOGID = ajogid });
 
         [HttpDelete]
         [Route("DeleteApplication")]

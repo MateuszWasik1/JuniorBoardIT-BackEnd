@@ -1,10 +1,9 @@
 ﻿using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Commands;
-using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Commands;
-using JuniorBoardIT.Core.Exceptions.Accounts;
-using JuniorBoardIT.Core.Exceptions.JobOffers;
+using JuniorBoardIT.Core.CQRS.Resources.Applications.Commands;
+using JuniorBoardIT.Core.Exceptions.Applications;
 
-namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
 {
     public class DeleteApplicationCommandHandler : ICommandHandler<DeleteApplicationCommand>
     {

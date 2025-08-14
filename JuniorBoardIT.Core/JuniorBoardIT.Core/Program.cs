@@ -47,6 +47,8 @@ using JuniorBoardIT.Core.Models.ViewModels.StatsViewModels;
 using JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.Applications.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels;
+using JuniorBoardIT.Core.CQRS.Resources.Applications.Commands;
+using JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
