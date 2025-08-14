@@ -5,6 +5,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Queries
 {
     public class GetNumberOfCompanyRecruitersQuery : IQuery<StatsBarChartViewModel>
     {
-        public DateTime Date { get; set; }
+        public Guid CGID { get; set; }
     }
 }

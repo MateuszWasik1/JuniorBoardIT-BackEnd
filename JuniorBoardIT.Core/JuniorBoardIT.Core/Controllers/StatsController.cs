@@ -21,8 +21,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetNumberOfCompanyPublishedOfferts")]
-        public StatsBarChartViewModel GetNumberOfCompanyPublishedOfferts(DateTime startDate, DateTime endDate)
-            => dispatcher.DispatchQuery<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompanyPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate });
+        public StatsBarChartViewModel GetNumberOfCompanyPublishedOfferts(DateTime startDate, DateTime endDate, Guid cgid)
+            => dispatcher.DispatchQuery<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompanyPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate, CGID = cgid });
 
         [HttpGet]
         [Route("GetNumberOfCompaniesPublishedOfferts")]
@@ -31,12 +31,12 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetNumberOfActiveCompaniesOfferts")]
-        public StatsBarChartViewModel GetNumberOfActiveCompaniesOfferts(DateTime date)
-            => dispatcher.DispatchQuery<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>(new GetNumberOfActiveCompaniesOffertsQuery() { Date = date });
+        public StatsBarChartViewModel GetNumberOfActiveCompaniesOfferts(DateTime date, Guid cgid)
+            => dispatcher.DispatchQuery<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>(new GetNumberOfActiveCompaniesOffertsQuery() { Date = date, CGID = cgid });
 
         [HttpGet]
         [Route("GetNumberOfCompanyRecruiters")]
-        public StatsBarChartViewModel GetNumberOfCompanyRecruiters(DateTime date)
-           => dispatcher.DispatchQuery<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>(new GetNumberOfCompanyRecruitersQuery() { Date = date });
+        public StatsBarChartViewModel GetNumberOfCompanyRecruiters(Guid cgid)
+           => dispatcher.DispatchQuery<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>(new GetNumberOfCompanyRecruitersQuery() { CGID = cgid });
     }
 }

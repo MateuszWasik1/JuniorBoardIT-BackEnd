@@ -36,7 +36,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 
             var model = new ChartDatasetViewModel()
             {
-                Label = $"Oferty Pracy",
+                Label = $"Oferty Pracy.",
                 Data = new List<decimal>(),
             };
 
