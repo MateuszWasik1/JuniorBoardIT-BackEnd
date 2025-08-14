@@ -5,6 +5,7 @@ using JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries;
 using JuniorBoardIT.Core.Models.Enums.JobOffers;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 using JuniorBoardIT.Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 {
@@ -29,7 +30,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             {
                 var favoriteJobOffers = context.FavoriteJobOffers.Where(x => x.FJOUGID == Guid.Parse(user.UGID)).Select(x => x.FJOJOGID).ToList();
                 jobOffers = context.JobOffers.Where(x => favoriteJobOffers.Contains(x.JOGID)).ToList();
-                return ReturnModel(jobOffers, query);
+                return ReturnModel(jobOffers, query, true);
             }                
 
             if(query.Education == EducationEnum.Elementary)
@@ -50,15 +51,26 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             return ReturnModel(jobOffers, query);
         }
 
-        public GetAllJobOffersViewModel ReturnModel(List<Entities.JobOffers> jobOffers, GetAllJobOffersQuery query)
+        public GetAllJobOffersViewModel ReturnModel(List<Entities.JobOffers> jobOffers, GetAllJobOffersQuery query, bool alwaysFavorite = false)
         {
             var allJobOffersViewModel = new List<JobOfferViewModel>();
             var count = jobOffers.Count;
             jobOffers = jobOffers.Skip(query.Skip).Take(query.Take).ToList();
 
+            var favoriteJobOffers = new List<Entities.FavoriteJobOffers>();
+
+            if(!alwaysFavorite)
+                favoriteJobOffers = context.FavoriteJobOffers.Where(x => Guid.Parse(user.UGID) == x.FJOUGID).AsNoTracking().ToList();
+
             jobOffers.ForEach(x =>
             {
                 var model = mapper.Map<Entities.JobOffers, JobOfferViewModel>(x);
+
+                if(alwaysFavorite)
+                    model.JOFavorite = true;
+                else
+                    model.JOFavorite = favoriteJobOffers.Any(x => x.FJOJOGID == model.JOGID);
+
                 allJobOffersViewModel.Add(model);
             });
 

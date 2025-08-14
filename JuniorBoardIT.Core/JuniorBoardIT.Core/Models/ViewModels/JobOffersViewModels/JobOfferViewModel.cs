@@ -28,5 +28,6 @@ namespace JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels
         public DateTime? JOPostedAt { get; set; }
         public DateTime? JOExpiresAt { get; set; }
         public StatusEnum JOStatus { get; set; }
+        public bool? JOFavorite { get; set; }
     }
 }

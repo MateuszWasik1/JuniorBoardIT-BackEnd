@@ -21,7 +21,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Handlers
             {
                 FJOGID = Guid.NewGuid(),
                 FJOUGID = Guid.Parse(user.UGID),
-                FJOJOGID = command.JOGID
+                FJOJOGID = command.Model.JOGID
             };
 
             context.CreateOrUpdate(model);
