@@ -1,26 +1,38 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.CQRS.Resources.Stats.Queries;
 using JuniorBoardIT.Core.Context;
-using JuniorBoardIT.Core.Models.Helpers;
 using JuniorBoardIT.Core.Models.ViewModels.StatsViewModels;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.Services;
+using JuniorBoardIT.Core.Exceptions.Companies;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 {
     public class GetNumberOfCompanyRecruitersQueryHandler : IQueryHandler<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>
     {
         private readonly IDataBaseContext context;
-        public GetNumberOfCompanyRecruitersQueryHandler(IDataBaseContext context) => this.context = context;
+        private readonly IUserContext user;
+        public GetNumberOfCompanyRecruitersQueryHandler(IDataBaseContext context, IUserContext user) 
+        {
+            this.context = context;
+            this.user = user;
+        }
 
         public StatsBarChartViewModel Handle(GetNumberOfCompanyRecruitersQuery query)
         {
-            //var savingsForPeriod = context.Savings
-            //    .Where(x => query.StartDate <= x.STime && x.STime <= query.EndDate)
-            //    .OrderBy(x => x.STime)
-            //    .AsNoTracking()
-            //    .ToList();
+            Guid CGID;
 
-            //var timeSpanBetweenStartAndEndDate = MonthsBetweenDatesHelper.MonthsBetween(query.StartDate, query.EndDate);
+            if (query.CGID == Guid.Empty)
+                CGID = context.User.FirstOrDefault(x => x.UGID == Guid.Parse(user.UGID))?.UCompanyGID ?? Guid.Empty;
+            else
+                CGID = query.CGID;
+
+            var company = context.Companies.FirstOrDefault(x => CGID == x.CGID);
+
+            if (company == null)
+                throw new CompanyNotFoundExceptions("Nie znaleziono firmy!");
+
+            var recruiters = context.AllUsers.Where(x => x.UCompanyGID == company.CGID).AsNoTracking().Count();
 
             var data = new StatsBarChartViewModel()
             {
@@ -28,33 +40,17 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
                 Datasets = new ChartDatasetViewModel(),
             };
 
-            //var model = new ChartDatasetViewModel()
-            //{
-            //    Label = $"Oszczędności",
-            //    Data = new List<decimal>(),
-            //};
+            var model = new ChartDatasetViewModel()
+            {
+                Label = $"Rekruterzy firmy {company.CName}",
+                Data = new List<decimal>(),
+            };
 
-            //foreach (var x in timeSpanBetweenStartAndEndDate)
-            //{
-            //    var month = new DateTime(x.Year, x.Month, 1);
-            //    var nextMonth = month.AddMonths(1).AddSeconds(-1);
+            model?.Data?.Add(recruiters);
 
-            //    if (query.StartDate.Year == x.Year && query.StartDate.Month == x.Month)
-            //    {
-            //        month = new DateTime(x.Year, x.Month, query.StartDate.Day);
-            //        nextMonth = month.AddMonths(1).AddDays(- query.StartDate.Day + 1).AddSeconds(-1);
-            //    }
-            //    if (query.EndDate.Year == x.Year && query.EndDate.Month == x.Month)
-            //        nextMonth = new DateTime(x.Year, x.Month, query.EndDate.Day, 23, 59, 59);
+            data?.Labels?.Add($"{DateTime.Now.Date}");
 
-            //    var savingsForMonth = savingsForPeriod.Where(x => month <= x.STime && x.STime <= nextMonth).Sum(x => x.SAmount);
-
-            //    model?.Data?.Add(savingsForMonth);
-
-            //    data?.Labels?.Add($"{x.Year}-{x.Month}");
-            //}
-
-            //data.Datasets = model;
+            data.Datasets = model;
 
             return data;
         }

@@ -1,31 +1,38 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuniorBoardIT.Core.CQRS.Resources.Stats.Queries;
 using JuniorBoardIT.Core.Context;
-using JuniorBoardIT.Core.Models.Helpers;
 using JuniorBoardIT.Core.Models.ViewModels.StatsViewModels;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.Exceptions.Companies;
+using JuniorBoardIT.Core.Services;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
 {
     public class GetNumberOfActiveCompaniesOffertsQueryHandler : IQueryHandler<GetNumberOfActiveCompaniesOffertsQuery, StatsBarChartViewModel>
     {
         private readonly IDataBaseContext context;
-        public GetNumberOfActiveCompaniesOffertsQueryHandler(IDataBaseContext context) => this.context = context;
+        private readonly IUserContext user;
+        public GetNumberOfActiveCompaniesOffertsQueryHandler(IDataBaseContext context, IUserContext user)
+        {
+            this.context = context;
+            this.user = user;
+        }
 
         public StatsBarChartViewModel Handle(GetNumberOfActiveCompaniesOffertsQuery query)
         {
-            //var jobOffers = context.JobOffers.AsNoTracking().ToList();
+            Guid CGID;
 
-            //if (category == null)
-            //    throw new CategoryNotFoundException("Nie znaleziono kategorii");
+            if (query.CGID == Guid.Empty)
+                CGID = context.User.FirstOrDefault(x => x.UGID == Guid.Parse(user.UGID))?.UCompanyGID ?? Guid.Empty;
+            else
+                CGID = query.CGID;
 
-            //var tasksForPeriod = context.Tasks
-            //    .Where(x => category.CGID == x.TCGID && query.StartDate <= x.TTime && x.TTime <= query.EndDate)
-            //    .OrderBy(x => x.TTime)
-            //    .AsNoTracking()
-            //    .ToList();
+            var company = context.Companies.FirstOrDefault(x => CGID == x.CGID);
 
-            //var timeSpanBetweenStartAndEndDate = MonthsBetweenDatesHelper.MonthsBetween(query.StartDate, query.EndDate);
+            if (company == null)
+                throw new CompanyNotFoundExceptions("Nie znaleziono firmy!");
+
+            var jobOffers = context.JobOffers.Where(x => x.JORGID == CGID && query.Date.Date == x.JOPostedAt.Value.Date).AsNoTracking().Count();
 
             var data = new StatsBarChartViewModel()
             {
@@ -33,33 +40,17 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
                 Datasets = new ChartDatasetViewModel(),
             };
 
-            //var model = new ChartDatasetViewModel()
-            //{
-            //    Label = $"Wydane pieniądze na daną kategorię",
-            //    Data = new List<decimal>(),
-            //};
+            var model = new ChartDatasetViewModel()
+            {
+                Label = $"Aktywne oferty firmy {company.CName}",
+                Data = new List<decimal>(),
+            };
 
-            //foreach (var x in timeSpanBetweenStartAndEndDate)
-            //{
-            //    var month = new DateTime(x.Year, x.Month, 1);
-            //    var nextMonth = month.AddMonths(1).AddSeconds(-1);
+            model?.Data?.Add(jobOffers);
 
-            //    if (query.StartDate.Year == x.Year && query.StartDate.Month == x.Month)
-            //    {
-            //        month = new DateTime(x.Year, x.Month, query.StartDate.Day);
-            //        nextMonth = month.AddMonths(1).AddDays(-query.StartDate.Day + 1).AddSeconds(-1);
-            //    }
-            //    if (query.EndDate.Year == x.Year && query.EndDate.Month == x.Month)
-            //        nextMonth = new DateTime(x.Year, x.Month, query.EndDate.Day, 23, 59, 59);
+            data?.Labels?.Add($"{new DateTime(query.Date.Year)}-{new DateTime(query.Date.Month)}-{new DateTime(query.Date.Day)}");
 
-            //    var tasksMoneySpendedForMonth = tasksForPeriod.Where(x => month <= x.TTime && x.TTime <= nextMonth).Sum(x => x.TBudget);
-
-            //    model?.Data?.Add(tasksMoneySpendedForMonth);
-
-            //    data?.Labels?.Add($"{x.Year}-{x.Month}");
-            //}
-
-            //data.Datasets = model;
+            data.Datasets = model;
 
             return data;
         }

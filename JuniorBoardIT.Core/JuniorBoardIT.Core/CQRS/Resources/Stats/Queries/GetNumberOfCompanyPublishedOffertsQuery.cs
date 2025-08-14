@@ -7,5 +7,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Queries
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public Guid CGID { get; set; }
     }
 }
