@@ -34,8 +34,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Stats.Handlers
             if (company == null)
                 throw new CompanyNotFoundExceptions("Nie znaleziono firmy!");
 
-            var jobOffers = context.JobOffers.Where(x => x.JORGID == CGID && query.StartDate <= x.JOPostedAt && x.JOPostedAt <= query.EndDate).AsNoTracking().ToList();
-            //ToDo poprawić JORGID na JOCGID po dodaniu firm do ofert pracy
+            var jobOffers = context.JobOffers.Where(x => x.JOCGID == CGID && query.StartDate <= x.JOPostedAt && x.JOPostedAt <= query.EndDate).AsNoTracking().ToList();
 
             var timeSpanBetweenStartAndEndDate = MonthsBetweenDatesHelper.MonthsBetween(query.StartDate, query.EndDate);
 
