@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Commands;
+using JuniorBoardIT.Core.Models.ViewModels.FavoriteJobOffersViewModel;
 
 namespace JuniorBoardIT.Core.Controllers
 {
@@ -12,9 +13,9 @@ namespace JuniorBoardIT.Core.Controllers
         public FavoriteJobOffersController(IDispatcher dispatcher) => this.dispatcher = dispatcher;
 
         [HttpPost]
-        [Route("AddFavoriteJobOffer/{jogid}")]
-        public void AddFavoriteJobOffer(Guid jogid)
-            => dispatcher.DispatchCommand(new AddFavoriteJobOfferCommand() { JOGID = jogid });
+        [Route("AddFavoriteJobOffer")]
+        public void AddFavoriteJobOffer(AddFavoriteJobOfferViewModel model)
+            => dispatcher.DispatchCommand(new AddFavoriteJobOfferCommand() { Model = model });
 
         [HttpDelete]
         [Route("DeleteFavoriteJobOffer/{fjogid}")]
