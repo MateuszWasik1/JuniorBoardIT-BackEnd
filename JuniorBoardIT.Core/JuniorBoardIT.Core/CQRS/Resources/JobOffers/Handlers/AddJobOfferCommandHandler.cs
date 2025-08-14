@@ -41,6 +41,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
             {
                 JOGID = Guid.NewGuid(),
                 JORGID = Guid.Parse(user.UGID), 
+                JOCGID = command.Model.JOCGID, 
                 JOTitle = command.Model.JOTitle,
                 JOCompanyName = command.Model.JOTitle,
                 JOLocationType = command.Model.JOLocationType,
