@@ -124,7 +124,7 @@ builder.Services.AddScoped<IQueryHandler<GetIsUserSupportQuery, bool>, GetIsUser
 builder.Services.AddScoped<IQueryHandler<GetIsUserAdminQuery, bool>, GetIsUserAdminQueryHandler>();
 
 //JobOffers
-builder.Services.AddScoped<IQueryHandler<GetJobOfferQuery, JobOfferViewModel>, GetJobOfferQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetJobOfferQuery, GetJobOfferViewModel>, GetJobOfferQueryHandler>();
 builder.Services.AddScoped<IQueryHandler<GetAllJobOffersQuery, GetAllJobOffersViewModel>, GetAllJobOffersQueryHandler>();
 
 builder.Services.AddScoped<ICommandHandler<AddJobOfferCommand>, AddJobOfferCommandHandler>();

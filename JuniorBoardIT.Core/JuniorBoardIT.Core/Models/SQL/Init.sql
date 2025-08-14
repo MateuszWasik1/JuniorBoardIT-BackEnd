@@ -23,6 +23,7 @@ CREATE TABLE JobOffers (
 	JOID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	JOGID uniqueidentifier NOT NULL,
     JORGID uniqueidentifier NOT NULL,
+    JOCGID uniqueidentifier NOT NULL,
 	JOTitle nvarchar(255) NOT NULL,
 	JOCompanyName nvarchar(255) NOT NULL,
 	JOLocationType int NOT NULL,

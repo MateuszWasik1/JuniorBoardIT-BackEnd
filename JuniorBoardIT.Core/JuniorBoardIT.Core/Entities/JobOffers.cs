@@ -11,6 +11,7 @@ namespace JuniorBoardIT.Core.Entities
         public int JOID { get; set; }
         public Guid JOGID { get; set; }
         public Guid JORGID { get; set; }
+        public Guid? JOCGID { get; set; }
         public string? JOTitle { get; set; }
         public string? JOCompanyName { get; set; }
         public LocationEnum JOLocationType { get; set; }
