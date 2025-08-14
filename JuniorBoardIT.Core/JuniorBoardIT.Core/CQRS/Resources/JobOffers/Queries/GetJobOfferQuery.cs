@@ -3,7 +3,7 @@ using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries
 {
-    public class GetJobOfferQuery : IQuery<JobOfferViewModel>
+    public class GetJobOfferQuery : IQuery<GetJobOfferViewModel>
     {
         public Guid JOGID { get; set; }
     }

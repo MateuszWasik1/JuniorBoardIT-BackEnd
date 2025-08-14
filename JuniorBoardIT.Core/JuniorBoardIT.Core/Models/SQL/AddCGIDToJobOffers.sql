@@ -1,0 +1,1 @@
+ALTER TABLE [JuniorBoardIT].[dbo].[JobOffers] ADD JOCGID uniqueidentifier NULL;
