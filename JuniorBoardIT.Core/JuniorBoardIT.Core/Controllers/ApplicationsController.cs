@@ -9,7 +9,6 @@ namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ApplicationsController : ControllerBase
     {
         private readonly IDispatcher dispatcher;
@@ -22,11 +21,11 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpPost]
         [Route("AddApplication")]
-        public void AddApplication(Guid ajogid)
-            => dispatcher.DispatchCommand(new AddApplicationCommand() { AJOGID = ajogid });
+        public void AddApplication(AddApplicationViewModel model)
+            => dispatcher.DispatchCommand(new AddApplicationCommand() { Model = model });
 
         [HttpDelete]
-        [Route("DeleteApplication")]
+        [Route("DeleteApplication/{agid}")]
         public void DeleteApplication(Guid agid)
             => dispatcher.DispatchCommand(new DeleteApplicationCommand() { AGID = agid });
     }

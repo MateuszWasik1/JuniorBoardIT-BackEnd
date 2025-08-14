@@ -20,8 +20,8 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
             {
                 AGID = Guid.NewGuid(),
                 AUGID = Guid.Parse(user.UGID), 
-                AJOGID = command.AJOGID,
-                AApplicationDate = new DateTime()
+                AJOGID = command.Model.AJOGID,
+                AApplicationDate = DateTime.Now,
             };
 
             context.CreateOrUpdate(model);
