@@ -4,6 +4,7 @@ using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
 using JuniorBoardIT.Core.Exceptions.JobOffers;
 using JuniorBoardIT.Core.Exceptions.Reports;
+using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 
@@ -35,10 +36,15 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 
             var jobOfferViewModel = mapper.Map<Entities.JobOffers, JobOfferViewModel>(jobOffer);
 
+            var company = context.Companies.FirstOrDefault(x => x.CGID == jobOfferViewModel.JOCGID) ?? new Entities.Companies();
+
+            var companyModel = mapper.Map<Entities.Companies, CompanyViewModel>(company);
+
             var model = new GetReportViewModel()
             {
                 ReportModel = reportViewModel,
-                JobOfferModel = jobOfferViewModel
+                JobOfferModel = jobOfferViewModel,
+                CompanyModel = companyModel,
             };
 
             return model;
