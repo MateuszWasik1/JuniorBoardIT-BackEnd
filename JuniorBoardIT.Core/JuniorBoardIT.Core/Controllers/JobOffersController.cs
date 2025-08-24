@@ -10,7 +10,6 @@ namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class JobOffersController : ControllerBase
     {
         private readonly IDispatcher dispatcher;
@@ -23,7 +22,6 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetJobOffer")]
-        [Authorize]
         public GetJobOfferViewModel GetJobOffer(Guid jogid)
             => dispatcher.DispatchQuery<GetJobOfferQuery, GetJobOfferViewModel>(new GetJobOfferQuery() { JOGID = jogid });
 

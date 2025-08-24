@@ -19,7 +19,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
             var model = new Entities.Applications()
             {
                 AGID = Guid.NewGuid(),
-                AUGID = Guid.Parse(user.UGID), 
+                AUGID = Guid.Parse(user?.UGID), 
                 AJOGID = command.Model.AJOGID,
                 AApplicationDate = DateTime.Now,
             };

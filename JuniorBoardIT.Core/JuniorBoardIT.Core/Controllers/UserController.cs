@@ -4,7 +4,6 @@ using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 
 namespace JuniorBoardIT.Core.Controllers
 {
