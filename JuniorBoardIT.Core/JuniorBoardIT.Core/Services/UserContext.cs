@@ -8,7 +8,7 @@ namespace JuniorBoardIT.Core.Services
         public UserContext(IHttpContextAccessor httpContextAccessor) => this.httpContextAccessor = httpContextAccessor;
 
         public ClaimsPrincipal? User => httpContextAccessor.HttpContext?.User;
-        public int UID => User == null ? 1 : int.Parse(User?.FindFirst(x => x.Type == "UID")?.Value ?? "1");
+        public int UID => User == null ? 0 : int.Parse(User?.FindFirst(x => x.Type == "UID")?.Value ?? "0");
         public string? UGID => User == null ? null : User?.FindFirst(x => x.Type == "UGID")?.Value;
     }
 }
