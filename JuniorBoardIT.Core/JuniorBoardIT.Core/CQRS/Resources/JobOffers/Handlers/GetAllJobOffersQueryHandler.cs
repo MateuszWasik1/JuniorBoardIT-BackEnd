@@ -59,8 +59,10 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 
             var favoriteJobOffers = new List<Entities.FavoriteJobOffers>();
 
+            var userGID = Guid.Parse(user?.UGID ?? Guid.Empty.ToString());
+
             if(!alwaysFavorite)
-                favoriteJobOffers = context.FavoriteJobOffers.Where(x => Guid.Parse(user.UGID) == x.FJOUGID).AsNoTracking().ToList();
+                favoriteJobOffers = context.FavoriteJobOffers.Where(x => userGID == x.FJOUGID).AsNoTracking().ToList();
 
             jobOffers.ForEach(x =>
             {

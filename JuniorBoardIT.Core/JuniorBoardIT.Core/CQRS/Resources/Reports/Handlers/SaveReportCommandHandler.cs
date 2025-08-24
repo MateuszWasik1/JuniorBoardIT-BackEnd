@@ -18,23 +18,12 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
 
         public void Handle(SaveReportCommand command)
         {
-            //if (command.Model.BTitle.Length == 0)
-            //    throw new BugTitleRequiredExceptions("Tytuł błędu jest wymagany!");
 
-            //if (command.Model.BTitle.Length > 200)
-            //    throw new BugTitleMax200Exceptions("Tytuł błędu nie może mieć więcej niż 200 znaków!");
-
-            //if (command.Model.BText.Length == 0)
-            //    throw new BugTextRequiredExceptions("Tytuł błędu jest wymagany!");
-
-            //if (command.Model.BText.Length > 4000)
-            //    throw new BugTextMax4000Exceptions("Tytuł błędu nie może mieć więcej niż 200 znaków!");
-
-            var report = new Core.Entities.Reports()
+            var report = new Entities.Reports()
             {
                 RGID = Guid.NewGuid(),
                 RJOGID = command.Model.RJOGID,
-                RReporterGID = Guid.Parse(user.UGID),
+                RReporterGID = user?.UGID != null ? Guid.Parse(user?.UGID) : null,
                 RDate = DateTime.Now,
                 RReasons = command.Model.RReasons,
                 RText = command.Model.RText,

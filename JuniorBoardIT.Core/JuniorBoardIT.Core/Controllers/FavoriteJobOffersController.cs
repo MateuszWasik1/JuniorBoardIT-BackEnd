@@ -2,11 +2,13 @@
 using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.FavoriteJobOffers.Commands;
 using JuniorBoardIT.Core.Models.ViewModels.FavoriteJobOffersViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FavoriteJobOffersController : ControllerBase
     {
         private readonly IDispatcher dispatcher;

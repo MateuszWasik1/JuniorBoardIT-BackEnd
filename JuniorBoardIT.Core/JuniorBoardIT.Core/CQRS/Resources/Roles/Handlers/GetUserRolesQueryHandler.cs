@@ -19,7 +19,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers
 
         public RolesViewModel Handle(GetUserRolesQuery query) 
         {
-            var userRole = context.User.FirstOrDefault(x => x.UID == user.UID)?.URID ?? (int) RoleEnum.User;
+            var userRole = context.User.FirstOrDefault(x => x.UID == user.UID)?.URID ?? 0;
 
             var model = new RolesViewModel()
             {

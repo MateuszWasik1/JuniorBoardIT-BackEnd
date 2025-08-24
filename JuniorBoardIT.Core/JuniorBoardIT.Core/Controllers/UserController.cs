@@ -4,13 +4,11 @@ using JuniorBoardIT.Core.CQRS.Dispatcher;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.User.Commands;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
-using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 
 namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IDispatcher dispatcher;
@@ -30,7 +28,6 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetUser")]
-        [Authorize]
         public UserViewModel GetUser()
             => dispatcher.DispatchQuery<GetUserQuery, UserViewModel>(new GetUserQuery());
 

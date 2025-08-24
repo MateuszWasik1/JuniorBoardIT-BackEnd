@@ -2,7 +2,6 @@
 using JuniorBoardIT.Core.CQRS.Resources.Applications.Commands;
 using JuniorBoardIT.Core.CQRS.Resources.Applications.Queries;
 using JuniorBoardIT.Core.Models.ViewModels.ApplicationsViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JuniorBoardIT.Core.Controllers

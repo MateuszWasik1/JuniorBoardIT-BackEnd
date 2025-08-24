@@ -25,7 +25,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
             var userData = context.User.FirstOrDefault(x => x.UID == user.UID);
 
             if (userData == null)
-                throw new UserNotFoundExceptions("Nie znaleziono użytkownika!");
+               return new UserViewModel();
 
             var model = mapper.Map<Entities.User, UserViewModel>(userData);
 

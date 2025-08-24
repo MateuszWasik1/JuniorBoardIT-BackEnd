@@ -10,7 +10,6 @@ namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ReportsController : ControllerBase
     {
         private readonly IDispatcher dispatcher;
@@ -18,11 +17,13 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetReport")]
+        [Authorize]
         public GetReportViewModel GetReport(Guid rgid)
             => dispatcher.DispatchQuery<GetReportQuery, GetReportViewModel>(new GetReportQuery() { RGID = rgid });
 
         [HttpGet]
         [Route("GetReports")]
+        [Authorize]
         public GetReportsViewModel GetReports(ReportsTypeEnum reportType, int skip, int take)
             => dispatcher.DispatchQuery<GetReportsQuery, GetReportsViewModel>(new GetReportsQuery() { ReportType = reportType, Skip = skip, Take = take });
 
@@ -33,6 +34,7 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpPut]
         [Route("ChangeReportStatus")]
+        [Authorize]
         public void ChangeReportStatus(ChangeReportStatusViewModel model)
             => dispatcher.DispatchCommand(new ChangeReportStatusCommand() { Model = model });
     }

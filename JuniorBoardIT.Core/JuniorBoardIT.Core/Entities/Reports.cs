@@ -11,7 +11,7 @@ namespace JuniorBoardIT.Core.Entities
         public int RID { get; set; }
         public Guid RGID { get; set; }
         public Guid RJOGID { get; set; }
-        public Guid RReporterGID { get; set; }
+        public Guid? RReporterGID { get; set; }
         public Guid? RSupportGID { get; set; }
         public DateTime RDate { get; set; }
         public string? RReasons { get; set; }
