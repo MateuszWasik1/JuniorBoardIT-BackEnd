@@ -9,7 +9,6 @@ namespace JuniorBoardIT.Core.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IDispatcher dispatcher;
@@ -29,7 +28,6 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetUser")]
-        [Authorize]
         public UserViewModel GetUser()
             => dispatcher.DispatchQuery<GetUserQuery, UserViewModel>(new GetUserQuery());
 

@@ -23,7 +23,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
             {
                 RGID = Guid.NewGuid(),
                 RJOGID = command.Model.RJOGID,
-                RReporterGID = Guid.Parse(user?.UGID),
+                RReporterGID = user?.UGID != null ? Guid.Parse(user?.UGID) : null,
                 RDate = DateTime.Now,
                 RReasons = command.Model.RReasons,
                 RText = command.Model.RText,
