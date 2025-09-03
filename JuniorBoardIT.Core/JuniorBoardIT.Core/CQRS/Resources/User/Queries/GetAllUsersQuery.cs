@@ -7,5 +7,8 @@ namespace JuniorBoardIT.Core.CQRS.Resources.User.Queries
     {
         public int Skip { get; set; }
         public int Take { get; set; }
+        public string? Name { get; set; }
+        public bool HasCompany { get; set; }
+        public int Role { get; set; }
     }
 }
