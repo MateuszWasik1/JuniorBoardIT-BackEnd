@@ -17,8 +17,8 @@ namespace JuniorBoardIT.Core.Controllers
         [HttpGet]
         [Route("GetAllUsers")]
         [Authorize(Roles = "Admin")]
-        public GetUsersAdminViewModel GetAllUsers(int skip, int take)
-            => dispatcher.DispatchQuery<GetAllUsersQuery, GetUsersAdminViewModel>(new GetAllUsersQuery() { Skip = skip, Take = take });
+        public GetUsersAdminViewModel GetAllUsers(int skip, int take, string? name, bool hasCompany, int role)
+            => dispatcher.DispatchQuery<GetAllUsersQuery, GetUsersAdminViewModel>(new GetAllUsersQuery() { Skip = skip, Take = take, Name = name, HasCompany = hasCompany, Role = role });
 
         [HttpGet]
         [Route("GetUserByAdmin/{ugid}")]
