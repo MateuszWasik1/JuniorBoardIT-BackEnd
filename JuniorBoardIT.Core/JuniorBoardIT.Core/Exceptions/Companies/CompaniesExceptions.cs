@@ -127,44 +127,44 @@ namespace JuniorBoardIT.Core.Exceptions.Companies
         }
     }
 
-    public class CompanyNIPMin0Exceptions : CompaniesExceptions
+    public class CompanyNIPMin10Exceptions : CompaniesExceptions
     {
-        public CompanyNIPMin0Exceptions(string message) : base(message)
+        public CompanyNIPMin10Exceptions(string message) : base(message)
         {
         }
     }
 
-    public class CompanyNIPMax255Exceptions : CompaniesExceptions
+    public class CompanyNIPMax10Exceptions : CompaniesExceptions
     {
-        public CompanyNIPMax255Exceptions(string message) : base(message)
+        public CompanyNIPMax10Exceptions(string message) : base(message)
         {
         }
     }
 
-    public class CompanyRegonMin0Exceptions : CompaniesExceptions
+    public class CompanyRegonMin9Exceptions : CompaniesExceptions
     {
-        public CompanyRegonMin0Exceptions(string message) : base(message)
+        public CompanyRegonMin9Exceptions(string message) : base(message)
         {
         }
     }
 
-    public class CompanyRegonMax255Exceptions : CompaniesExceptions
+    public class CompanyRegonMax14Exceptions : CompaniesExceptions
     {
-        public CompanyRegonMax255Exceptions(string message) : base(message)
+        public CompanyRegonMax14Exceptions(string message) : base(message)
         {
         }
     }
 
-    public class CompanyKRSMin0Exceptions : CompaniesExceptions
+    public class CompanyKRSMin10Exceptions : CompaniesExceptions
     {
-        public CompanyKRSMin0Exceptions(string message) : base(message)
+        public CompanyKRSMin10Exceptions(string message) : base(message)
         {
         }
     }
 
-    public class CompanyKRSMax255Exceptions : CompaniesExceptions
+    public class CompanyKRSMax10Exceptions : CompaniesExceptions
     {
-        public CompanyKRSMax255Exceptions(string message) : base(message)
+        public CompanyKRSMax10Exceptions(string message) : base(message)
         {
         }
     }
