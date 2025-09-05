@@ -17,8 +17,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetCompanies")]
-        public GetCompaniesViewModel GetCompanies(int skip, int take)
-            => dispatcher.DispatchQuery<GetCompaniesQuery, GetCompaniesViewModel>(new GetCompaniesQuery() { Skip = skip, Take = take });
+        public GetCompaniesViewModel GetCompanies(int skip, int take, string? name)
+            => dispatcher.DispatchQuery<GetCompaniesQuery, GetCompaniesViewModel>(new GetCompaniesQuery() { Skip = skip, Take = take, Name = name });
 
         [HttpGet]
         [Route("GetCompany")]
