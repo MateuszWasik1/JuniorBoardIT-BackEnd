@@ -60,23 +60,23 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers
             if (command.Model.CPhoneNumber.Length > 255)
                 throw new CompanyPhoneNumberMax255Exceptions("Numer telefonowy firmy nie może mieć więcej niż 255 znaków!");
 
-            if (command.Model.CNIP.Length == 0)
-                throw new CompanyNIPMin0Exceptions("NIP firmy nie może być pusty!");
+            if (command.Model.CNIP.Length < 10)
+                throw new CompanyNIPMin10Exceptions("NIP firmy nie może być krótszy niż 10 znaków!");
 
-            if (command.Model.CNIP.Length > 255)
-                throw new CompanyNIPMax255Exceptions("NIP firmy nie może mieć więcej niż 255 znaków!");
+            if (command.Model.CNIP.Length > 10)
+                throw new CompanyNIPMax10Exceptions("NIP firmy nie może mieć więcej niż 10 znaków!");
 
-            if (command.Model.CRegon.Length == 0)
-                throw new CompanyRegonMin0Exceptions("REGON firmy nie może być pusty!");
+            if (command.Model.CRegon.Length < 9)
+                throw new CompanyRegonMin9Exceptions("REGON firmy nie może być krótszy niż 9 znaków!");
 
-            if (command.Model.CRegon.Length > 255)
-                throw new CompanyRegonMax255Exceptions("REGON firmy nie może mieć więcej niż 255 znaków!");
+            if (command.Model.CRegon.Length > 14)
+                throw new CompanyRegonMax14Exceptions("REGON firmy nie może mieć więcej niż 14 znaków!");
 
-            if (command.Model.CKRS.Length == 0)
-                throw new CompanyKRSMin0Exceptions("KRS firmy nie może być pusty!");
+            if (command.Model.CKRS.Length < 10)
+                throw new CompanyKRSMin10Exceptions("KRS firmy nie może być krótszy niż 10 znaków!");
 
-            if (command.Model.CKRS.Length > 255)
-                throw new CompanyKRSMax255Exceptions("KRS firmy nie może mieć więcej niż 255 znaków!");
+            if (command.Model.CKRS.Length > 10)
+                throw new CompanyKRSMax10Exceptions("KRS firmy nie może mieć więcej niż 10 znaków!");
 
             if (command.Model.CLI.Length == 0)
                 throw new CompanyLinkedInMin0Exceptions("LinkedIn firmy nie może być pusty!");
