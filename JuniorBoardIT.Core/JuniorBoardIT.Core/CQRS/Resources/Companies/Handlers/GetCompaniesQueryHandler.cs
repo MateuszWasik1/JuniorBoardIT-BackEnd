@@ -24,6 +24,18 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Companies.Handlers
             var compeniesViewModel = new List<CompanyViewModel>();
 
             var count = companies.Count;
+
+            if (query.Name != null && query.Name != "")
+            {
+                companies = companies
+                    .Where(company => company.CName.Contains(query.Name) || 
+                        company.CEmail.Contains(query.Name) || 
+                        company.CNIP.Contains(query.Name) || 
+                        company.CKRS.Contains(query.Name) || 
+                        company.CRegon.Contains(query.Name))
+                    .ToList();
+            }
+
             companies = companies.Skip(query.Skip).Take(query.Take).ToList();
 
             companies.ForEach(x =>
