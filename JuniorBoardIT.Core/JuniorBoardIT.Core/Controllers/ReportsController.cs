@@ -24,8 +24,8 @@ namespace JuniorBoardIT.Core.Controllers
         [HttpGet]
         [Route("GetReports")]
         [Authorize]
-        public GetReportsViewModel GetReports(ReportsTypeEnum reportType, int skip, int take)
-            => dispatcher.DispatchQuery<GetReportsQuery, GetReportsViewModel>(new GetReportsQuery() { ReportType = reportType, Skip = skip, Take = take });
+        public GetReportsViewModel GetReports(ReportsTypeEnum reportType, int skip, int take, string? message)
+            => dispatcher.DispatchQuery<GetReportsQuery, GetReportsViewModel>(new GetReportsQuery() { ReportType = reportType, Skip = skip, Take = take, Message = message });
 
         [HttpPost]
         [Route("SaveReport")]
