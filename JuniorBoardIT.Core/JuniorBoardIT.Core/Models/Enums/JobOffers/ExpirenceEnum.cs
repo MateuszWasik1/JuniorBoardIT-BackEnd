@@ -7,5 +7,6 @@
         Regular = 2,
         Senior = 3,
         Lead = 4,
+        All = 5
     }
 }

@@ -7,5 +7,6 @@
         DevOps = 2,
         QA = 3,
         UX = 4,
+        All = 5
     }
 }
