@@ -6,6 +6,7 @@ using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Services;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
+using JuniorBoardIT.Core.Entities;
 
 namespace JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Handlers
 {
@@ -53,6 +54,12 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Handlers
                 var supportUsers = context.AllUsers.Where(x => supportGIDs.Contains(x.UGID.ToString())).Select(x => new { x.UFirstName, x.ULastName, x.UGID }).AsNoTracking().ToList();
 
                 count = bugs.Count;
+
+                if (query.Message != null && query.Message != "")
+                {
+                    bugs = bugs.Where(bug => bug.BText.Contains(query.Message) || bug.BTitle.Contains(query.Message)).ToList();
+                }
+
                 bugs = bugs.Skip(query.Skip).Take(query.Take).ToList();
 
                 bugs.ForEach(x =>

@@ -9,5 +9,6 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Bugs.Bugs.Queries
         public BugTypeEnum BugType { get; set; }
         public int Skip { get; set; }
         public int Take { get; set; }
+        public string Message { get; set; }
     }
 }
