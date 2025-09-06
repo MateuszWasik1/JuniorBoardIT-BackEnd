@@ -31,22 +31,35 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
                 var favoriteJobOffers = context.FavoriteJobOffers.Where(x => x.FJOUGID == Guid.Parse(user.UGID)).Select(x => x.FJOJOGID).ToList();
                 jobOffers = context.JobOffers.Where(x => favoriteJobOffers.Contains(x.JOGID)).ToList();
                 return ReturnModel(jobOffers, query, true);
-            }                
+            }
 
-            if(query.Education == EducationEnum.Elementary)
-                jobOffers = context.JobOffers.Where(x => x.JOEducation == EducationEnum.Elementary).ToList();
-            else if(query.Education == EducationEnum.Secondary)
-                jobOffers = context.JobOffers.Where(x => x.JOEducation <= EducationEnum.Secondary).ToList();
-            else if (query.Education == EducationEnum.Vocational)
-                jobOffers = context.JobOffers.Where(x => x.JOEducation == EducationEnum.Elementary || x.JOEducation == EducationEnum.Vocational).ToList();
-            else if (query.Education == EducationEnum.HigherILevel)
-                jobOffers = context.JobOffers.Where(x => x.JOEducation <= EducationEnum.HigherILevel).ToList();
-            else if (query.Education == EducationEnum.HigherIILevel)
-                jobOffers = context.JobOffers.Where(x => x.JOEducation <= EducationEnum.HigherIILevel).ToList();
-            else if (query.Education == EducationEnum.All)
-                jobOffers = context.JobOffers.ToList();
+            if(query.Expirence == ExpirenceEnum.All)
+                jobOffers = context.JobOffers.AsNoTracking().ToList();
             else
-                jobOffers = context.JobOffers.ToList();
+                jobOffers = context.JobOffers.Where(x => x.JOExpirenceLevel == query.Expirence).AsNoTracking().ToList();
+
+            if(query.Category != CategoryEnum.All)
+                jobOffers = jobOffers.Where(x => x.JOCategory == query.Category).ToList();
+
+            if(query.Location != LocationEnum.All)
+                jobOffers = jobOffers.Where(x => x.JOLocationType == query.Location).ToList();
+
+            if (query.Education == EducationEnum.Elementary)
+                jobOffers = jobOffers.Where(x => x.JOEducation == EducationEnum.Elementary).ToList();
+            else if(query.Education == EducationEnum.Secondary)
+                jobOffers = jobOffers.Where(x => x.JOEducation <= EducationEnum.Secondary).ToList();
+            else if (query.Education == EducationEnum.Vocational)
+                jobOffers = jobOffers.Where(x => x.JOEducation == EducationEnum.Elementary || x.JOEducation == EducationEnum.Vocational).ToList();
+            else if (query.Education == EducationEnum.HigherILevel)
+                jobOffers = jobOffers.Where(x => x.JOEducation <= EducationEnum.HigherILevel).ToList();
+            else if (query.Education == EducationEnum.HigherIILevel)
+                jobOffers = jobOffers.Where(x => x.JOEducation <= EducationEnum.HigherIILevel).ToList();
+
+            if (query.EmploymentType != EmploymentTypeEnum.All)
+                jobOffers = jobOffers.Where(x => x.JOEmploymentType == query.EmploymentType).ToList();
+
+            if (query.Salary != SalaryEnum.All)
+                jobOffers = jobOffers.Where(x => x.JOSalaryType == query.Salary).ToList();
 
             return ReturnModel(jobOffers, query);
         }
