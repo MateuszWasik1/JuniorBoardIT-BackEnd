@@ -23,8 +23,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetBugs")]
-        public GetBugsViewModel GetBugs(BugTypeEnum bugType, int skip, int take)
-            => dispatcher.DispatchQuery<GetBugsQuery, GetBugsViewModel>(new GetBugsQuery() { BugType = bugType, Skip = skip, Take = take });
+        public GetBugsViewModel GetBugs(BugTypeEnum bugType, int skip, int take, string? message)
+            => dispatcher.DispatchQuery<GetBugsQuery, GetBugsViewModel>(new GetBugsQuery() { BugType = bugType, Skip = skip, Take = take, Message = message });
 
         [HttpPost]
         [Route("SaveBug")]
