@@ -2,6 +2,7 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Abstraction.Queries;
 using JuniorBoardIT.Core.CQRS.Resources.Reports.Queries;
+using JuniorBoardIT.Core.Entities;
 using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Models.ViewModels.ReportsViewModels;
 using JuniorBoardIT.Core.Services;
@@ -42,6 +43,12 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Reports.Handlers
                 reports = context.Reports.Where(x => x.RSupportGID == Guid.Parse(user.UGID) || x.RSupportGID == Guid.Empty).OrderBy(x => x.RDate).AsNoTracking().ToList();
 
             count = reports.Count;
+
+            if (query.Message != null && query.Message != "")
+            {
+                reports = reports.Where(report => report.RText.Contains(query.Message)).ToList();
+            }
+
             reports = reports.Skip(query.Skip).Take(query.Take).ToList();
 
             reports.ForEach(x =>
