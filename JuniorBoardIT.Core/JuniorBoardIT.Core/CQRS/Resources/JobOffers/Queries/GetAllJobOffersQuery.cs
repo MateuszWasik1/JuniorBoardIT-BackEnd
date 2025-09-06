@@ -8,7 +8,12 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Queries
     {
         public int Skip { get; set; }
         public int Take { get; set; }
+        public ExpirenceEnum Expirence { get; set; }
+        public CategoryEnum Category { get; set; }
+        public LocationEnum Location { get; set; }
         public EducationEnum Education { get; set; }
+        public EmploymentTypeEnum EmploymentType { get; set; }
+        public SalaryEnum Salary { get; set; }
         public bool Favorites { get; set; }
     }
 }

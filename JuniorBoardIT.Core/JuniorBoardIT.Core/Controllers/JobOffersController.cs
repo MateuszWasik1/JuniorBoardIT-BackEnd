@@ -17,8 +17,8 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetAllJobOffers")]
-        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take, EducationEnum education, bool favorites)
-            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take, Education = education, Favorites = favorites });
+        public GetAllJobOffersViewModel GetAllJobOffers(int skip, int take, ExpirenceEnum expirence, CategoryEnum category, LocationEnum location, EducationEnum education, EmploymentTypeEnum employmentType, SalaryEnum salary, bool favorites)
+            => dispatcher.DispatchQuery<GetAllJobOffersQuery, GetAllJobOffersViewModel>(new GetAllJobOffersQuery() { Skip = skip, Take = take, Expirence = expirence, Category = category, Location = location, Education = education, EmploymentType = employmentType, Salary = salary, Favorites = favorites });
 
         [HttpGet]
         [Route("GetJobOffer")]
