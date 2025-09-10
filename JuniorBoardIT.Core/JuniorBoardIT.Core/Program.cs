@@ -83,7 +83,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "JuniorBoardITPolicy",
     policy =>
     {
-        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins("http://localhost:4201").AllowAnyMethod().AllowAnyHeader();
     })
 );
 
