@@ -42,7 +42,6 @@ namespace JuniorBoardIT.UnitTests.Controllers
             dispatcher.Verify(x => x.DispatchCommand(It.IsAny<AddApplicationCommand>()), Times.Once);
         }
 
-
         [Test]
         public void ApplicationsController_DeleteApplication_ShouldDispatch_DeleteApplicationCommand()
         {
