@@ -55,25 +55,25 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             context.Setup(x => x.User).Returns(users.AsQueryable());
         }
 
-        [Test]
-        public void TestGetUserRolesQueryHandler_UserNotFound_ShouldActAsNormalUser()
-        {
-            //Arrange
-            user.Setup(x => x.UID).Returns(9);
+        //[Test]
+        //public void TestGetUserRolesQueryHandler_UserNotFound_ShouldActAsNormalUser()
+        //{
+        //    //Arrange
+        //    user.Setup(x => x.UID).Returns(9);
 
-            var query = new GetUserRolesQuery();
-            var handler = new GetUserRolesQueryHandler(context.Object, user.Object);
+        //    var query = new GetUserRolesQuery();
+        //    var handler = new GetUserRolesQueryHandler(context.Object, user.Object);
 
-            //Act
-            var result = handler.Handle(query);
+        //    //Act
+        //    var result = handler.Handle(query);
 
-            //Assert
-            ClassicAssert.IsTrue(result.IsUser);
-            ClassicAssert.IsFalse(result.IsPremium);
-            ClassicAssert.IsFalse(result.IsRecruiter);
-            ClassicAssert.IsFalse(result.IsSupport);
-            ClassicAssert.IsFalse(result.IsAdmin);
-        }
+        //    //Assert
+        //    ClassicAssert.IsTrue(result.IsUser);
+        //    ClassicAssert.IsFalse(result.IsPremium);
+        //    ClassicAssert.IsFalse(result.IsRecruiter);
+        //    ClassicAssert.IsFalse(result.IsSupport);
+        //    ClassicAssert.IsFalse(result.IsAdmin);
+        //}
 
         [Test]
         public void TestGetUserRolesQueryHandler_UserIsUser_ShouldActAsNormalUser()

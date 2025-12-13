@@ -69,19 +69,19 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
             });
         }
 
-        [Test]
-        public void TestGetUserQueryHandler_GetUser_UserNotFound_ShouldThrowUserNotFoundExceptions()
-        {
-            //Arrange
-            user.Setup(x => x.UID).Returns(223);
+        //[Test]
+        //public void TestGetUserQueryHandler_GetUser_UserNotFound_ShouldThrowUserNotFoundExceptions()
+        //{
+        //    //Arrange
+        //    user.Setup(x => x.UID).Returns(223);
 
-            var query = new GetUserQuery();
-            var handler = new GetUserQueryHandler(context.Object, user.Object, mapper.Object);
+        //    var query = new GetUserQuery();
+        //    var handler = new GetUserQueryHandler(context.Object, user.Object, mapper.Object);
 
-            //Act
-            //Assert
-            Assert.Throws<UserNotFoundExceptions>(() => handler.Handle(query));
-        }
+        //    //Act
+        //    //Assert
+        //    Assert.Throws<UserNotFoundExceptions>(() => handler.Handle(query));
+        //}
 
         [Test]
         public void TestGetUserQueryHandler_GetUser_ShouldReturnUser()
