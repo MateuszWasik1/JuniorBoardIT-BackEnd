@@ -330,7 +330,6 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
             handler.Handle(command);
 
             //Assert
-
             ClassicAssert.AreEqual(2, users.Count);
             ClassicAssert.AreEqual("New User", users[1].UUserName);
             ClassicAssert.AreEqual("NewEmail", users[1].UEmail);
