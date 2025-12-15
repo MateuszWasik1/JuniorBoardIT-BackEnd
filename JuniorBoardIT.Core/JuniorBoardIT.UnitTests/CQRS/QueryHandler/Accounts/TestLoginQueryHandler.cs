@@ -55,7 +55,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestLoginQueryHandler_NoUserNameFound_ShouldThrowLoginOrUserNotFoundExceptions()
+        public void TestLoginQueryHandler_NoUserNameFound_ShouldThrow_LoginOrUserNotFoundExceptions()
         {
             //Arrange 
             var query = new LoginQuery() { Username = "RandomUser", Password = users[0].UPassword };
@@ -67,7 +67,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestLoginQueryHandler_UserNameFound_PasswordIncorrect_ShouldThrowLoginOrUserNotFoundExceptions()
+        public void TestLoginQueryHandler_UserNameFound_PasswordIncorrect_ShouldThrow_LoginOrUserNotFoundExceptions()
         {
             //Arrange 
             var query = new LoginQuery() { Username = users[0].UUserName, Password = "RandomPassword" };
@@ -79,7 +79,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestLoginQueryHandler_UserNameAndPasswordCorrect_ShouldReturnJWTToken()
+        public void TestLoginQueryHandler_UserNameAndPasswordCorrect_ShouldReturn_JWTToken()
         {
             //Arrange 
             hasher.Setup(x => x.VerifyHashedPassword(It.IsAny<Core.Entities.User>(), It.IsAny<string>(), It.IsAny<string>())).Returns(PasswordVerificationResult.Success);
