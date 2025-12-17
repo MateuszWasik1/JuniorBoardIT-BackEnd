@@ -55,28 +55,28 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             context.Setup(x => x.User).Returns(users.AsQueryable());
         }
 
-        //[Test]
-        //public void TestGetUserRolesQueryHandler_UserNotFound_ShouldActAsNormalUser()
-        //{
-        //    //Arrange
-        //    user.Setup(x => x.UID).Returns(9);
+        [Test]
+        public void TestGetUserRolesQueryHandler_UserNotFound_ShouldActAs_NormalUser()
+        {
+            //Arrange
+            user.Setup(x => x.UID).Returns(9);
 
-        //    var query = new GetUserRolesQuery();
-        //    var handler = new GetUserRolesQueryHandler(context.Object, user.Object);
+            var query = new GetUserRolesQuery();
+            var handler = new GetUserRolesQueryHandler(context.Object, user.Object);
 
-        //    //Act
-        //    var result = handler.Handle(query);
+            //Act
+            var result = handler.Handle(query);
 
-        //    //Assert
-        //    ClassicAssert.IsTrue(result.IsUser);
-        //    ClassicAssert.IsFalse(result.IsPremium);
-        //    ClassicAssert.IsFalse(result.IsRecruiter);
-        //    ClassicAssert.IsFalse(result.IsSupport);
-        //    ClassicAssert.IsFalse(result.IsAdmin);
-        //}
+            //Assert
+            ClassicAssert.IsFalse(result.IsUser);
+            ClassicAssert.IsFalse(result.IsPremium);
+            ClassicAssert.IsFalse(result.IsRecruiter);
+            ClassicAssert.IsFalse(result.IsSupport);
+            ClassicAssert.IsFalse(result.IsAdmin);
+        }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsUser_ShouldActAsNormalUser()
+        public void TestGetUserRolesQueryHandler_UserIsUser_ShouldActAs_NormalUser()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(1);
@@ -96,7 +96,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsPremium_ShouldActAsPremium()
+        public void TestGetUserRolesQueryHandler_UserIsPremium_ShouldActAs_Premium()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(2);
@@ -116,7 +116,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsRecruiter_ShouldActAsRecruiter()
+        public void TestGetUserRolesQueryHandler_UserIsRecruiter_ShouldActAs_Recruiter()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(3);
@@ -136,7 +136,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsSupport_ShouldActAsSupport()
+        public void TestGetUserRolesQueryHandler_UserIsSupport_ShouldActAs_Support()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(4);
@@ -156,7 +156,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetUserRolesQueryHandler_UserIsAdmin_ShouldActAsAdmin()
+        public void TestGetUserRolesQueryHandler_UserIsAdmin_ShouldActAs_Admin()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(5);

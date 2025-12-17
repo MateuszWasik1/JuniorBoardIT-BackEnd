@@ -10,7 +10,7 @@ using NUnit.Framework.Legacy;
 namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
 {
     [TestFixture]
-    public class TestGetIsUserPremiumQueryHandler
+    public class TestGetIsUserRecruiterQueryHandler
     {
         private Mock<IDataBaseContext> context;
         private Mock<IUserContext> user;
@@ -45,7 +45,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
                     UID = 4,
                     URID = (int) RoleEnum.Support,
                 },
-                new Core.Entities.User()
+                 new Core.Entities.User()
                 {
                     UID = 5,
                     URID = (int) RoleEnum.Admin,
@@ -56,13 +56,13 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserNotFound_ShouldReturn_False()
+        public void TestGetIsUserRecruiterQuery_UserNotFound_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(9);
 
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
 
             //Act
             var result = handler.Handle(query);
@@ -72,13 +72,13 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserIsUser_ShouldReturn_False()
+        public void TestGetIsUserRecruiterQuery_UserIsUser_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(1);
 
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
 
             //Act
             var result = handler.Handle(query);
@@ -88,13 +88,29 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserIsPremium_ShouldReturn_True()
+        public void TestGetIsUserRecruiterQuery_UserIsPremium_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(2);
 
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
+
+            //Act
+            var result = handler.Handle(query);
+
+            //Assert
+            ClassicAssert.IsFalse(result);
+        }
+
+        [Test]
+        public void TestGetIsUserRecruiterQuery_UserIsRecruiter_ShouldReturn_True()
+        {
+            //Arrange
+            user.Setup(x => x.UID).Returns(3);
+
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
 
             //Act
             var result = handler.Handle(query);
@@ -104,29 +120,13 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserIsRecruiter_ShouldReturn_False()
-        {
-            //Arrange
-            user.Setup(x => x.UID).Returns(3);
-
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
-
-            //Act
-            var result = handler.Handle(query);
-
-            //Assert
-            ClassicAssert.IsFalse(result);
-        }
-
-        [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserIsSupport_ShouldReturn_False()
+        public void TestGetIsUserRecruiterQueryHandler_UserIsSupport_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(4);
 
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
 
             //Act
             var result = handler.Handle(query);
@@ -136,13 +136,13 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserPremiumQueryHandler_UserIsAdmin_ShouldReturn_False()
+        public void TestGetIsUserRecruiterQuery_UserIsAdmin_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(5);
             
-            var query = new GetIsUserPremiumQuery();
-            var handler = new GetIsUserPremiumQueryHandler(context.Object, user.Object);
+            var query = new GetIsUserRecruiterQuery();
+            var handler = new GetIsUserRecruiterQueryHandler(context.Object, user.Object);
 
             //Act
             var result = handler.Handle(query);
