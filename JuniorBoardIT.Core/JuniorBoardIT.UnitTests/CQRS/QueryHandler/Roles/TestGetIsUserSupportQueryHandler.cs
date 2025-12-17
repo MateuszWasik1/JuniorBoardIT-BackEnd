@@ -56,7 +56,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserNotFound_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserNotFound_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(9);
@@ -72,7 +72,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserIsUser_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserIsUser_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(1);
@@ -88,7 +88,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserIsPremium_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserIsPremium_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(2);
@@ -104,7 +104,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserIsRecruiter_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserIsRecruiter_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(3);
@@ -120,7 +120,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserSupportQueryHandler_UserIsSupport_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserIsSupport_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(4);
@@ -136,7 +136,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
         }
 
         [Test]
-        public void TestGetIsUserAdminQueryHandler_UserIsAdmin_ShouldReturnFalse()
+        public void TestGetIsUserSupportQueryHandler_UserIsAdmin_ShouldReturn_False()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(5);
