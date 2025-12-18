@@ -54,7 +54,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserNameIsEmpty_ShouldThrowUserNameRequiredException()
+        public void TestSaveUserCommandHandler_UserNameIsEmpty_ShouldThrow_UserNameRequiredException()
         {
             //Arrange
             var model = new UserViewModel()
@@ -75,7 +75,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserNameIsOver100_ShouldThrowUserNameMax100Exception()
+        public void TestSaveUserCommandHandler_UserNameIsOver100_ShouldThrow_UserNameMax100Exception()
         {
             //Arrange
             var model = new UserViewModel()
@@ -96,7 +96,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserFirstnameIsOver50_ShouldThrowUserFirstNameMax50Exception()
+        public void TestSaveUserCommandHandler_UserFirstnameIsOver50_ShouldThrow_UserFirstNameMax50Exception()
         {
             //Arrange
             var model = new UserViewModel()
@@ -117,7 +117,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserLastNameIsOver50_ShouldThrowUserLastNameMax50Exception()
+        public void TestSaveUserCommandHandler_UserLastNameIsOver50_ShouldThrow_UserLastNameMax50Exception()
         {
             //Arrange
             var model = new UserViewModel()
@@ -138,7 +138,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserEmailIsEmpty_ShouldThrowUserEmailRequiredException()
+        public void TestSaveUserCommandHandler_UserEmailIsEmpty_ShouldThrow_UserEmailRequiredException()
         {
             //Arrange
             var model = new UserViewModel()
@@ -159,7 +159,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserEmailIsOver100_ShouldThrowUserEmailMax100Exception()
+        public void TestSaveUserCommandHandler_UserEmailIsOver100_ShouldThrow_UserEmailMax100Exception()
         {
             //Arrange
             var model = new UserViewModel()
@@ -180,7 +180,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserPhoneIsOver100_ShouldThrowUserPhoneMax100Exception()
+        public void TestSaveUserCommandHandler_UserPhoneIsOver100_ShouldThrow_UserPhoneMax100Exception()
         {
             //Arrange
             var model = new UserViewModel()
@@ -201,7 +201,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserCommandHandler_UserNotFound_ShouldThrowUserNotFoundExceptions()
+        public void TestSaveUserCommandHandler_UserNotFound_ShouldThrow_UserNotFoundExceptions()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(2);
