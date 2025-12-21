@@ -132,8 +132,8 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Applications
             var result = handler.Handle(query);
 
             // Assert
-            Assert.That(result.Count, Is.EqualTo(2));   // całkowita liczba
-            Assert.That(result.List.Count, Is.EqualTo(1)); // po paginacji
+            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result.List.Count, Is.EqualTo(1)); 
         }
 
         [Test]

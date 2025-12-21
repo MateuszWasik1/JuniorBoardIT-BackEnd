@@ -37,7 +37,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.FavoriteJobOffers
         }
 
         [Test]
-        public void TestAddApplicationCommandHandlerAddFavoriteJobOfferCommandHandler_FavoriteJobOfferIsCorrect_ShouldAdd_NewFavoriteJobOffer()
+        public void TestAddFavoriteJobOfferCommandHandler_FavoriteJobOfferIsCorrect_ShouldAdd_NewFavoriteJobOffer()
         {
             //Arrange 
             var model = new AddFavoriteJobOfferViewModel()
