@@ -38,7 +38,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Applications
         }
 
         [Test]
-        public void AddApplicationCommandHandler_ApplicationIsCorrect_ShouldAdd_NewApplication()
+        public void TestAddApplicationCommandHandler_ApplicationIsCorrect_ShouldAdd_NewApplication()
         {
             //Arrange 
             var model = new AddApplicationViewModel()
@@ -63,7 +63,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Applications
         }
 
         [Test]
-        public void AddApplicationCommandHandler_ApplicationIsCorrect_UserGUID_IsNull_ShouldAdd_NewApplication_WithAUGID_null()
+        public void TestAddApplicationCommandHandler_ApplicationIsCorrect_UserGUID_IsNull_ShouldAdd_NewApplication_WithAUGID_null()
         {
             //Arrange 
             var model = new AddApplicationViewModel()

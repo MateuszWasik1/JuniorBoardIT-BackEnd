@@ -55,4 +55,11 @@
         {
         }
     }
+
+    public class UserRoleException : UsersExceptions
+    {
+        public UserRoleException(string message) : base(message)
+        {
+        }
+    }
 }
