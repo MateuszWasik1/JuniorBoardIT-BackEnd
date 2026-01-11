@@ -54,11 +54,9 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Applications
                 }
             };
 
-            context.Setup(x => x.Applications)
-                   .Returns(applications.AsQueryable());
+            context.Setup(x => x.Applications).Returns(applications.AsQueryable());
 
-            userContext.Setup(x => x.UGID)
-                       .Returns(userGuid.ToString());
+            userContext.Setup(x => x.UGID).Returns(userGuid.ToString());
 
             mapper.Setup(x => x.Map<Core.Entities.Applications, ApplicationViewModel>(It.IsAny<Core.Entities.Applications>()))
                   .Returns<Core.Entities.Applications>(a => new ApplicationViewModel
