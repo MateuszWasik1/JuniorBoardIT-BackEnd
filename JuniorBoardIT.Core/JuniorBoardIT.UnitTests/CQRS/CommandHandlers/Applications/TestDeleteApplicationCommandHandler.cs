@@ -65,6 +65,8 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Applications
             ClassicAssert.AreEqual(1, applications.Count);
             ClassicAssert.AreEqual(1, applications[0].AID);
             ClassicAssert.AreEqual(new Guid("30dd879c-ee2f-11db-8314-0800200c9a66"), applications[0].AGID);
+            context.Verify(x => x.DeleteApplication(It.IsAny<Core.Entities.Applications>()), Times.Once);
+            context.Verify(x => x.SaveChanges(), Times.Once);
         }
     }
 }

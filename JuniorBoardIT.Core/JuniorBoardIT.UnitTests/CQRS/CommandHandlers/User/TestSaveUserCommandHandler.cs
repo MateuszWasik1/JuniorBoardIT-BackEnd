@@ -236,11 +236,11 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
                 UPhone = "NewPhone",
             };
 
-            var query = new SaveUserCommand() { Model = model };
+            var command = new SaveUserCommand() { Model = model };
             var handler = new SaveUserCommandHandler(context.Object, user.Object);
 
             //Act
-            handler.Handle(query);
+            handler.Handle(command);
 
             //Assert
             ClassicAssert.AreEqual("NewName", users[0].UFirstName);

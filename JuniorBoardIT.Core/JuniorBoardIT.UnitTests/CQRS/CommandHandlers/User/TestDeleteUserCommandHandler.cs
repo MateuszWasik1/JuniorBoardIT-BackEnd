@@ -88,6 +88,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
             ClassicAssert.AreEqual(1, users.Count);
 
             context.Verify(x => x.DeleteUser(It.IsAny<Core.Entities.User>()), Times.Once);
+            context.Verify(x => x.SaveChanges(), Times.Once);
         }
     }
 }
