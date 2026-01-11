@@ -65,6 +65,8 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Applications
             ClassicAssert.AreEqual(1, favoriteJobOffers.Count);
             ClassicAssert.AreEqual(1, favoriteJobOffers[0].FJOID);
             ClassicAssert.AreEqual(new Guid("32dd879c-ee2f-11db-8314-0800200c9a66"), favoriteJobOffers[0].FJOGID);
+            context.Verify(x => x.DeleteFavoriteJobOffer(It.IsAny<Core.Entities.FavoriteJobOffers>()), Times.Once);
+            context.Verify(x => x.SaveChanges(), Times.Once);
         }
     }
 }
