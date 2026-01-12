@@ -68,7 +68,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
         }
 
         [Test]
-        public void TestGetUserByAdminQueryHandler_GetUserByAdmin_UserNotFound_ShouldThrowUserNotFoundExceptions()
+        public void TestGetUserByAdminQueryHandler_GetUserByAdmin_UserNotFound_ShouldThrow_UserNotFoundExceptions()
         {
             //Arrange
             var query = new GetUserByAdminQuery() { UGID = new Guid("d189857a-bf45-4c25-9644-f2408351d328") };

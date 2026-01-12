@@ -22,7 +22,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
                 JORGID = Guid.Parse(user.UGID), 
                 JOCGID = command.Model.JOCGID, 
                 JOTitle = command.Model.JOTitle,
-                JOCompanyName = command.Model.JOTitle,
+                JOCompanyName = command.Model.JOCompanyName,
                 JOLocationType = command.Model.JOLocationType,
                 JOOfficeLocation = command.Model.JOOfficeLocation,
                 JOEmploymentType = command.Model.JOEmploymentType,

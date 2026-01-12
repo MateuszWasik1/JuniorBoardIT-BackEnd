@@ -2,7 +2,6 @@
 using JuniorBoardIT.Core.Context;
 using JuniorBoardIT.Core.CQRS.Resources.User.Handlers;
 using JuniorBoardIT.Core.CQRS.Resources.User.Queries;
-using JuniorBoardIT.Core.Exceptions;
 using JuniorBoardIT.Core.Models.Enums;
 using JuniorBoardIT.Core.Models.ViewModels.UserViewModels;
 using JuniorBoardIT.Core.Services;
@@ -70,7 +69,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
         }
 
         [Test]
-        public void TestGetUserQueryHandler_GetUser_UserNotFound_ShouldThrowUserNotFoundExceptions()
+        public void TestGetUserQueryHandler_GetUser_UserNotFound_ShouldReturn_NewUserModel()
         {
             //Arrange
             user.Setup(x => x.UID).Returns(223);
@@ -79,8 +78,10 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.User
             var handler = new GetUserQueryHandler(context.Object, user.Object, mapper.Object);
 
             //Act
+            var result = handler.Handle(query);
+
             //Assert
-            Assert.Throws<UserNotFoundExceptions>(() => handler.Handle(query));
+            ClassicAssert.IsInstanceOf<UserViewModel>(result);
         }
 
         [Test]

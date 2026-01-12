@@ -47,7 +47,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_UserNameIsEmptyString_ShouldThrowRegisterUserNameIsEmptyException()
+        public void TestRegisterUserCommandHandler_UserNameIsEmptyString_ShouldThrow_RegisterUserNameIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -66,7 +66,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_UserNameIsOver100_ShouldThrowRegisterUserNameIsOver100Exception()
+        public void TestRegisterUserCommandHandler_UserNameIsOver100_ShouldThrow_RegisterUserNameIsOver100Exception()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -85,7 +85,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_UserNameIsNull_ShouldThrowRegisterUserNameIsEmptyException()
+        public void TestRegisterUserCommandHandler_UserNameIsNull_ShouldThrow_RegisterUserNameIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -104,7 +104,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_EmailIsEmptyString_ShouldThrowRegisterEmailIsEmptyException()
+        public void TestRegisterUserCommandHandler_EmailIsEmptyString_ShouldThrow_RegisterEmailIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -123,7 +123,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_EmailIsNull_ShouldThrowRegisterEmailIsEmptyException()
+        public void TestRegisterUserCommandHandler_EmailIsNull_ShouldThrow_RegisterEmailIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -142,7 +142,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_EmaikIsEmptyString_ShouldThrowRegisterEmailIsOver100Exception()
+        public void TestRegisterUserCommandHandler_EmailIsEmptyString_ShouldThrow_RegisterEmailIsOver100Exception()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -161,7 +161,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordIsEmptyString_ShouldThrowRegisterPasswordIsEmptyException()
+        public void TestRegisterUserCommandHandler_PasswordIsEmptyString_ShouldThrow_RegisterPasswordIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -180,7 +180,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordIsNull_ShouldThrowRegisterPasswordIsEmptyException()
+        public void TestRegisterUserCommandHandler_PasswordIsNull_ShouldThrow_RegisterPasswordIsEmptyException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -199,7 +199,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordHasNoNumbers_ShouldThrowRegisterPasswordNoNumbersException()
+        public void TestRegisterUserCommandHandler_PasswordHasNoNumbers_ShouldThrow_RegisterPasswordNoNumbersException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -218,7 +218,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordHasNoUpperCase_ShouldThrowRegisterPasswordNoUpperCaseException()
+        public void TestRegisterUserCommandHandler_PasswordHasNoUpperCase_ShouldThrow_RegisterPasswordNoUpperCaseException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -237,7 +237,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordHasNoLowerCase_ShouldThrowRegisterPasswordNoLowerCaseException()
+        public void TestRegisterUserCommandHandler_PasswordHasNoLowerCase_ShouldThrow_RegisterPasswordNoLowerCaseException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -256,7 +256,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordHasNoSpecialSign_ShouldThrowRegisterPasswordNoSpecialSignsException()
+        public void TestRegisterUserCommandHandler_PasswordHasNoSpecialSign_ShouldThrow_RegisterPasswordNoSpecialSignsException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -275,7 +275,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_PasswordHasNot8characters_ShouldThrowRegisterPasswordNo8charactersException()
+        public void TestRegisterUserCommandHandler_PasswordHasNot8characters_ShouldThrow_RegisterPasswordNo8charactersException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -294,7 +294,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
         }
 
         [Test]
-        public void TestRegisterUserCommandHandler_UserNameExistingInSystem_ShouldThrowRegisterUserNameIsFoundException()
+        public void TestRegisterUserCommandHandler_UserNameExistingInSystem_ShouldThrow_RegisterUserNameIsFoundException()
         {
             //Arrange 
             var model = new RegisterViewModel()
@@ -330,7 +330,6 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Accounts
             handler.Handle(command);
 
             //Assert
-
             ClassicAssert.AreEqual(2, users.Count);
             ClassicAssert.AreEqual("New User", users[1].UUserName);
             ClassicAssert.AreEqual("NewEmail", users[1].UEmail);

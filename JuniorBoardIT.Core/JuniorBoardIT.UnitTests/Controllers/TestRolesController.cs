@@ -29,7 +29,7 @@ namespace JuniorBoardIT.UnitTests.Controllers
         }
 
         [Test]
-        public void TestRolesController_GetIsUserSupport_ShouldDispatch_GetIsUserPremiumQuery()
+        public void TestRolesController_GetIsUserPremium_ShouldDispatch_GetIsUserPremiumQuery()
         {
             //Arrange
             var controller = new RolesController(dispatcher.Object);

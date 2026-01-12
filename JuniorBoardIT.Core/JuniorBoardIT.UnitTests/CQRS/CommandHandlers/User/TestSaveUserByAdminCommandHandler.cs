@@ -49,7 +49,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserNameIsEmpty_ShouldThrowUserNameRequiredException()
+        public void TestSaveUserByAdminCommandHandler_UserNameIsEmpty_ShouldThrow_UserNameRequiredException()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -70,7 +70,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserNameIsOver100_ShouldThrowUserNameMax100Exception()
+        public void TestSaveUserByAdminCommandHandler_UserNameIsOver100_ShouldThrow_UserNameMax100Exception()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -91,7 +91,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserFirstnameIsOver50_ShouldThrowUserFirstNameMax50Exception()
+        public void TestSaveUserByAdminCommandHandler_UserFirstnameIsOver50_ShouldThrow_UserFirstNameMax50Exception()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -112,7 +112,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserLastNameIsOver50_ShouldThrowUserLastNameMax50Exception()
+        public void TestSaveUserByAdminCommandHandler_UserLastNameIsOver50_ShouldThrow_UserLastNameMax50Exception()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -133,7 +133,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserEmailIsEmpty_ShouldThrowUserEmailRequiredException()
+        public void TestSaveUserByAdminCommandHandler_UserEmailIsEmpty_ShouldThrow_UserEmailRequiredException()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -154,7 +154,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserEmailIsOver100_ShouldThrowUserEmailMax100Exception()
+        public void TestSaveUserByAdminCommandHandler_UserEmailIsOver100_ShouldThrow_UserEmailMax100Exception()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -175,7 +175,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserPhoneIsOver100_ShouldThrowUserPhoneMax100Exception()
+        public void TestSaveUserByAdminCommandHandler_UserPhoneIsOver100_ShouldThrow_UserPhoneMax100Exception()
         {
             //Arrange
             var model = new UserAdminViewModel()
@@ -196,7 +196,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.User
         }
 
         [Test]
-        public void TestSaveUserByAdminCommandHandler_UserNotFound_ShouldThrowUserNotFoundExceptions()
+        public void TestSaveUserByAdminCommandHandler_UserNotFound_ShouldThrow_UserNotFoundExceptions()
         {
             //Arrange
             var model = new UserAdminViewModel()

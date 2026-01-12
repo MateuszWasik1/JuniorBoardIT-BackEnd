@@ -25,11 +25,10 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Applications.Handlers
         {
             var applications = new List<Entities.Applications>();
             
-            if(query.UGID != null && query.UGID != Guid.Empty)
+            if (query.UGID != null && query.UGID != Guid.Empty)
             {
                 applications = context.Applications.Where(x => x.AUGID == query.UGID).AsNoTracking().ToList();
-            } else
-            {
+            } else {
                 applications = context.Applications.Where(x => x.AUGID == Guid.Parse(user.UGID)).AsNoTracking().ToList();
             }
 
