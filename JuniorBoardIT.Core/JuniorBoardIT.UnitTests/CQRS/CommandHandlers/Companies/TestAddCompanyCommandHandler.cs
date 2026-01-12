@@ -465,6 +465,9 @@ namespace JuniorBoardIT.UnitTests.CQRS.CommandHandlers.Companies
             ClassicAssert.AreEqual(model.CKRS, companies[0].CKRS);
             ClassicAssert.AreEqual(model.CLI, companies[0].CLI);
             ClassicAssert.AreEqual(model.CFoundedYear, companies[0].CFoundedYear);
+
+            context.Verify(x => x.CreateOrUpdate(It.IsAny<Core.Entities.Companies>()), Times.Once);
+            context.Verify(x => x.SaveChanges(), Times.Once);
         }
     }
 }
