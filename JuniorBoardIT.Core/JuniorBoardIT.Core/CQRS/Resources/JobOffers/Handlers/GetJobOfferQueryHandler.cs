@@ -6,7 +6,7 @@ using JuniorBoardIT.Core.Exceptions.JobOffers;
 using JuniorBoardIT.Core.Models.ViewModels.CompaniesViewModel;
 using JuniorBoardIT.Core.Models.ViewModels.JobOffersViewModels;
 
-namespace JuniorBoardIT.Core.CQRS.Resources.User.Handlers
+namespace JuniorBoardIT.Core.CQRS.Resources.JobOffers.Handlers
 {
     public class GetJobOfferQueryHandler : IQueryHandler<GetJobOfferQuery, GetJobOfferViewModel>
     {
