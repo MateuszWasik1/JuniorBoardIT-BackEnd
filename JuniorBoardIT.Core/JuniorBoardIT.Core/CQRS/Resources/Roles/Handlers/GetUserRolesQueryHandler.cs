@@ -27,7 +27,7 @@ namespace JuniorBoardIT.Core.CQRS.Resources.Roles.Handlers
                 IsPremium = userRole == (int) RoleEnum.Premium,
                 IsRecruiter = userRole == (int) RoleEnum.Recruiter || userRole == (int)RoleEnum.Support || userRole == (int)RoleEnum.Admin,
                 IsSupport = userRole == (int) RoleEnum.Admin || userRole == (int) RoleEnum.Support,
-                IsUser = userRole == (int) RoleEnum.Admin || userRole == (int) RoleEnum.Support || userRole == (int) RoleEnum.User,
+                IsUser = userRole == (int) RoleEnum.Admin || userRole == (int) RoleEnum.Support || userRole == (int) RoleEnum.Premium || userRole == (int) RoleEnum.User,
             };
 
             return model;
