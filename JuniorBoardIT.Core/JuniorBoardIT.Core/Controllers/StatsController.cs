@@ -16,11 +16,13 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetNumberOfRecruiterPublishedOfferts")]
+        [Authorize(Roles = "Recruiter, Support, Admin")]
         public StatsBarChartViewModel GetNumberOfRecruiterPublishedOfferts(DateTime startDate, DateTime endDate)
             => dispatcher.DispatchQuery<GetNumberOfRecruiterPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfRecruiterPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate });
 
         [HttpGet]
         [Route("GetNumberOfCompanyPublishedOfferts")]
+        [Authorize(Roles = "Recruiter, Support, Admin")]
         public StatsBarChartViewModel GetNumberOfCompanyPublishedOfferts(DateTime startDate, DateTime endDate, Guid cgid)
             => dispatcher.DispatchQuery<GetNumberOfCompanyPublishedOffertsQuery, StatsBarChartViewModel>(new GetNumberOfCompanyPublishedOffertsQuery() { StartDate = startDate, EndDate = endDate, CGID = cgid });
 
@@ -36,6 +38,7 @@ namespace JuniorBoardIT.Core.Controllers
 
         [HttpGet]
         [Route("GetNumberOfCompanyRecruiters")]
+        [Authorize(Roles = "Support, Admin")]
         public StatsBarChartViewModel GetNumberOfCompanyRecruiters(Guid cgid)
            => dispatcher.DispatchQuery<GetNumberOfCompanyRecruitersQuery, StatsBarChartViewModel>(new GetNumberOfCompanyRecruitersQuery() { CGID = cgid });
     }
