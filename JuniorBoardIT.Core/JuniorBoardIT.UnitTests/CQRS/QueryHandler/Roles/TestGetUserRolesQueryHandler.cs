@@ -108,7 +108,7 @@ namespace JuniorBoardIT.UnitTests.CQRS.QueryHandler.Roles
             var result = handler.Handle(query);
 
             //Assert
-            ClassicAssert.IsFalse(result.IsUser);
+            ClassicAssert.IsTrue(result.IsUser);
             ClassicAssert.IsTrue(result.IsPremium);
             ClassicAssert.IsFalse(result.IsRecruiter);
             ClassicAssert.IsFalse(result.IsSupport);
